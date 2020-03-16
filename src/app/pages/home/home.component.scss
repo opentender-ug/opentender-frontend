@@ -1,6 +1,19 @@
 @import "../../../style/globals.scss";
 
 :host {
+	.page-container	{
+		margin-top: 58px; //header height
+
+		&_with-borders {
+			border-top: 15px solid $blue;
+			border-bottom: 15px solid $blue;
+		}
+
+		@include mq_min(1024px) {
+			margin-top: 0;
+		}
+	}
+
   .home-info {
     text-align: center;
     padding-left: $base-padding;
@@ -110,32 +123,32 @@
     position: absolute;
   }
 
-  .hero {
-    padding-bottom: $base-padding-giant;
-    padding-right: $base-padding-large;
-    padding-top: $base-padding-giant;
+  //.hero {
+  //  padding-bottom: $base-padding-giant;
+  //  padding-right: $base-padding-large;
+  //  padding-top: $base-padding-giant;
+	//
+  //  h3 {
+  //    @include font-size(1.375);
+  //    font-weight: $weight-light;
+  //  }
+  //}
 
-    h3 {
-      @include font-size(1.375);
-      font-weight: $weight-light;
-    }
-  }
+  //.hero-title_text {
+  //  @include font-size(2);
+  //  margin-top: 0;
+  //}
 
-  .hero-title_text {
-    @include font-size(2);
-    margin-top: 0;
-  }
-
-  .europam {
-    text-align: center;
-    .img-europam {
-      vertical-align: middle;
-      height: 38px;
-      &:hover {
-        border: 1px solid $base-border-color;
-      }
-    }
-  }
+  //.europam {
+  //  text-align: center;
+  //  .img-europam {
+  //    vertical-align: middle;
+  //    height: 38px;
+  //    &:hover {
+  //      border: 1px solid $base-border-color;
+  //    }
+  //  }
+  //}
 
   /* MailChimp Form Embed Code - Horizontal Super Slim - 12/16/2015 v10.7
 Adapted from: http://blog.heyimcat.com/universal-signup-form/ */

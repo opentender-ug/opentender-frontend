@@ -22,4 +22,9 @@
     margin-bottom: 20px;
   }
 
+	@include mq_min(768px) {
+		.partner-img {
+			margin-top: 0;
+		}
+	}
 }

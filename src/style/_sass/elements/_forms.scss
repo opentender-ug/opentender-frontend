@@ -102,21 +102,23 @@ select {
   background-color: $white;
   background-position: 99% 50%;
   background-repeat: no-repeat;
-  background-size: 2rem;
-  border: 1px solid $form-border-color;
+  background-size: 15px;
+  border: 1px solid $blue;
   border-radius: $form-border-radius;
-  color: $dark-gray;
-  font-weight: $weight-light;
+  color: $blue;
+	font-size: 16px;
+  font-weight: 400;
   margin-bottom: 1em;
   overflow: hidden;
-  padding: 0.5em 2.2rem 0.5em 0.8rem;
+  padding: 15px 11px;
   text-overflow: ellipsis;
   white-space: nowrap;
   cursor: pointer;
+	background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2215%22%20height%3D%229%22%20viewBox%3D%220%200%2015%209%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M0%200H15L7.5%208.6407L0%200Z%22%20fill%3D%22%231954A5%22/%3E%0A%3C/svg%3E%0A');
 
   &:focus {
-    border: 1px solid $white;
-    box-shadow: $form-box-shadow-focus;
+    border: 1px solid $blue;
+    //box-shadow: $form-box-shadow-focus;
     outline: none;
   }
 

@@ -6,7 +6,7 @@ import {StartPage} from './pages/start/start.component';
 
 export const routes: Routes = [
 	{path: '', component: HomePage},
-	{path: 'start', component: StartPage},
+	// {path: 'start', component: StartPage},
 	{path: 'dashboards', loadChildren: './pages/dashboards/dashboards.module#DashboardsModule'},
 	{path: 'search', loadChildren: './pages/search/search.module#SearchModule'},
 	{path: 'company', loadChildren: './pages/company/company.module#CompanyModule'},
@@ -17,8 +17,8 @@ export const routes: Routes = [
 	{path: 'download', loadChildren: './pages/download/download.module#DownloadModule'},
 	{path: 'about', loadChildren: './pages/about/about.module#AboutModule'},
 	{path: 'imprint', loadChildren: './pages/imprint/imprint.module#ImprintModule'},
-	{path: 'donate', loadChildren: './pages/donate/donate.module#DonateModule' },
-	{path: '**', redirectTo: 'start'}
+	// {path: 'donate', loadChildren: './pages/donate/donate.module#DonateModule' },
+	{path: '**', redirectTo: ''}
 ];
 
 @NgModule({

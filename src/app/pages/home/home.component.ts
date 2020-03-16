@@ -24,6 +24,7 @@ export class HomePage implements OnInit {
 
 	constructor(public router: Router, private api: ApiService, private config: ConfigService, private notify: NotifyService, i18n: I18NService) {
 		this.country = config.country;
+		// console.log(config);
 		this.countryname = config.country.id ? config.country.name : i18n.get('All Digiwhist data');
 	}
 

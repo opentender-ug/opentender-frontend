@@ -37,6 +37,7 @@ export class TenderTableComponent implements OnChanges, OnInit {
 	downloadRequested: boolean = false;
 
 	title: string;
+	titleValue: string;
 	total: number = 0;
 	defaultPageSize: number = 10;
 	defaultPage: number = 0;
@@ -216,7 +217,8 @@ export class TenderTableComponent implements OnChanges, OnInit {
 	}
 
 	setTableTitle(total?) {
-		this.title = this.i18n.get('Tenders') + (total !== null ? ': ' + this.i18n.formatValue(total) : '');
+		this.title = this.i18n.get('Tenders');
+		this.titleValue = (total !== null ? ': ' + this.i18n.formatValue(total) : '');
 	}
 
 	display(data: ISearchResultTender): void {

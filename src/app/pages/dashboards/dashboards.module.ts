@@ -7,7 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {PipesModule} from '../../modules/pipes/pipes.module';
 import {TableModule} from '../../modules/tables/table.module';
 import {DashboardsPage} from './dashboards.component';
-import {DashboardsAdministrativeCapacityPage} from './administrative-capacity/administrative-capacity.component';
+// import {DashboardsAdministrativeCapacityPage} from './administrative-capacity/administrative-capacity.component';
 import {DashboardsTransparencyPage} from './transparency/transparency.component';
 import {DashboardsIntegrityPage} from './procurement-integrity/procurement-integrity.component';
 import {DashboardsMarketAnalysisPage} from './market-analysis/market-analysis.component';
@@ -20,6 +20,7 @@ import {GraphsBarModule} from '../../modules/graphs/bar/graphs-bar.module';
 import {GraphsRadarPieModule} from '../../modules/graphs/radar-pie/graphs-radar-pie.module';
 import {GraphsValuesGridModule} from '../../modules/graphs/values-grid/graphs-values-grid.module';
 import {BreadcrumbModule} from '../../modules/breadcrumb/breadcrumb.module';
+// import InfoButton from '../../components/info-button/info-button.component';
 
 @NgModule({
 	imports: [
@@ -42,10 +43,11 @@ import {BreadcrumbModule} from '../../modules/breadcrumb/breadcrumb.module';
 	declarations: [
 		DashboardsIndicatorComponent,
 		DashboardsPage,
-		DashboardsAdministrativeCapacityPage,
+		// DashboardsAdministrativeCapacityPage,
 		DashboardsIntegrityPage,
 		DashboardsMarketAnalysisPage,
-		DashboardsTransparencyPage
+		DashboardsTransparencyPage,
+		// InfoButton,
 	]
 })
 export class DashboardsModule {

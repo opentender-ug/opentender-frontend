@@ -7,16 +7,12 @@
 			</div>
 			<div *ngFor="let info of group.filters" class="select-filter-item">
 				<label class="checkbox" *ngIf="info.isFilter">
-					<input type="checkbox" [(ngModel)]="info.active" (ngModelChange)="update(info.filter, false)">
+					<span class="checkbox-mirror" [class.checked]="info.active"></span>
+					<input class="hidden" type="checkbox" [(ngModel)]="info.active" (ngModelChange)="update(info.filter, false)">
 					{{info.filter.name | i18n}}
 				</label>
 			</div>
 		</div>
 	</div>
 </app-dialog>
-<div class="dialog-button" (click)="showDialog = !showDialog">
-	<div class="dialog-button_inner">
-		<p class="dialog-button_description" i18n>Filter</p>
-		<p class="dialog-button_text" i18n>Click to Select</p>
-	</div>
-</div>
+<div class="btn btn_main" (click)="showDialog = !showDialog" i18n>Filter results</div>

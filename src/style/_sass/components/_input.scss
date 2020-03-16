@@ -36,71 +36,52 @@ $baseline-grid: 8px !default;
   width: 100%;
   display: block;
   position: relative;
-  padding: 2px;
-  vertical-align: middle;
-  margin: 14px 0 0;
+  //padding: 2px;
+  //vertical-align: middle;
+  //margin: 14px 0 0;
 
   label {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: flex;
-    white-space: nowrap;
-    order: 1;
-    color: $base-font-color;
-    pointer-events: none;
-    @include rtl(padding-left, $input-container-padding + 1px, 0);
-    @include rtl(padding-right, 0, $input-container-padding + 1px);
-    z-index: 1;
-    transform: translate3d(0, $input-label-default-offset + 8, 0) scale($input-label-default-scale);
-    transition: transform $swift-ease-out-duration $swift-ease-out-timing-function;
-
-    // The max-width is necessary, because in some browsers, using this together with
-    // a calc might cause it to overflow the parent. See #7403
-    max-width: 100%;
-    margin-left: -2px;
-
-    position: absolute;
-    @include rtl(transform-origin, left top, right top);
-
+		color: #323232;
+		font-weight: 700;
+		font-size: 16px;
   }
 
-  &.empty {
-    label {
-      transform: translate3d(0, $input-label-float-offset + 4, 0) scale($input-label-float-scale);
-      bottom: 100%;
-      -webkit-font-smoothing: antialiased;
-      @include rtl(left, 0, auto);
-      @include rtl(right, auto, 0);
-      color: rgba(0, 0, 0, 0.48);
-    }
-  }
+  //&.empty {
+  //  label {
+  //    //transform: translate3d(0, $input-label-float-offset + 4, 0) scale($input-label-float-scale);
+  //    //bottom: 100%;
+  //    -webkit-font-smoothing: antialiased;
+  //    //@include rtl(left, 0, auto);
+  //    //@include rtl(right, auto, 0);
+  //    color: #323232;
+	//		font-weight: 700;
+	//		font-size: 16px;
+  //  }
+  //}
 
   input {
     order: 2;
     display: block;
     margin-top: 0;
     margin-bottom: 0;
-
+		font-size: 16px;
+		color: $blue;
+		line-height: 20px;
+		font-weight: 400;
     background: none;
-    padding-top: $input-padding-top;
-    padding-bottom: $input-border-width-focused - $input-border-width-default;
-    padding-left: 2px;
-    padding-right: 2px;
-    line-height: $input-line-height;
-    height: $input-line-height + ($input-padding-top * 2);
-    -ms-flex-preferred-size: $input-line-height; //IE fix
-    border-width: 0 0 $input-border-width-default 0;
-    border-radius: 0;
-    border-style: solid; // Firefox fix
-    border-color: $base-border-color;
-    font-size: 100%;
-    // Fix number inputs in Firefox to be full-width
+		padding: 15px 11px;
+    border-radius: 4px;
+    border: 1px solid $blue;
     width: 100%;
     box-sizing: border-box;
 
+		&::placeholder {
+			color: $blue;
+		}
+
     &:focus {
       outline: none;
-      border-width: 0 0 $input-border-width-focused 0;
+      //border-width: 0 0 $input-border-width-focused 0;
     }
     &:invalid {
       outline: none;

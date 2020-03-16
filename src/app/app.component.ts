@@ -38,8 +38,8 @@ export class AppComponent implements OnInit {
 					this.checkURL(e.url);
 					this.scrollToTop();
 					gtag('config', 'UA-23514826-4', {
-					  'page_title' : document.title,
-					  'page_location': window.location
+						'page_title' : document.title,
+						'page_location': window.location
 					});
 				}
 			});

@@ -1,7 +1,8 @@
 <app-dialog [title]="title" [(visible)]="showDialog">
 	<div *ngFor="let v of list" class="select-filter-item">
 		<label class="checkbox">
-			<input type="checkbox" [(ngModel)]="v.active" (ngModelChange)="update(v, $event)">
+			<span class="checkbox-mirror"></span>
+			<input class="hidden" type="checkbox" [(ngModel)]="v.active" (ngModelChange)="update(v, $event)">
 			{{v.title}}
 		</label>
 	</div>

@@ -559,8 +559,8 @@
 	<div class="graph-footer">
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar">
-				<button class="tool-button" (click)="showDownloadDialog=true" i18n-title title="Download Data"><i class="icon-cloud-download"></i>
-					<ng-container i18n>Data</ng-container>
+				<button class="btn btn_small btn_main-inverted btn_with-icon btn_with-icon_download" (click)="showDownloadDialog=true" i18n-title title="Download Data">
+					<ng-container i18n>Download Data</ng-container>
 				</button>
 			</div>
 		</div>
@@ -571,7 +571,7 @@
 		</div>
 		<br>
 		<div class="download-buttons">
-			<button class="tool-button" (click)="this.download('json')" i18n-title title="Download data as JSON"><i class="icon-cloud-download"></i> JSON</button>
+			<button class="btn btn_small btn_main-inverted btn_with-icon btn_with-icon_download" (click)="this.download('json')" i18n-title title="Download data as JSON">JSON</button>
 		</div>
 	</app-dialog>
 </div>

@@ -8,14 +8,17 @@ import {Colors} from '../../../model/colors';
 @Component({
 	selector: 'graph[score-histogram]',
 	template: `
-		<div class="graph-title">{{title}}</div>
+		<div class="graph-title">
+			{{title}}
+			<button class="info-button" *ngIf="infoRouterLink" [routerLink]="infoRouterLink" [pageScroll]="infoPageScroll"></button>
+		</div>
 		<div class="graph-toolbar-container"></div>
 		<ngx-charts-bar-vertical
 				class="chart-container"
 				[chart]="graph.chart"
 				[data]="graph.data">
 		</ngx-charts-bar-vertical>
-		<graph-footer [sender]="this" [infoRouterLink]="['/about/glossary']" [infoPageScroll]="glossary"></graph-footer>`
+		<graph-footer [sender]="this"></graph-footer>`
 })
 export class GraphIndicatorScoreHistogramComponent implements OnChanges, ISeriesProvider {
 	@Input()
@@ -24,6 +27,8 @@ export class GraphIndicatorScoreHistogramComponent implements OnChanges, ISeries
 	title: string = '';
 	@Input()
 	glossary: string;
+	infoRouterLink: string | Array<string> = ['/about/glossary'];
+	infoPageScroll: string = this.glossary;
 
 	avg_score_in_years: IChartBar = {
 		chart: {

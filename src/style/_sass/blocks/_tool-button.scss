@@ -1,0 +1,30 @@
+.tool-button {
+	background-color: #E2F0FF;
+	border: 1px solid $blue;
+	color: $blue;
+	padding: 10px;
+	font-size: 14px;
+	font-weight: 700;
+	outline: none;
+	border-radius: 5px;
+
+	&:hover {
+		background-color: #fff;
+	}
+
+	&.down {
+		background-color: #fff;
+		cursor: default;
+	}
+
+	@include mq_min(768px) {
+		padding: 10px 20px;
+		border-radius: 5px 5px 0 0;
+
+		&.down {
+			border-bottom: 1px solid #fff;
+		}
+	}
+}
+
+

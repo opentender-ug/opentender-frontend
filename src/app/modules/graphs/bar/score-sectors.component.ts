@@ -9,7 +9,10 @@ import {Colors} from '../../../model/colors';
 @Component({
 	selector: 'graph[score-sectors]',
 	template: `
-		<div class="graph-title">{{title}}</div>
+		<div class="graph-title">
+			{{title}}
+			<button class="info-button" *ngIf="infoRouterLink" [routerLink]="infoRouterLink" [pageScroll]="infoPageScroll"></button>
+		</div>
 		<div class="graph-toolbar-container"></div>
 		<ngx-charts-bar-horizontal-labeled
 				class="chart-container"
@@ -17,13 +20,15 @@ import {Colors} from '../../../model/colors';
 				[data]="graph.data"
 				(select)="graph.select($event)">
 		</ngx-charts-bar-horizontal-labeled>
-		<graph-footer [sender]="this" [infoRouterLink]="['/about/glossary']" [infoPageScroll]="'#terms-cpv'"></graph-footer>`
+		<graph-footer [sender]="this" ></graph-footer>`
 })
 export class GraphScoreSectorsComponent implements OnChanges, ISeriesProvider {
 	@Input()
 	data: IStatsCpvs;
 	@Input()
 	title: string = '';
+	infoRouterLink: string | Array<string> = ['/about/glossary'];
+	infoPageScroll: string = '#terms-cpv';
 
 	cpvs_codes_scores: IChartBar = {
 		chart: {

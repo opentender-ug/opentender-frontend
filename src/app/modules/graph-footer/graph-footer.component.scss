@@ -9,12 +9,12 @@
 		tbody {
 			tr {
 				td {
-					padding: 2px 2px;
-					font-size: 0.8em;
+					padding: 6px 20px;
+					font-size: 14px;
 				}
-				td:last-of-type {
-					text-align: right;
-				}
+				//td:last-of-type {
+				//	text-align: right;
+				//}
 			}
 		}
 	}
@@ -35,6 +35,7 @@
 		}
 		span {
 			vertical-align: top;
+			line-height: 22px;
 		}
 	}
 

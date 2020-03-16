@@ -5,7 +5,11 @@ import {I18NService} from '../i18n/services/i18n.service';
 @Component({
 	selector: 'graph[buyer-nutsmap]',
 	template: `
-		<div class="graph-title" i18n>Buyers by Region</div>
+		<div class="graph-title" i18n>
+			Buyers by Region
+			<button class="info-button" *ngIf="infoRouterLink" [routerLink]="infoRouterLink" [pageScroll]="infoPageScroll"></button>
+<!--			<info-button></info-button>-->
+		</div>
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar graph-toolbar-right">
 				<button class="tool-button" [ngClass]="{down:map_level==1}" (click)="setLevel(1)" i18n>NUTS 1</button>
@@ -20,7 +24,8 @@ export class MapBuyersComponent {
 	data: IStatsNuts;
 	title: string;
 	map_level: number = 2;
-
+	infoRouterLink: string | Array<string> = ['/about/how-opentender-works'];
+	infoPageScroll: string = '#info-maps';
 	constructor(private i18n: I18NService) {
 		this.title = this.i18n.get('Buyers');
 	}

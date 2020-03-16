@@ -3,7 +3,7 @@
 </div>
 <div class="filter-box">
 	<div class="filter" *ngFor="let s of search.searches; let i = index;" [ngClass]="getSearchFilterClass(i)">
-		<span class="filter-close" (click)="closeSearch(s)"><i class="icon-cross"></i></span>
+		<div class="title">{{getPlaceholder(s)}}<span class="filter-close" (click)="closeSearch(s)"><i class="icon-cross"></i></span></div>
 		<div [ngSwitch]="s.def.type">
 			<autocomplete *ngSwitchCase="ISearchFilterDefType.text" [value]="s.value" [entity]="search.entity" [field]="s.def.field" [placeholder]="getPlaceholder(s)" (onSelect)="onSelectSearchEntry($event, s)"></autocomplete>
 			<valueinput *ngSwitchCase="ISearchFilterDefType.value" [placeholder]="getPlaceholder(s)" (onSelect)="onSelectSearchValueEntry($event, s)"></valueinput>
@@ -18,7 +18,8 @@
 				<div class="filter-checks">
 					<div *ngFor="let bucket of filter.buckets">
 						<label class="checkbox">
-							<input type="checkbox" [(ngModel)]="filter.enabled[bucket.key]" (ngModelChange)="triggerChange(bucket.key)">
+							<span class="checkbox-mirror" [class.checked]="filter.enabled[bucket.key]"></span>
+							<input class="hidden" type="checkbox" [(ngModel)]="filter.enabled[bucket.key]" (ngModelChange)="triggerChange(bucket.key)">
 							<div class="checkbox-columns">
 								<span class="checkbox-column">
 									<span class="value" title="{{getValueTitle(bucket,filter)}}">{{getValueTitle(bucket,filter)}}</span>
@@ -32,7 +33,8 @@
 			<div class="select" *ngSwitchCase="ISearchFilterDefType.select">
 				<div *ngFor="let bucket of filter.buckets">
 					<label class="checkbox">
-						<input type="checkbox" [(ngModel)]="filter.enabled[bucket.key]" (ngModelChange)="triggerChange(bucket.key)">
+						<span class="checkbox-mirror" [class.checked]="filter.enabled[bucket.key]"></span>
+						<input class="hidden" type="checkbox" [(ngModel)]="filter.enabled[bucket.key]" (ngModelChange)="triggerChange(bucket.key)">
 						<div class="checkbox-columns">
 							<span class="checkbox-column">
 								<span class="value" title="{{getValueTitle(bucket,filter)}}">{{getValueTitle(bucket,filter)}}</span>

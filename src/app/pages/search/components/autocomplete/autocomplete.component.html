@@ -1,7 +1,7 @@
 <div class="labeled-input-container" [ngClass]="{empty:isEmpty(),focused:focused}">
-	<label>
-		<span>{{placeholder}}</span><span *ngIf="typeaheadLoading">&nbsp;<i class="icon-spinner2 icon-rotate"></i></span>
-	</label>
+<!--	<label>-->
+<!--		<span>{{placeholder}}</span><span *ngIf="typeaheadLoading">&nbsp;<i class="icon-spinner2 icon-rotate"></i></span>-->
+<!--	</label>-->
 	<input [(ngModel)]="asyncSelected"
 		   [typeahead]="dataSource"
 		   (typeaheadLoading)="changeTypeaheadLoading($event)"
@@ -12,6 +12,7 @@
 		   [typeaheadWaitMs]="300"
 		   [typeaheadOptionField]="optionField"
 		   [typeaheadOptionsLimit]="optionsLimit"
+			 [placeholder]="placeholder"
 		   typeaheadAsync="true"
 		   autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
 		   class="form-control">

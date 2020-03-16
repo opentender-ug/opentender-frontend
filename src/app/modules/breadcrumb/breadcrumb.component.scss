@@ -1,40 +1,54 @@
 @import "../../../style/globals.scss";
 
 :host {
-  .container-outer {
-    margin-top: -18px;
-  }
 
   .breadcrumb {
     $base-background-color: white !default;
     $breadcrumb-border-color: gainsboro;
     $breadcrumb-border: 1px solid $breadcrumb-border-color;
-    $breadcrumb-height: 1.5em;
+    $breadcrumb-height: 1.2em;
     $breadcrumb-arrow-color: $breadcrumb-border-color;
     $breadcrumb-background: $base-background-color;
     $breadcrumb-inactive-hover-color: $breadcrumb-background;
-    $breadcrumb-color: #878787;
+    $breadcrumb-color: #323232;
     $breadcrumb-color-hover: #477DCA;
 
     display: inline-block;
     text-align: left;
-    span {
-      padding-left: 4px;
-      padding-top: 2px;
-      cursor: default;
-      vertical-align: middle;
-      color: $breadcrumb-arrow-color;
-    }
+		padding: 15px 0;
+
+    //span {
+    //  padding-left: 4px;
+    //  padding-top: 2px;
+    //  cursor: default;
+    //  vertical-align: middle;
+    //  color: $breadcrumb-arrow-color;
+    //}
     a {
       background-color: $breadcrumb-background;
       color: $breadcrumb-color;
       display: inline-block;
-      font-size: 0.7em;
+      font-size: 10px;
       line-height: $breadcrumb-height;
-      margin-bottom: 2px;
-      margin-right: -5px;
       position: relative;
       text-decoration: none;
+
+			&:not(:last-child) {
+				margin-right: 25px;
+
+				&::after {
+					display: block;
+					content: '';
+					right: -15px;
+					top: 0;
+					width: 5px;
+					height: 12px;
+					position: absolute;
+					background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%223%22%20height%3D%226%22%20viewBox%3D%220%200%203%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%0A%3Cpath%20d%3D%22M2.73535%202.92871L0.0839844%205.58008V0.277344L2.73535%202.92871Z%22%20fill%3D%22%2336BBA4%22/%3E%0A%3C/svg%3E%0A');
+					background-repeat: no-repeat;
+					background-position: 50%;
+				}
+			}
 
       &:focus,
       &:hover {
@@ -42,11 +56,13 @@
         color: $breadcrumb-color-hover;
       }
 
-      &.no-link {
-        color: $breadcrumb-color;
-        cursor: default;
-      }
+			&.no-link {
+				cursor: default;
+			}
 
+      &:last-child {
+        color: $blue;
+      }
     }
   }
 

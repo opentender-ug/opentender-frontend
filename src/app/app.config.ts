@@ -34,7 +34,7 @@ const AppConfig = {
 		HeaderComponent,
 		CookielawComponent,
 		HomePage,
-		StartPage
+		// StartPage
 	],
 	imports: [
 		CommonModule,

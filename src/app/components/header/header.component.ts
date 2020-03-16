@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {ConfigService, Country} from '../../services/config.service';
 import {Subscription} from 'rxjs/Subscription';

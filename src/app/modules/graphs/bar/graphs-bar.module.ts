@@ -13,13 +13,17 @@ import {GraphHistogramComponent} from './histogram.component';
 import {GraphIndicatorSectorsComponent} from './indicator-sectors.component';
 import {GraphIndicatorHistogramComponent} from './indicator-histogram.component';
 import {GraphAuthoritiesComponent} from './authorities.component';
+import {RouterModule} from '@angular/router';
+import {PageScrollModule} from '../../page-scroll/page-scroll.module';
 
 @NgModule({
 	imports: [
 		CommonModule,
 		GraphFooterModule,
 		BarChartModule,
-		CommonTooltipModule
+		CommonTooltipModule,
+		RouterModule,
+		PageScrollModule
 	],
 	declarations: [
 		GraphSectorsComponent,
@@ -31,7 +35,7 @@ import {GraphAuthoritiesComponent} from './authorities.component';
 		GraphIndicatorHistogramComponent,
 		GraphIndicatorSectorsComponent,
 		GraphHistogramComponent,
-		GraphAuthoritiesComponent
+		GraphAuthoritiesComponent,
 	],
 	exports: [
 		GraphSectorsComponent,

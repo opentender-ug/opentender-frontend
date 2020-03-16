@@ -3,7 +3,30 @@
 @import '../../node_modules/ngx-toastr/toastr.css';
 
 
-#app > header > div.large-header-container > div.header-right > ul > li:nth-child(6) > a {
-    color:#00bfa5;
-    text-shadow: -0.5px 0 #00bfa5, 0.5px 0 #00bfa5;
+//#app > header > div.large-header-container > div.header-right > ul > li:nth-child(6) > a {
+//    color:#00bfa5;
+//    text-shadow: -0.5px 0 #00bfa5, 0.5px 0 #00bfa5;
+//}
+
+.container {
+	width: 100%;
+	max-width: 1200px;
+	padding: 0 10px;
+	margin: 0 auto;
+
+	&-margin {
+		margin-top: 50px;
+	}
+
+	&-padded-top {
+		padding-top: 20px;
+	}
+	&-padded-bottom {
+		padding-bottom: 20px;
+	}
+}
+
+img {
+	max-width: 100%;
+	height: auto;
 }

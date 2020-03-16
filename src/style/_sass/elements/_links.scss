@@ -61,11 +61,6 @@ a,
   }
 }
 
-.hero a,
-.hero-left a {
-  color: $base-link-hover-color;
-}
-
 .link-active-beta {
   @extend .link-beta;
   text-decoration: underline;

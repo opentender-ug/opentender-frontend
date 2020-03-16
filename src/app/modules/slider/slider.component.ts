@@ -20,6 +20,8 @@ export class SliderComponent implements OnChanges {
 
 	@Input('formatTick')
 	formatTick: (value: number) => string;
+	@Input('typeOfRange')
+	typeOfRange: string;
 
 	@Input('startValue')
 	get startValue(): any {
@@ -119,6 +121,7 @@ export class SliderComponent implements OnChanges {
 	}
 
 	calculateTicks() {
+		console.log(this.typeOfRange, this._min, this._max, this._stepValue);
 		let valueSpan = Math.max(0, this._max - this._min);
 		let mod = 0;
 		if (!this.compact) {
@@ -250,6 +253,24 @@ export class SliderComponent implements OnChanges {
 
 	slider2Change(event: IEventSlideAble) {
 		this._endValue = this.valueFromPosition(event.value);
+		if (this.snap) {
+			this._endValue = Math.round(this._endValue);
+		}
+		this.applyPositions();
+		this.changed();
+	}
+
+	input1change(event) {
+		this._startValue = event.target.value >= this._min ? event.target.value : this._min;
+		if (this.snap) {
+			this._startValue = Math.round(this._startValue);
+		}
+		this.applyPositions();
+		this.changed();
+	}
+
+	input2change(event) {
+		this._endValue = event.target.value <= this._max ? event.target.value : this._max;
 		if (this.snap) {
 			this._endValue = Math.round(this._endValue);
 		}

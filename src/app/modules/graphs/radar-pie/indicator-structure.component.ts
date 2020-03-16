@@ -9,7 +9,10 @@ import {I18NService} from '../../i18n/services/i18n.service';
 @Component({
 	selector: 'graph[indicator-structure]',
 	template: `
-		<div class="graph-title">{{title}}</div>
+		<div class="graph-title">
+			{{title}}
+<!--			<button class="info-button" *ngIf="infoRouterLink" [routerLink]="infoRouterLink" [pageScroll]="infoPageScroll"></button>-->
+		</div>
 		<ngx-charts-radar-pie-chart
 				class="chart-container"
 				[chart]="graph.chart"
@@ -17,7 +20,7 @@ import {I18NService} from '../../i18n/services/i18n.service';
 				[weights_data]="graph.weights_data"
 				(select)="graph.select($event)">
 		</ngx-charts-radar-pie-chart>
-		<graph-footer [sender]="this" [infoRouterLink]="['/about/glossary']" [infoPageScroll]="glossary"></graph-footer>`
+		<graph-footer [sender]="this" ></graph-footer>`
 })
 export class GraphIndicatorStructureComponent implements OnChanges, ISeriesProvider {
 	@Input()
@@ -30,6 +33,8 @@ export class GraphIndicatorStructureComponent implements OnChanges, ISeriesProvi
 	glossary: string;
 	@Output()
 	onSelect = new EventEmitter();
+	infoRouterLink: string | Array<string> = ['/about/glossary'];
+	infoPageScroll: string = this.glossary;
 
 	indicators_pie: IChartRadar = {
 		chart: {

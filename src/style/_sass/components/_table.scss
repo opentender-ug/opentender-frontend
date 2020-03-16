@@ -1,23 +1,22 @@
-
 table {
   @include font-size(0.9);
 
   border: 1px solid $mid-gray;
   border-spacing: 2px;
-  color: $dark-gray;
-  font-weight: $weight-light;
+  color: #323232;
+	font-size: 14px;
+  font-weight: 400;
   margin-bottom: $base-padding;
 }
 
 thead {
-  background-color: $primary-button-bg-color;
-  border-bottom: 2px solid $mid-gray;
-  font-weight: $weight-book;
-  text-align: center;
+  background-color: #36BBA4;
+  font-weight: 700;
+	border: 1px solid #36BBA4;
 }
 
 td {
-  border: 1px solid $mid-gray;
+  border: 1px solid #979797;
   padding: 5px;
 }
 
@@ -41,26 +40,42 @@ td {
   th {
     font-weight: bold;
     vertical-align: middle;
+		font-size: 14px;
+		color: #fff;
+		text-align: left;
+		padding: 6px 20px;
+		white-space: nowrap;
+		//background-color: #36BBA4;
+		//border: 1px solid #36BBA4;
 
-    &.right {
+		&.right {
       text-align: right;
     }
-    &.center {
-      text-align: center;
-    }
+    //&.center {
+    //  text-align: center;
+    //}
 
     &.tables-column-icon {
       width: 60px;
       text-align: center;
     }
+
+		&:not(:first-child) {
+			border-left: 1px solid #EBF5F3;
+		}
   }
 
   tbody {
-
     tr {
+			&:first-child {
+				td {
+					border-top: 1px solid #36BBA4;
+				}
+			}
       td {
-        padding: 12px 8px;
-        vertical-align: top;
+        padding: 20px;
+				line-height: 17px;
+        //vertical-align: top;
         a {
           text-decoration: none;
         }
@@ -80,10 +95,18 @@ td {
           margin-right: 3px;
         }
       }
+
+			&:hover {
+				background-color: #EBF5F3;
+			}
     }
 
     tr:nth-child(even) {
-      background-color: $table-stripe-background;
+      background-color: rgba($blue, .05);
+
+			&:hover {
+				background-color: #EBF5F3;
+			}
     }
 
     tr.active {
@@ -129,12 +152,12 @@ td {
         }
       }
       &:hover {
-        background-color: $table-hover-background;
+        background-color: #EBF5F3;
       }
     }
 
     tr:nth-child(even) {
-      background-color: $table-stripe-background;
+			background-color: rgba($blue, .05);
       &:hover {
         background-color: $table-stripe-background-hover;
       }
@@ -153,4 +176,8 @@ td {
 .table-title {
   margin-top: 0;
   display: inline-block;
+
+	&__value {
+		font-weight: 400;
+	}
 }

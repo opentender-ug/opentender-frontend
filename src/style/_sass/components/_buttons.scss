@@ -119,14 +119,14 @@ input[type='submit'] {
 }
 
 .tool-button {
-  background-color: $secondary-button-bg-color;
-  border: 1px solid $secondary-button-border-color;
-  color: $secondary-button-color;
+  background-color: #E2F0FF;
+  border: 1px solid $blue;
+  color: $blue;
 }
 
 .tool-button.down {
-  background-color: $secondary-hover-button-bg-color;
-  border: 1px solid darken($secondary-hover-button-bg-color, 50%);
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
   color: $secondary-hover-button-color;
   cursor: default;
 }

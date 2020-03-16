@@ -1,0 +1,35 @@
+$main-info-block--accent-color: #36BBA4;
+$main-info-block--text-color: #323232;
+
+.main-info-block {
+	&__accented-text {
+		font-size: 18px;
+		color: $main-info-block--accent-color;
+		font-weight: 800;
+	}
+
+	&__accented-text + &__title,
+	&__accented-text + &__title-link {
+		margin-top: 10px;
+	}
+
+	&__title {
+		line-height: 1.2;
+		font-size: 36px;
+	}
+
+	&__title-link {
+		display: block;
+		text-decoration: none;
+		color: $main-info-block--text-color;
+
+		&:hover {
+			color: rgba($main-info-block--text-color, .8);
+		}
+	}
+
+	&__title + &__text,
+	&__title-link + &__text {
+		margin-top: 5px;
+	}
+}

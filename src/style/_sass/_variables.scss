@@ -6,16 +6,16 @@ $weight-light: 300;
 $weight-book: 400;
 $weight-bold: 700;
 
-$headercolor: #f9f9f9;
+$headercolor: #EBF5F3;
 
-$logo-font: 'spacemono';
+$logo-font: 'Montserrat';
 
-$base-font-family: "LatoWeb", Helvetica, Arial, sans-serif;
+$base-font-family: 'Montserrat', Helvetica, Arial, sans-serif;
 
 $base-font-weight: 400;
-$base-font-size: 1rem;
+$base-font-size: 16px;
 $base-font-multiplier: 1;
-$base-line-height: 1.375rem;
+$base-line-height: 1.2em;
 
 $z-roof: 9000;
 $z-mid: 500;
@@ -24,7 +24,8 @@ $z-negative: -1;
 $white: #ffffff;
 $black: #040404;
 $green: #96bc7f;
-$blue: #0d47a1;
+$blue: #1954A5;
+$blue-hover: #2D6DC4;
 $blue-contrast: #096fa0;
 $light-green: #d2e2cb;
 $blue-alt: darken($blue, 5%); //for contrast, darker
@@ -39,7 +40,7 @@ $light-gray-light: #fafafa; //for contrast, lighter
 $light-gray-dark: #f2f2f2; // for contrast, darker
 $mid-gray: #ebebeb;
 $neutral-gray: #ccc;
-$dark-gray: #4a4a4a;
+$dark-gray: #323232;
 $light-black: #303030;
 $silver: silver;
 
@@ -61,7 +62,7 @@ $rgba-primary-5: rgb(246, 246, 246);
 
 
 // Font Colors
-$base-font-color: $dark-gray;
+$base-font-color: #323232;
 $base-selected-font-background-color: $light-gray-dark;
 $base-accent-color: $mid-blue;
 

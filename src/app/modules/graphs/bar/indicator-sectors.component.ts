@@ -9,7 +9,11 @@ import {Colors} from '../../../model/colors';
 @Component({
 	selector: 'graph[indicator-sectors]',
 	template: `
-		<div class="graph-title" i18n>{{title}} per Sector</div>
+		<div class="graph-title" i18n>
+			{{title}} per Sector
+			<button class="info-button" *ngIf="infoRouterLink" [routerLink]="infoRouterLink" [pageScroll]="infoPageScroll"></button>
+<!--			<info-button></info-button>-->
+		</div>
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar graph-toolbar-right">
 				<button class="tool-button" [ngClass]="{down:this.graph==this.cpvs_codes_average}" (click)="this.graph=this.cpvs_codes_average" i18n>Average</button>
@@ -22,13 +26,15 @@ import {Colors} from '../../../model/colors';
 				[data]="graph.data"
 				(select)="graph.select($event)">
 		</ngx-charts-bar-horizontal-labeled>
-		<graph-footer [sender]="this" [infoRouterLink]="['/about/glossary']" [infoPageScroll]="'#terms-cpv'"></graph-footer>`
+		<graph-footer [sender]="this"></graph-footer>`
 })
 export class GraphIndicatorSectorsComponent implements OnChanges, ISeriesProvider {
 	@Input()
 	data: IStatsPcCpvs;
 	@Input()
 	title: string = '';
+	infoRouterLink: string | Array<string> = ['/about/glossary'];
+	infoPageScroll: string = '#terms-cpv';
 
 	cpvs_codes_average: IChartBar = {
 		chart: {

@@ -1,11 +1,11 @@
 <div>
-	<h2 class="table-title">{{title}} <i class="icon-spinner2 icon-rotate" *ngIf="loading>0"></i></h2>
+	<h2 class="table-title">{{title}}<span class="table-title__value">{{titleValue}}</span><i class="icon-spinner2 icon-rotate" *ngIf="loading>0"></i></h2>
 	<select-columns-button [columns_all]="all_columns" [columns_active]="columns" (selectChange)="onSelectColumns($event)"></select-columns-button>
 </div>
 <doc-table [table]="table" (sortChange)="sortChange($event)"></doc-table>
 <div class="graph-footer">
 	<div class="graph-toolbar">
-		<button class="tool-button" (click)="this.showDownload()" i18n-title title="Download data as gzipped JSON"><i class="icon-cloud-download"></i> <ng-container i18n>Download</ng-container></button>
+		<button class="btn btn_small btn_main-inverted btn_with-icon btn_with-icon_download" (click)="this.showDownload()" i18n-title title="Download data as gzipped JSON"><ng-container i18n>Download Data</ng-container></button>
 	</div>
 </div>
 <pagination class="pagination" [total]="total" [defaultPageSize]="defaultPageSize" [defaultPage]="defaultPage" (paginationChange)="paginationChange($event)"></pagination>
@@ -18,9 +18,9 @@
 		<ng-container i18n>Files are compressed with <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Gzip">GZip</a>, which should be supported by your ZIP application.</ng-container>
 		<br/>
 		<br/>
-		<button class="button" (click)="this.download('json')" i18n-title title="Download data as gzipped JSON"><i class="icon-cloud-download"></i>JSON.GZ</button>
-		<button class="button" (click)="this.download('csv')" i18n-title title="Download data as gzipped CSV"><i class="icon-cloud-download"></i>CSV.GZ</button>
-		<button class="button button-right" (click)="showDownloadDialog=false;" i18n>Cancel</button>
+		<button class="btn btn_small btn_main-inverted btn_with-icon btn_with-icon_download" (click)="this.download('json')" i18n-title title="Download data as gzipped JSON">JSON.GZ</button>
+		<button class="btn btn_small btn_main-inverted btn_with-icon btn_with-icon_download" (click)="this.download('csv')" i18n-title title="Download data as gzipped CSV">CSV.GZ</button>
+<!--		<button class="btn btn_small btn_main-inverted btn_with-icon" (click)="showDownloadDialog=false;" i18n>Cancel</button>-->
 	</div>
 	<div *ngIf="downloadRequested">
 		<br/>

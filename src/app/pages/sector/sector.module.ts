@@ -13,6 +13,7 @@ import {GraphsTreeMapModule} from '../../modules/graphs/tree-map/graphs-treemap.
 import {GraphsBarModule} from '../../modules/graphs/bar/graphs-bar.module';
 import {LoadingModule} from '../../modules/loading/loading.module';
 import {BreadcrumbModule} from '../../modules/breadcrumb/breadcrumb.module';
+// import InfoButton from '../../components/info-button/info-button.component';
 
 @NgModule({
 	imports: [
@@ -31,7 +32,8 @@ import {BreadcrumbModule} from '../../modules/breadcrumb/breadcrumb.module';
 		routing
 	],
 	declarations: [
-		SectorPage
+		SectorPage,
+		// InfoButton
 	]
 })
 export class SectorModule {

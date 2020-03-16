@@ -1,0 +1,59 @@
+@import "../../../style/globals.scss";
+
+.info-button {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	border: none;
+	background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2222%22%20height%3D%2221%22%20viewBox%3D%220%200%2022%2021%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%0A%3Cpath%20d%3D%22M11%200.492188C9.625%200.492188%208.32812%200.757813%207.10938%201.28906C5.89062%201.80469%204.82812%202.51563%203.92188%203.42188C3.01562%204.32812%202.29688%205.39062%201.76562%206.60938C1.25%207.82812%200.992188%209.125%200.992188%2010.5C0.992188%2011.875%201.25%2013.1719%201.76562%2014.3906C2.29688%2015.6094%203.01562%2016.6719%203.92188%2017.5781C4.82812%2018.4844%205.89062%2019.2031%207.10938%2019.7344C8.32812%2020.25%209.625%2020.5078%2011%2020.5078C12.375%2020.5078%2013.6719%2020.25%2014.8906%2019.7344C16.1094%2019.2031%2017.1719%2018.4844%2018.0781%2017.5781C18.9844%2016.6719%2019.6953%2015.6094%2020.2109%2014.3906C20.7422%2013.1719%2021.0078%2011.875%2021.0078%2010.5C21.0078%209.125%2020.7422%207.82812%2020.2109%206.60938C19.6953%205.39062%2018.9844%204.32812%2018.0781%203.42188C17.1719%202.51563%2016.1094%201.80469%2014.8906%201.28906C13.6719%200.757813%2012.375%200.492188%2011%200.492188ZM12.0078%2015.4922H9.99219V9.49219H12.0078V15.4922ZM12.0078%207.5H9.99219V5.50781H12.0078V7.5Z%22%20fill%3D%22%231954A5%22/%3E%0A%3C/svg%3E%0A');
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: 22px;
+	transform: translateY(5px);
+	margin-left: 7px;
+	cursor: help;
+	position: relative;
+	z-index: 2;
+
+	&__content {
+		position: absolute;
+		min-width: 365px;
+		background-color: #E2F0FF;
+		border: 1px solid $blue;
+		border-radius: 5px;
+		box-shadow: 0 0 10px 0 #ccc;
+		padding: 15px 20px;
+		color: $blue;
+		font-size: 12px;
+		line-height: 15px;
+		font-weight: 400;
+		left: -100px;
+		top: 40px;
+		opacity: 0;
+		transform: translateY(20px);
+		pointer-events: none;
+
+		transition: opacity .2s, transform .2s;
+
+		&::before {
+			position: absolute;
+			display: block;
+			content: '';
+			width: 12px;
+			height: 12px;
+			background-color: #E2F0FF;
+			border-left: 1px solid $blue;
+			border-top: 1px solid $blue;
+			transform: translateX(-50%) rotate(45deg);
+			top: -7px;
+			left: 111px;
+		}
+
+		&.active {
+			opacity: 1;
+			transform: translateY(0);
+			pointer-events: auto;
+		}
+	}
+}

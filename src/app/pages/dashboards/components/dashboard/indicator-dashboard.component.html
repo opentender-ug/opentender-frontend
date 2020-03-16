@@ -24,7 +24,8 @@
 	<div [ngClass]="{'is-loading': loading>0}">
 		<div class="container">
 			<div class="container-left-12">
-				<div class="graph-title" i18n>Average Score of {{indicatorTitle}}</div>
+				<div class="graph-title" i18n>Average Score of {{indicatorTitle}} 			<button class="info-button" ></button>
+				</div>
 			</div>
 			<div class="container-left-3">
 				<graph score-grid [data]="viz.scores.score.data"></graph>
@@ -44,7 +45,7 @@
 	</div>
 	<div class="container container-margin">
 		<div class="container-left-12">
-			<label i18n>Score Range</label>
+			<label class="mb_40 fw_700" i18n>Score Range</label>
 			<slider
 					[min]="0"
 					[max]="100"
@@ -109,8 +110,8 @@
 		</div>
 	</div>
 	<div class="tables-buttons">
-		<button class="tool-button" (click)="this.applyWeights()" i18n-title title="Apply Weights">Apply</button>
-		<button class="tool-button" (click)="this.resetWeights()" i18n-title title="Reset Weights">Reset</button>
+		<button class="btn btn_main-inverted btn_small" (click)="this.applyWeights()" i18n-title title="Apply Weights">Apply</button>
+		<button class="btn btn_main-inverted btn_small" (click)="this.resetWeights()" i18n-title title="Reset Weights">Reset</button>
 	</div>
 
 </app-dialog>

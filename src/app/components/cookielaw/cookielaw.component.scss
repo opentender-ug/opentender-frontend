@@ -2,9 +2,9 @@
 
 :host {
   .cookie-law {
-    background: #000741;
-    border: 1px solid $base-border-color;
-    color: #bbb;
+    background: $blue;
+    border: 1px solid $blue;
+    color: #fff;
     display: block;
     font-size: 15px;
     font-weight: 200;
@@ -20,7 +20,7 @@
     padding-left: 40px;
 
     a {
-      color: #bbb;
+      color: #fff;
       text-decoration: underline;
     }
 

@@ -196,7 +196,7 @@ let render = function(req, res, language, country) {
 				config: {version: VERSION, backendUrl: Config.client.backendUrl, devMode: Config.client.devMode},
 				country: country
 			};
-			return html.replace(/\{\{BASE_HREF\}\}/g, (country.id ? '/' + country.id : '') + '/')
+			return html.replace(/\{\{BASE_HREF\}\}/g, ('') + '/')
 				.replace(/\{\{COUNTRY_NAME\}\}/g, country.id ? name : '')
 				.replace(/\{\{HTML_LANG\}\}/g, language.lang)
 				.replace(/\{\{FULL_URL\}\}/g, Config.server.fullUrl)
@@ -214,7 +214,7 @@ let render = function(req, res, language, country) {
 };
 
 let startApp = function(req, res, originalUrl) {
-	let country = {id: null, name: 'Portals'};
+	let country = {id: 'uk', name: 'United Kingdom'};
 	req.originalUrl = originalUrl;
 	render(req, res, getLang(req), country);
 };
@@ -293,7 +293,7 @@ app.use('/', checkCache, (req, res) => {
 	if (['/', '/index.html'].indexOf(url) < 0) {
 		return errorResponse(req, res);
 	} else {
-		return startApp(req, res, '/start');
+		return startApp(req, res, '/');
 	}
 });
 

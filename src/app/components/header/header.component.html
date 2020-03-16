@@ -1,67 +1,95 @@
-<div class="small-header-container">
-	<ng-template *ngIf="false; else logoBlock"></ng-template>
-	<div class="small-header-toggle">
-		<a (click)="toggleMenu()" i18n>Menu</a>
+<div class="page-header">
+	<div class="container">
+		<div class="page-header__content">
+			<div class="page-header__logo-wrap">
+				<a class="header-logo" href="/{{country.id}}/">
+					<img class="header-logo__image" alt="Opentender" src="/assets/img/ot-logo.svg"/>
+					<div class="header-logo__brand">
+						<p class="header-logo__brand-name">opentender</p>
+						<p class="header-logo__brand-country">{{country.name}}</p>
+					</div>
+				</a>
+			</div>
+			<div class="page-header__mobile-nav">
+				<button class="btn btn_main btn_small" (click)="toggleMenu()" i18n>Menu</button>
+					<nav class="page-header__mobile-nav-list" *ngIf="menuActive">
+						<a class="page-header__mobile-nav-item" *ngFor="let item of menu" [routerLink]="item.routerLink">{{item.title}}</a>
+					</nav>
+			</div>
+			<div class="page-header__desktop-nav">
+				<nav class="page-header__desktop-nav-list">
+					<a class="page-header__desktop-nav-item" *ngFor="let item of menu" [routerLink]="item.routerLink">{{item.title}}</a>
+				</nav>
+			</div>
+		</div>
 	</div>
 </div>
-<div class="small-header-menu">
-	<ng-template *ngIf="!menuActive; else menuSmallBlock"></ng-template>
-</div>
 
-<div class="large-header-container">
-	<div class="header-left">
-		<ng-template *ngIf="false; else logoBlock"></ng-template>
-	</div>
-	<div class="header-right" *ngIf="!isActiveStart()">
-		<ng-template *ngIf="false; else menuBlock"></ng-template>
-	</div>
-	<div class="header-right header-hero container-outer" *ngIf="isActiveStart()">
-		<ng-template *ngIf="false; else heroBlock"></ng-template>
-	</div>
-</div>
-<div class="header-sub-container">
-	<div class="small-header-hero header-hero container-outer" *ngIf="isActiveStart()">
-		<ng-template *ngIf="false; else heroBlock"></ng-template>
-	</div>
-	<ul class="header-sub-nav" *ngIf="current && current.submenu.length>0">
-		<li *ngFor="let item of current.submenu"><a [routerLinkActive]="['active']" [routerLink]="item.routerLink">{{item.title}}</a></li>
-	</ul>
-</div>
 
-<ng-template #logoBlock>
-	<div class="header-logo-block" [ngSwitch]="isRootPage">
-		<ng-template [ngSwitchCase]="true">
-			<a href="{{'/start' | portalLink}}"><ng-template *ngIf="false; else imageBlock"></ng-template></a>
-		</ng-template>
-		<ng-template [ngSwitchCase]="false">
-			<a [routerLink]="['/start']"><ng-template *ngIf="false; else imageBlock"></ng-template></a>
-		</ng-template>
-	</div>
-</ng-template>
+<!--<div class="small-header-container">-->
+<!--	<ng-template *ngIf="false; else logoBlock"></ng-template>-->
+<!--	<div class="small-header-toggle">-->
+<!--		<a (click)="toggleMenu()" i18n>Menu</a>-->
+<!--	</div>-->
+<!--</div>-->
+<!--<div class="small-header-menu">-->
+<!--	<ng-template *ngIf="!menuActive; else menuSmallBlock"></ng-template>-->
+<!--</div>-->
 
-<ng-template #imageBlock>
-	<img class="header-logo-image header-logo-image-small" alt="Opentender" src="/assets/img/ot-logo-white.svg"/>
-	<img class="header-logo-image header-logo-image-large" alt="Opentender" src="/assets/img/ot-logo.svg"/>
-	<span class="header-logo-brand">
-		<span class="header-logo-brand_name">opentender</span>
-		<span class="header-logo-brand_country">{{country.name}}</span>
-	</span>
-</ng-template>
+<!--<div class="large-header-container">-->
+<!--	<div class="header-left">-->
+<!--		<ng-template *ngIf="false; else logoBlock"></ng-template>-->
+<!--	</div>-->
+<!--	<div class="header-right" *ngIf="!isActiveStart()">-->
+<!--		<ng-template *ngIf="false; else menuBlock"></ng-template>-->
+<!--	</div>-->
+<!--	<div class="header-right header-hero container-outer" *ngIf="isActiveStart()">-->
+<!--		<ng-template *ngIf="false; else heroBlock"></ng-template>-->
+<!--	</div>-->
+<!--</div>-->
+<!--<div class="header-sub-container">-->
+<!--	<div class="small-header-hero header-hero container-outer" *ngIf="isActiveStart()">-->
+<!--		<ng-template *ngIf="false; else heroBlock"></ng-template>-->
+<!--	</div>-->
+<!--	<ul class="header-sub-nav" *ngIf="current && current.submenu.length>0">-->
+<!--		<li *ngFor="let item of current.submenu"><a [routerLinkActive]="['active']" [routerLink]="item.routerLink">{{item.title}}</a></li>-->
+<!--	</ul>-->
+<!--</div>-->
 
-<ng-template #menuBlock>
-	<ul class="header-nav">
-		<li *ngFor="let item of menu"><a [class.active]="isActive(item.path)" [routerLink]="item.routerLink">{{item.title}}</a></li>
-	</ul>
-</ng-template>
+<!--<ng-template #logoBlock>-->
+<!--	<div class="header-logo-block" [ngSwitch]="isRootPage">-->
+<!--		<ng-template [ngSwitchCase]="true">-->
+<!--			<a href="{{'/start' | portalLink}}"><ng-template *ngIf="false; else imageBlock"></ng-template></a>-->
+<!--		</ng-template>-->
+<!--		<ng-template [ngSwitchCase]="false">-->
+<!--			<a [routerLink]="['/start']"><ng-template *ngIf="false; else imageBlock"></ng-template></a>-->
+<!--		</ng-template>-->
+<!--	</div>-->
+<!--</ng-template>-->
 
-<ng-template #menuSmallBlock>
-	<ul class="header-nav">
-		<li *ngFor="let item of menu"><a [class.active]="isActive(item.path)" [routerLink]="item.routerLink">{{item.title}}</a></li>
-		<li><a href="{{'/start' | portalLink}}" i18n>Portal Overview</a></li>
-	</ul>
-</ng-template>
+<!--<ng-template #imageBlock>-->
+<!--	<img class="header-logo-image header-logo-image-small" alt="Opentender" src="/assets/img/ot-logo-white.svg"/>-->
+<!--	<img class="header-logo-image header-logo-image-large" alt="Opentender" src="/assets/img/ot-logo.svg"/>-->
+<!--	<span class="header-logo-brand">-->
+<!--		<span class="header-logo-brand_name">opentender</span>-->
+<!--		<span class="header-logo-brand_country">{{country.name}}</span>-->
+<!--	</span>-->
+<!--</ng-template>-->
 
-<ng-template #heroBlock>
-	<h2 class="header-hero-title_text" i18n>Making Public Tenders More Transparent</h2>
-	<p i18n>This platform is part of the <a target="_blank" rel="noopener" href="http://digiwhist.eu">DIGIWHIST project</a></p>
-</ng-template>
+<!--<ng-template #menuBlock>-->
+<!--	<ul class="header-nav">-->
+<!--		<li *ngFor="let item of menu"><a [class.active]="isActive(item.path)" [routerLink]="item.routerLink">{{item.title}}</a></li>-->
+<!--	</ul>-->
+<!--</ng-template>-->
+
+<!--<ng-template #menuSmallBlock>-->
+<!--	<ul class="header-nav">-->
+<!--		<li *ngFor="let item of menu"><a [class.active]="isActive(item.path)" [routerLink]="item.routerLink">{{item.title}}</a></li>-->
+<!--		<li><a href="{{'/start' | portalLink}}" i18n>Portal Overview</a></li>-->
+<!--	</ul>-->
+<!--</ng-template>-->
+
+<!--<ng-template #heroBlock>-->
+<!--	<h2 class="header-hero-title_text" i18n>Making Public Tenders More Transparent</h2>-->
+<!--	<p i18n>This platform is part of the <a target="_blank" rel="noopener" href="http://digiwhist.eu">DIGIWHIST project</a></p>-->
+<!--</ng-template>-->

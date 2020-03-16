@@ -10,7 +10,11 @@ import {Colors} from '../../../model/colors';
 	selector: 'graph[sector-treemap]',
 	template: `
 		<div class="graph-header">
-			<div class="graph-title">{{title}}</div>
+			<div class="graph-title">
+				{{title}}
+				<button class="info-button" *ngIf="infoRouterLink" [routerLink]="infoRouterLink" [pageScroll]="infoPageScroll"></button>
+<!--				<info-button></info-button>-->
+			</div>
 			<div class="graph-toolbar-container">
 				<div class="graph-toolbar">
 					<button class="tool-button" [ngClass]="{down:this.graph==this.cpv_codes_prices}" (click)="this.graph=this.cpv_codes_prices" i18n>Volume (€)</button>
@@ -24,13 +28,15 @@ import {Colors} from '../../../model/colors';
 				[data]=" graph.data"
 				(select)="graph.select($event)">
 		</ngx-charts-tree-map>
-		<graph-footer [sender]="this" [infoRouterLink]="['/about/glossary']" [infoPageScroll]="'#terms-cpv'"></graph-footer>`
+		<graph-footer [sender]="this" ></graph-footer>`
 })
 export class GraphSectorTreeMap implements OnChanges, ISeriesProvider {
 	@Input()
 	title: string;
 	@Input()
 	data: Array<{ sector: ISector; stats: IStats }>;
+	infoRouterLink: string | Array<string> = ['/about/glossary'];
+	infoPageScroll: string = '#terms-cpv';
 
 	cpv_codes_nr: IChartTreeMap = {
 		chart: {

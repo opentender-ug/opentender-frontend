@@ -2,7 +2,7 @@
   <div class="breadcrumb">
     <a [routerLink]="['/']">{{config.country.name}}</a>
     <ng-container *ngFor="let crumb of crumbs">
-      <span> ❭ </span>
+<!--      <span> ❭ </span>-->
       <a *ngIf="crumb.link" [routerLink]="[crumb.link]">{{crumb.name}}</a>
       <a class="no-link" *ngIf="!crumb.link">{{crumb.name}}</a>
     </ng-container>
