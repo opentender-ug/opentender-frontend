@@ -10,7 +10,7 @@ import {Colors} from '../../../model/colors';
 	template: `
 		<div class="graph-title">
 			{{title}}
-			<button class="info-button" *ngIf="infoRouterLink" [routerLink]="infoRouterLink" [pageScroll]="infoPageScroll"></button>
+			<info-button></info-button>
 		</div>
 		<div class="graph-toolbar-container"></div>
 		<ngx-charts-bar-vertical
@@ -27,8 +27,6 @@ export class GraphIndicatorScoreHistogramComponent implements OnChanges, ISeries
 	title: string = '';
 	@Input()
 	glossary: string;
-	infoRouterLink: string | Array<string> = ['/about/glossary'];
-	infoPageScroll: string = this.glossary;
 
 	avg_score_in_years: IChartBar = {
 		chart: {

@@ -7,8 +7,7 @@ import {I18NService} from '../i18n/services/i18n.service';
 	template: `
 		<div class="graph-title" i18n>
 			Buyers by Region
-			<button class="info-button" *ngIf="infoRouterLink" [routerLink]="infoRouterLink" [pageScroll]="infoPageScroll"></button>
-<!--			<info-button></info-button>-->
+			<info-button></info-button>
 		</div>
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar graph-toolbar-right">
@@ -24,8 +23,6 @@ export class MapBuyersComponent {
 	data: IStatsNuts;
 	title: string;
 	map_level: number = 2;
-	infoRouterLink: string | Array<string> = ['/about/how-opentender-works'];
-	infoPageScroll: string = '#info-maps';
 	constructor(private i18n: I18NService) {
 		this.title = this.i18n.get('Buyers');
 	}
