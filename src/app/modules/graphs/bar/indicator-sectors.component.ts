@@ -11,8 +11,7 @@ import {Colors} from '../../../model/colors';
 	template: `
 		<div class="graph-title" i18n>
 			{{title}} per Sector
-			<button class="info-button" *ngIf="infoRouterLink" [routerLink]="infoRouterLink" [pageScroll]="infoPageScroll"></button>
-<!--			<info-button></info-button>-->
+			<info-button></info-button>
 		</div>
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar graph-toolbar-right">
@@ -33,8 +32,6 @@ export class GraphIndicatorSectorsComponent implements OnChanges, ISeriesProvide
 	data: IStatsPcCpvs;
 	@Input()
 	title: string = '';
-	infoRouterLink: string | Array<string> = ['/about/glossary'];
-	infoPageScroll: string = '#terms-cpv';
 
 	cpvs_codes_average: IChartBar = {
 		chart: {

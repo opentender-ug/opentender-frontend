@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 
-
 @Component({
 	moduleId: __filename,
 	selector: 'info-button',
@@ -9,11 +8,11 @@ import {Component} from '@angular/core';
 })
 export default class InfoButton {
 	public showContent = false;
-	private showContentBlock(): void {
+
+	public showContentBlock(): void {
 		this.showContent = true;
 	}
-	private hideContentBlock(): void {
+	public hideContentBlock(): void {
 		this.showContent = false;
 	}
-	public text = 'sfsagdsgdg';
 }

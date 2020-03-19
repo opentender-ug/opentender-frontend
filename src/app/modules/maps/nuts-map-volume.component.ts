@@ -8,7 +8,7 @@ import {Utils} from '../../model/utils';
 	template: `
 		<div class="graph-title" i18n>
 			Volume (€) by Region
-			<button class="info-button" *ngIf="infoRouterLink" [routerLink]="infoRouterLink" [pageScroll]="infoPageScroll"></button>
+			<info-button></info-button>
 		</div>
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar graph-toolbar-right">
@@ -18,15 +18,13 @@ import {Utils} from '../../model/utils';
 			</div>
 		</div>
 		<graph nutsmap [data]="data" [level]="map_level" [title]="title" ></graph>`
-})/*[formatTooltip]="formatTooltip"*/
+})
 export class MapVolumeComponent {
 	@Input()
 	data: IStatsNuts;
 	public title: string;
 	public map_level: number = 1;
 	public formatTooltip: (featureProperties: any) => string;
-	infoRouterLink: string | Array<string> = ['/about/how-opentender-works'];
-	infoPageScroll: string = '#info-maps';
 
 	constructor(private i18n: I18NService) {
 		this.title = this.i18n.get('Volume (€)');

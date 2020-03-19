@@ -15,6 +15,7 @@ import {GraphIndicatorHistogramComponent} from './indicator-histogram.component'
 import {GraphAuthoritiesComponent} from './authorities.component';
 import {RouterModule} from '@angular/router';
 import {PageScrollModule} from '../../page-scroll/page-scroll.module';
+import {InfoButtonModule} from '../../info-button/info-button.module';
 
 @NgModule({
 	imports: [
@@ -23,7 +24,8 @@ import {PageScrollModule} from '../../page-scroll/page-scroll.module';
 		BarChartModule,
 		CommonTooltipModule,
 		RouterModule,
-		PageScrollModule
+		PageScrollModule,
+		InfoButtonModule
 	],
 	declarations: [
 		GraphSectorsComponent,

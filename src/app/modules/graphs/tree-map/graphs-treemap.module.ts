@@ -6,6 +6,7 @@ import {TreeMapModule} from '../../../thirdparty/ngx-charts-universal/tree-map/t
 import {CommonTooltipModule} from '../../../thirdparty/ngx-charts-universal/common/tooltip/common-tooltip.module';
 import {RouterModule} from '@angular/router';
 import {PageScrollModule} from '../../page-scroll/page-scroll.module';
+import { InfoButtonModule } from '../../info-button/info-button.module';
 
 @NgModule({
 	imports: [
@@ -15,6 +16,7 @@ import {PageScrollModule} from '../../page-scroll/page-scroll.module';
 		CommonTooltipModule,
 		RouterModule,
 		PageScrollModule,
+		InfoButtonModule
 	],
 	declarations: [
 		GraphSectorTreeMap,

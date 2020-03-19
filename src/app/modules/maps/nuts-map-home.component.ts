@@ -13,8 +13,7 @@ import {PlatformService} from '../../services/platform.service';
 		<div class="graph-header">
 			<div class="graph-title">
 				{{title}}
-				<button class="info-button" *ngIf="infoRouterLink" [routerLink]="infoRouterLink" [pageScroll]="infoPageScroll"></button>
-<!--				<info-button></info-button>-->
+				<info-button></info-button>
 			</div>
 			<div class="graph-toolbar-container">
 				<div class="graph-toolbar graph-toolbar-left">
@@ -31,7 +30,7 @@ import {PlatformService} from '../../services/platform.service';
 		</div>
 		<graph nutsmap [data]="map_data" [level]="map_level" [title]="title"></graph>
 	`
-})/*[formatTooltip]="formatTooltip"*/
+})
 export class MapHomeComponent {
 	public map_level: number = 2;
 	public map_companies: boolean = false;
@@ -39,8 +38,6 @@ export class MapHomeComponent {
 	public formatTooltip: (featureProperties: any) => string;
 	public loading: number = 0;
 	public title: string = '';
-	infoRouterLink: string | Array<string> = ['/about/how-opentender-works'];
-	infoPageScroll: string = '#info-maps';
 
 	constructor(private api: ApiService, private notify: NotifyService, private i18n: I18NService, private config: ConfigService, private platform: PlatformService) {
 		this.formatTooltip = this.formatTooltipCallback.bind(this);

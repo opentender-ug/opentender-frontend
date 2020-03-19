@@ -11,7 +11,6 @@ import {I18NService} from '../../i18n/services/i18n.service';
 	template: `
 		<div class="graph-title">
 			{{title}}
-<!--			<button class="info-button" *ngIf="infoRouterLink" [routerLink]="infoRouterLink" [pageScroll]="infoPageScroll"></button>-->
 		</div>
 		<ngx-charts-radar-pie-chart
 				class="chart-container"
@@ -33,8 +32,6 @@ export class GraphIndicatorStructureComponent implements OnChanges, ISeriesProvi
 	glossary: string;
 	@Output()
 	onSelect = new EventEmitter();
-	infoRouterLink: string | Array<string> = ['/about/glossary'];
-	infoPageScroll: string = this.glossary;
 
 	indicators_pie: IChartRadar = {
 		chart: {

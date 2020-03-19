@@ -11,7 +11,7 @@ import {Colors} from '../../../model/colors';
 	template: `
 		<div class="graph-title">
 			{{title}}
-			<button class="info-button" *ngIf="infoRouterLink" [routerLink]="infoRouterLink" [pageScroll]="infoPageScroll"></button>
+			<info-button></info-button>
 		</div>
 		<div class="graph-toolbar-container"></div>
 		<ngx-charts-bar-horizontal-labeled
@@ -27,8 +27,6 @@ export class GraphSectorsComponent implements OnChanges, ISeriesProvider {
 	data: IStatsPcCpvs;
 	@Input()
 	title: string = '';
-	infoRouterLink: string | Array<string> = ['/about/glossary'];
-	infoPageScroll: string = '#terms-cpv';
 
 	cpvs_codes_absolute: IChartBar = {
 		chart: {

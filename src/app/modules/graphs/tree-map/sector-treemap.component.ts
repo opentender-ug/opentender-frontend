@@ -12,8 +12,7 @@ import {Colors} from '../../../model/colors';
 		<div class="graph-header">
 			<div class="graph-title">
 				{{title}}
-				<button class="info-button" *ngIf="infoRouterLink" [routerLink]="infoRouterLink" [pageScroll]="infoPageScroll"></button>
-<!--				<info-button></info-button>-->
+				<info-button></info-button>
 			</div>
 			<div class="graph-toolbar-container">
 				<div class="graph-toolbar">
@@ -35,8 +34,6 @@ export class GraphSectorTreeMap implements OnChanges, ISeriesProvider {
 	title: string;
 	@Input()
 	data: Array<{ sector: ISector; stats: IStats }>;
-	infoRouterLink: string | Array<string> = ['/about/glossary'];
-	infoPageScroll: string = '#terms-cpv';
 
 	cpv_codes_nr: IChartTreeMap = {
 		chart: {
