@@ -85,28 +85,6 @@
       "menu": true,
       "routerLink": [
         "/about/about-opentender"
-      ],
-      "children": [
-        {
-          "path": "about-opentender",
-          "title": "About Opentender",
-          "menu": true
-        },
-        {
-          "path": "how-opentender-works",
-          "title": "How Opentender works",
-          "menu": true
-        },
-        {
-          "path": "glossary",
-          "title": "Glossary",
-          "menu": true
-        },
-        {
-          "path": "partner-network",
-          "title": "Partner Network",
-          "menu": true
-        }
       ]
     },
     {

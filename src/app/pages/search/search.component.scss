@@ -1,0 +1,10 @@
+@import "../../../style/globals.scss";
+
+:host {
+	display: block;
+	margin-top: 95px; //header height with sub nav
+
+	@include mq_min(1024px) {
+		margin-top: 0;
+	}
+}

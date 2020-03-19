@@ -8,7 +8,8 @@ import {Subscription} from 'rxjs/Subscription';
 @Component({
 	moduleId: __filename,
 	selector: 'search',
-	template: '<breadcrumb [crumbs]="crumbs"></breadcrumb><router-outlet></router-outlet>'
+	template: '<breadcrumb [crumbs]="crumbs"></breadcrumb><router-outlet></router-outlet>',
+	styleUrls: ['search.component.scss']
 })
 export class SearchPage implements OnDestroy {
 	public crumbs: Array<IBreadcrumb> = [];
