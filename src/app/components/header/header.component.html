@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="page-header__content">
 			<div class="page-header__logo-wrap">
-				<a class="header-logo" href="/{{country.id}}/">
+				<a class="header-logo" href="/">
 					<img class="header-logo__image" alt="Opentender" src="/assets/img/ot-logo.svg"/>
 					<div class="header-logo__brand">
 						<p class="header-logo__brand-name">opentender</p>
@@ -13,15 +13,22 @@
 			<div class="page-header__mobile-nav">
 				<button class="btn btn_main btn_small" (click)="toggleMenu()" i18n>Menu</button>
 					<nav class="page-header__mobile-nav-list" *ngIf="menuActive">
-						<a class="page-header__mobile-nav-item" *ngFor="let item of menu" [routerLink]="item.routerLink">{{item.title}}</a>
+						<a class="page-header__mobile-nav-item" *ngFor="let item of menu" [class.active]="isActive(item.path)" [routerLink]="item.routerLink">{{item.title}}</a>
 					</nav>
 			</div>
 			<div class="page-header__desktop-nav">
 				<nav class="page-header__desktop-nav-list">
-					<a class="page-header__desktop-nav-item" *ngFor="let item of menu" [routerLink]="item.routerLink">{{item.title}}</a>
+					<a class="page-header__desktop-nav-item" *ngFor="let item of menu" [class.active]="isActive(item.path)" [routerLink]="item.routerLink">{{item.title}}</a>
 				</nav>
 			</div>
 		</div>
+	</div>
+</div>
+<div class="page-sub-header" *ngIf="current && current.submenu.length > 0">
+	<div class="container">
+		<nav class="page-sub-header__nav-list">
+			<a [routerLinkActive]="['active']" [routerLink]="item.routerLink" class="page-sub-header__nav-list-item" *ngFor="let item of current.submenu">{{item.title}}</a>
+		</nav>
 	</div>
 </div>
 
