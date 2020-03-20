@@ -3,14 +3,23 @@
  TODO: handle overflow tick labels
  */
 
-import {Component, Input, Output, ElementRef, EventEmitter, OnChanges, SimpleChanges, HostListener} from '@angular/core';
+import {
+	Component,
+	Input,
+	Output,
+	ElementRef,
+	EventEmitter,
+	OnChanges,
+	SimpleChanges,
+	HostListener,
+} from '@angular/core';
 import {PlatformService} from '../../services/platform.service';
 import {IEventSlideAble, IEventKeyDownAble} from './slider-handle.directive';
 
 @Component({
 	selector: 'slider',
 	templateUrl: 'slider.component.html',
-	styleUrls: ['slider.component.scss']
+	styleUrls: ['slider.component.scss'],
 })
 
 export class SliderComponent implements OnChanges {
@@ -121,7 +130,6 @@ export class SliderComponent implements OnChanges {
 	}
 
 	calculateTicks() {
-		console.log(this.typeOfRange, this._min, this._max, this._stepValue);
 		let valueSpan = Math.max(0, this._max - this._min);
 		let mod = 0;
 		if (!this.compact) {
@@ -261,7 +269,15 @@ export class SliderComponent implements OnChanges {
 	}
 
 	input1change(event) {
-		this._startValue = event.target.value >= this._min ? event.target.value : this._min;
+		if (this.isInRange(event.target.value)) {
+			this._startValue = event.target.value;
+		} else if (this.isToSmall(event.target.value)) {
+			this._startValue = this._min;
+			event.target.value = this._min;
+		} else if (this.isToBig(event.target.value)) {
+			this._startValue = this._max;
+		}
+
 		if (this.snap) {
 			this._startValue = Math.round(this._startValue);
 		}
@@ -270,12 +286,31 @@ export class SliderComponent implements OnChanges {
 	}
 
 	input2change(event) {
-		this._endValue = event.target.value <= this._max ? event.target.value : this._max;
+		if (this.isInRange(event.target.value)) {
+			this._endValue = event.target.value;
+		} else if (this.isToSmall(event.target.value)) {
+			this._endValue = this._min;
+		} else if (this.isToBig(event.target.value)) {
+			this._endValue = this._max;
+			event.target.value = this._max;
+		}
 		if (this.snap) {
 			this._endValue = Math.round(this._endValue);
 		}
 		this.applyPositions();
 		this.changed();
+	}
+	private isInRange(value: number): boolean {
+		return value >= this._min && value <= this._max;
+	}
+	private isToSmall(value: number): boolean {
+		return value < this._min;
+	}
+	private isToBig(value: number): boolean {
+		return value > this._max;
+	}
+	private isSamePosition(curr, def) {
+		return curr === def;
 	}
 
 }
