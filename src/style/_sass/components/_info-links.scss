@@ -6,10 +6,15 @@
     padding: 10px;
     padding-left: 15px;
     padding-right: 15px;
-    border: 1px solid $base-border-color;
-    background-color: #fefddd;
+    border: 1px solid $blue;
+    background-color: #E2F0FF;
     text-align: center;
     font-size: 13px;
+		color: $blue;
+
+		a {
+			text-decoration: underline;
+		}
   }
 
 }

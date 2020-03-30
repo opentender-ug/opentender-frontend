@@ -2,12 +2,14 @@
 
 :host {
   .benchmark-select {
-    border: #ebebeb solid 1px;
-    border-radius: 3px;
+    border: #1954A5 solid 1px;
+    border-radius: 4px 4px 0 0 ;
+		border-bottom-color: #fff;
   }
 
   .select-radios, .select-checks {
-    padding: 4px 8px;
+		margin: 0 1.5%;
+		padding: 20px 0;
     vertical-align: top;
     display: inline-block;
 
@@ -29,7 +31,7 @@
 
   @include respond-to(medium-up) {
     .select-radios, .select-checks {
-      width: 33%;
-    }
+			width: 30%;
+		}
   }
 }

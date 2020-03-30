@@ -48,10 +48,10 @@ export class TenderPage implements OnInit, OnDestroy {
 		indi: {open: true, empty: true},
 		info: {open: true, empty: true, subempty: {}},
 		desc: {open: true, empty: true},
-		reqs: {open: false, empty: true},
-		additional: {open: false, empty: true, subempty: {}},
-		documents: {open: false, empty: true},
-		publications: {open: false, empty: true}
+		reqs: {open: true, empty: true},
+		additional: {open: true, empty: true, subempty: {}},
+		documents: {open: true, empty: true},
+		publications: {open: true, empty: true}
 	};
 	public viz = {
 		indicator_groups: [],

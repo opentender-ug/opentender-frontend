@@ -1,42 +1,4 @@
 {
-  "ADMINISTRATIVE": {
-    "id": "ADMINISTRATIVE",
-    "name": "Administrative Capacity Indicator",
-    "plural": "Administrative Capacity Indicators",
-    "subindicators": {
-      "ADMINISTRATIVE_CENTRALIZED_PROCUREMENT": {
-        "name": "Joint or centralized procurement",
-        "desc": "Centralized procurement suggests good administrative capacity if the tender is managed by a central procuring body.",
-        "order": 1
-      },
-      "ADMINISTRATIVE_FRAMEWORK_AGREEMENT": {
-        "name": "Use of framework agreements",
-        "desc": "Framework agreement suggests good administrative capacity if the tender establishes a framework agreement.",
-        "order": 2
-      },
-      "ADMINISTRATIVE_ELECTRONIC_AUCTION": {
-        "name": "Electronic auction",
-        "desc": "Electronic auction points at good administrative capacity if the tender was conducted through an electronic auction.",
-        "order": 1
-      },
-      "ADMINISTRATIVE_COVERED_BY_GPA": {
-        "name": "Use of WTO framework",
-        "desc": "Use of the WTO framework suggests good administrative capacity if the tendering process is conducted according to the WTO framework.",
-        "order": 3
-      },
-      "ADMINISTRATIVE_ENGLISH_AS_FOREIGN_LANGUAGE": {
-        "name": "English as foreign language",
-        "desc": "English as a foreign language suggests good administrative capacity if the bids can be submitted in English as a foreign language.",
-        "order": 4
-      },
-      "ADMINISTRATIVE_NOTICE_AND_AWARD_DISCREPANCIES": {
-        "name": "Discrepancies between call for tender and contract award notices",
-        "desc": "Discrepancies between call for tender and contract award notices is the ratio of fields with different values in the call for tender and contract award announcements related to a given tender (based on last published versions).",
-        "order": 5
-      }
-    },
-    "icon": "icon-trophy"
-  },
   "INTEGRITY": {
     "id": "INTEGRITY",
     "name": "Integrity Indicator",

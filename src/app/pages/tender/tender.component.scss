@@ -10,13 +10,36 @@
   h4 {
     font-size: 0.8em;
     border-bottom: 1px solid $neutral-gray;
-    margin-bottom: 6px;
+		margin-top: 5px;
+    margin-bottom: 20px;
     line-height: 1em;
-    padding-bottom: 2px;
+    padding: 5px 0;
   }
 
-  .container-padded-large {
+	.graph-title {
+		.graph-title {
+			min-height: auto;
+		}
+	}
 
+	.container {
+		margin-top: 30px;
+
+		.container {
+			margin: 0;
+			padding: 20px 15px;
+
+			&.mt_20 {
+				margin-top: 20px;
+			}
+
+			.container {
+				padding: 15px 0;
+			}
+		}
+	}
+
+  .container-padded-large {
     .container-left-4, .container-left-6, .container-left-8 {
       margin-bottom: 0;
       padding-bottom: 0;
@@ -51,13 +74,14 @@
   }
 
   .inline-info {
-    text-align: right;
+		display: flex;
+		justify-content: space-between;
+		margin: 5px 0;
     h4 {
       padding: 0;
       margin: 0;
       margin-top: 4px !important;
       margin-right: 4px;
-      float: left;
       border: none;
     }
   }
@@ -131,5 +155,7 @@
     width: 100%;
     text-align: right;
   }
-
+	.graph-footer {
+		margin-bottom: 20px;
+	}
 }
