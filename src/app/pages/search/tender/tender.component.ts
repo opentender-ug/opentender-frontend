@@ -13,7 +13,7 @@ import {I18NService} from '../../../modules/i18n/services/i18n.service';
 export class SearchTenderPage implements OnInit, OnDestroy {
 	public search = new Search('tender');
 	public search_cmd: ISearchCommand;
-
+	public search_title = 'Search Tender';
 	public filters = TenderFilterDefs;
 	public columnIds = ['id', 'title', 'buyers.name', 'lots.bids.bidders.name', 'lots.bids.price'];
 	public filterIds = ['indicators.score_pi', 'indicators.score_ac', 'indicators.score_ti', 'lots.awardDecisionDate.year'];

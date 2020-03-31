@@ -17,6 +17,7 @@ export class SearchCompanyPage implements OnInit, OnDestroy {
 	columnIds = ['id', 'body.name', 'body.address.city', 'body.address.country'];
 	filterIds = ['body.name', 'body.address.city'];
 	filters = CompanyFilterDefs;
+	public search_title = 'Search Company';
 
 	constructor(private state: StateService, private i18n: I18NService) {
 		this.search.build(this.filters.filter(isSearchDef), this.filters.filter(def => {

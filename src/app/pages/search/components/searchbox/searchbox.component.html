@@ -1,5 +1,5 @@
 <div class="search-filter-buttons">
-	<select-search-button [filters_all]="filters" [filters_active]="active_filters" (selectChange)="onSelectSearch($event)"></select-search-button>
+	<select-search-button [filters_all]="filters" [filters_active]="active_filters" [search_title]="search_title" (selectChange)="onSelectSearch($event)"></select-search-button>
 </div>
 <div class="filter-box">
 	<div class="filter" *ngFor="let s of search.searches; let i = index;" [ngClass]="getSearchFilterClass(i)">

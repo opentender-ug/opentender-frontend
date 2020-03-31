@@ -1,5 +1,7 @@
-<app-dialog [title]="title" [(visible)]="showDialog">
-	<div class="select-filters">
+<h1 i18n>{{ search_title }}</h1>
+<div class="btn btn_main select-filter-btn" [class.active]="showDialog" (click)="showDialog = !showDialog" i18n>Filter results</div>
+<div class="select-filters" *ngIf="showDialog">
+	<div class="select-filters__content">
 		<div *ngFor="let group of groups" class="select-filters-group">
 			<div class="select-filters-group-title">{{group.name}}</div>
 			<div *ngFor="let info of group.filters" class="select-filter-item">
@@ -13,6 +15,21 @@
 				</label>
 			</div>
 		</div>
+		<div class="select-filters__hidden-content" *ngIf="allFilters">
+			<div *ngFor="let group of hiddenGroups" class="select-filters-group">
+				<div class="select-filters-group-title">{{group.name}}</div>
+				<div *ngFor="let info of group.filters" class="select-filter-item">
+					<a *ngIf="info.isSearch" class="clickable" (click)="update(info.filter, true)"><i class="icon-plus-circle"></i>{{info.filter.name | i18n}}</a>
+				</div>
+				<div *ngFor="let info of group.filters" class="select-filter-item">
+					<label class="checkbox" *ngIf="info.isFilter">
+						<span class="checkbox-mirror" [class.checked]="info.active"></span>
+						<input class="hidden" type="checkbox" [(ngModel)]="info.active" (ngModelChange)="update(info.filter, false)">
+						{{info.filter.name | i18n}}
+					</label>
+				</div>
+			</div>
+		</div>
 	</div>
-</app-dialog>
-<div class="btn btn_main" (click)="showDialog = !showDialog" i18n>Filter results</div>
+	<button class="select-filters__show-more" *ngIf="!allFilters && showMoreBtn" (click)="showAllFilter()">More columns…</button>
+</div>

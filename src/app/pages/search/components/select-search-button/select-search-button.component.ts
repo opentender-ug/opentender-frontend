@@ -10,15 +10,20 @@ import {isFilterDef, isSearchDef} from '../../../../model/filters';
 	styleUrls: ['select-search-button.component.scss']
 })
 export class SelectSearchButtonComponent implements OnChanges {
-	@Input()
-	filters_all: Array<ISearchFilterDef>;
-	@Input()
-	filters_active: Array<ISearchFilterDef>;
+	@Input() filters_all: Array<ISearchFilterDef>;
+	@Input() filters_active: Array<ISearchFilterDef>;
+	@Input() public search_title;
 	@Output()
 	selectChange = new EventEmitter();
 	showDialog = false;
 	title: string;
 	groups: Array<{
+		name: string;
+		filters: Array<{ active: boolean; isSearch: boolean; isFilter: boolean, filter: ISearchFilterDef, type: ISearchFilterDefType }>;
+	}> = [];
+	public allFilters = false;
+	public showMoreBtn = false;
+	public hiddenGroups: Array<{
 		name: string;
 		filters: Array<{ active: boolean; isSearch: boolean; isFilter: boolean, filter: ISearchFilterDef, type: ISearchFilterDefType }>;
 	}> = [];
@@ -48,6 +53,18 @@ export class SelectSearchButtonComponent implements OnChanges {
 			});
 		});
 		this.groups = Object.keys(groups).sort().map(key => groups[key]);
+		if (this.isNeedShowMoreBtn()) {
+			this.showMoreBtn = true;
+			this.separateGroups();
+		}
 	}
-
+	public showAllFilter() {
+		this.allFilters = true;
+	}
+	private separateGroups() {
+		this.hiddenGroups = this.groups.splice(4);
+	}
+	public isNeedShowMoreBtn(): boolean {
+		return this.groups.length > 4;
+	}
 }
