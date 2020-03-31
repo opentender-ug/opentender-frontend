@@ -14,10 +14,9 @@ import {PlatformService} from '../../../../services/platform.service';
 	styleUrls: ['searchbox.component.scss']
 })
 export class SearchBoxComponent {
-	@Input()
-	public search: Search;
-	@Input()
-	public filters: Array<ISearchFilter>;
+	@Input() public search: Search;
+	@Input() public filters: Array<ISearchFilter>;
+	@Input() public search_title;
 	@Output()
 	public onChange = new EventEmitter();
 	ISearchFilterDefType: typeof ISearchFilterDefType = ISearchFilterDefType;

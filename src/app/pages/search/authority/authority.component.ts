@@ -17,6 +17,7 @@ export class SearchAuthorityPage implements OnInit, OnDestroy {
 	columnIds = ['id', 'body.name', 'body.address.city', 'body.mainActivities', 'body.buyerType'];
 	filterIds = ['body.name', 'body.address.city', 'body.mainActivities', 'body.buyerType'];
 	filters = AuthorityFilterDefs;
+	public search_title = 'Search Authority';
 
 	constructor(private state: StateService, private i18n: I18NService) {
 		this.search.build(this.filters.filter(isSearchDef), this.filters.filter(def => {
