@@ -10,7 +10,7 @@
 			<div class="download-block">
 				<div class="download-block__content">
 					<div class="download-block__col">
-						<h2 class="download-block__title">{{current.name}}</h2>
+						<h3 class="download-block__title">{{current.name}}</h3>
 						<p class="download-block__description"><strong><ng-container i18n>Tenders</ng-container></strong>: <span class="download-block__accented-text">{{current.count}}</span></p>
 					</div>
 					<div class="download-block__col download-block__col_bgc_third">
@@ -36,6 +36,10 @@
 						<div class="download-block__info-wrap">
 							<info-button></info-button>
 							<p class="download-block__info-wrap-text">JSON data description</p>
+						</div>
+						<div class="download-block__info-wrap download-block__info-wrap_right">
+							<info-button></info-button>
+							<p class="download-block__info-wrap-text">OCDS data description</p>
 						</div>
 					</div>
 					<div class="download-block__col download-block__col_bgc_second">

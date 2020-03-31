@@ -5,6 +5,7 @@
 
 	&__title {
 		width: 100%;
+		font-size: 26px;
 	}
 
 	&__description {
@@ -20,10 +21,16 @@
 		margin: 0;
 		padding: 0;
 		width: 100%;
+		display: flex;
 	}
 
 	&__list-item {
 		margin-top: 10px;
+		min-width: 230px;
+
+		& + & {
+			margin-left: 10px;
+		}
 	}
 
 	&__list-item-link {
@@ -60,7 +67,7 @@
 			padding: 35px 25px;
 			flex-wrap: wrap;
 			align-content: flex-start;
-			min-width: 315px;
+			min-width: 280px;
 			position: relative;
 
 			&:first-child {
@@ -74,6 +81,10 @@
 			left: 25px;
 			display: flex;
 			align-items: center;
+
+			&_right {
+				left: 265px;
+			}
 		}
 
 		&__info-wrap-text {
