@@ -33,7 +33,6 @@
 		opacity: 0;
 		transform: translateY(20px);
 		pointer-events: none;
-
 		transition: opacity .2s, transform .2s;
 
 		&::before {

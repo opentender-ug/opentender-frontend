@@ -16,13 +16,13 @@
 .container-title {
   margin-top: 40px;
   margin-bottom: 0;
-  //font-size: 0.8em;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
   hyphens: auto;
+}
+
+.container-title-text {
+	margin: 13px;
 }
 
 .container-outer {
