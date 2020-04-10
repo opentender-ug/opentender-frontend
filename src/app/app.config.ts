@@ -14,7 +14,6 @@ import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {CookielawComponent} from './components/cookielaw/cookielaw.component';
 
-import {StartPage} from './pages/start/start.component';
 import {HomePage} from './pages/home/home.component';
 
 import {IndicatorService} from './services/indicator.service';

@@ -196,7 +196,7 @@ let render = function(req, res, language, country) {
 				config: {version: VERSION, backendUrl: Config.client.backendUrl, devMode: Config.client.devMode},
 				country: country
 			};
-			return html.replace(/\{\{BASE_HREF\}\}/g, ('') + '/')
+			return html.replace(/\{\{BASE_HREF\}\}/g, (country.id ? '/' + country.id : '') + '/')
 				.replace(/\{\{COUNTRY_NAME\}\}/g, country.id ? name : '')
 				.replace(/\{\{HTML_LANG\}\}/g, language.lang)
 				.replace(/\{\{FULL_URL\}\}/g, Config.server.fullUrl)
