@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges, SimpleChanges, Output, EventEmitter} from '@angular/core';
-import {ITableColumn} from '../../../../app.interfaces';
+import {ISearchFilterDef, ISearchFilterDefType, ITableColumn} from '../../../../app.interfaces';
 import {I18NService} from '../../../i18n/services/i18n.service';
 
 @Component({
@@ -9,14 +9,13 @@ import {I18NService} from '../../../i18n/services/i18n.service';
 	styleUrls: ['select-columns.component.scss']
 })
 export class SelectColumnsComponent implements OnChanges {
-	@Input()
-	columns_all: Array<ITableColumn>;
-	@Input()
-	columns_active: Array<ITableColumn>;
+	@Input() columns_all: Array<ITableColumn>;
+	@Input() columns_active: Array<ITableColumn>;
 	groups: Array<{ name: string; columns: Array<{ active: boolean; column: ITableColumn; }>; }> = [];
-	@Output()
-	selectChange = new EventEmitter();
-
+	@Output() selectChange = new EventEmitter();
+	public allFilters = false;
+	public showMoreBtn = false;
+	public hiddenGroups: Array<{ name: string; columns: Array<{ active: boolean; column: ITableColumn; }>; }> = [];
 	constructor(public i18n: I18NService) {
 	}
 
@@ -30,6 +29,7 @@ export class SelectColumnsComponent implements OnChanges {
 				})
 			});
 		}
+		console.log(column, active);
 	}
 
 	public ngOnChanges(changes: SimpleChanges): void {
@@ -46,6 +46,20 @@ export class SelectColumnsComponent implements OnChanges {
 			});
 		});
 		this.groups = Object.keys(groups).sort().map(key => groups[key]);
+		if (this.isNeedShowMoreBtn()) {
+			this.showMoreBtn = true;
+			this.separateGroups();
+		}
+	}
+
+	public showAllFilter() {
+		this.allFilters = true;
+	}
+	private separateGroups() {
+		this.hiddenGroups = this.groups.splice(3);
+	}
+	public isNeedShowMoreBtn(): boolean {
+		return this.groups.length > 3;
 	}
 
 }

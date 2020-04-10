@@ -4,15 +4,18 @@
 </div>
 <div class="radios">
 	<label>
-		<input [value]="'<'" type="radio" [(ngModel)]="mode" (change)="handleModeChange()">
+		<input class="hidden" [value]="'<'" type="radio" [(ngModel)]="mode" (change)="handleModeChange()">
+		<span class="radios-mirror"></span>
 		<span class="label" i18n>before</span>
 	</label>
 	<label>
-		<input [value]="'>'" type="radio" [(ngModel)]="mode" (change)="handleModeChange()">
+		<input class="hidden" [value]="'>'" type="radio" [(ngModel)]="mode" (change)="handleModeChange()">
+		<span class="radios-mirror"></span>
 		<span class="label" i18n>after</span>
 	</label>
 	<label>
-		<input [value]="'='" type="radio" [(ngModel)]="mode" (change)="handleModeChange()">
+		<input class="hidden" [value]="'='" type="radio" [(ngModel)]="mode" (change)="handleModeChange()">
+		<span class="radios-mirror"></span>
 		<span class="label" i18n>same day</span>
 	</label>
 </div>

@@ -46,9 +46,12 @@
 		<div>
 			<h2 class="table-title"><ng-container i18n>Sectors</ng-container><span class="table-title__value"><ng-container *ngIf="sectors_stats.length>0">: {{sectors_stats.length}}</ng-container></span></h2>
 		</div>
-		<div class="tables-container">
+		<div class="tables-container" #tableWrap>
 			<table class="tables">
-				<thead>
+				<thead
+					class="tables__heading"
+					[class.fixed]="fixedTableHeadingConditional"
+					[ngStyle]="headingTransform">
 					<tr>
 						<th i18n>Sector Profile</th>
 						<th i18n>CPV</th>

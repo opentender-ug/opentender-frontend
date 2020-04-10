@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ApiService} from '../../../services/api.service';
 import {NotifyService} from '../../../services/notify.service';
 import {ISector, IStats, IStatsNuts, ISearchCommandFilter, IStatsInYears, IStatsCpvs, IStatsPricesInYears, IStatsProcedureType, IStatsAuthorities, IStatsCompanies} from '../../../app.interfaces';
@@ -36,7 +36,13 @@ export class DashboardsMarketAnalysisPage implements OnInit, OnDestroy {
 	public filter: {
 		years?: { startValue: number, endValue: number };
 	} = {};
-
+	@ViewChild('tableWrap') private tableWrap: ElementRef;
+	public tableHeadingCord = '0';
+	get headingTransform() {
+		return {
+			'transform': `translateY(${this.tableHeadingCord})`
+		};
+	}
 	constructor(private api: ApiService, private i18n: I18NService, private notify: NotifyService) {
 		this.viz.score_in_years.title = i18n.get('Average Good Procurement Score over Time');
 		this.viz.score_in_sectors.title = i18n.get('Average Good Procurement Score per Sector');
@@ -73,6 +79,11 @@ export class DashboardsMarketAnalysisPage implements OnInit, OnDestroy {
 
 	public ngOnInit(): void {
 		this.visualize();
+	}
+	ngAfterViewInit() {
+		window.addEventListener('scroll', () => {
+			this.watchToTableHeading();
+		});
 	}
 
 	public ngOnDestroy(): void {
@@ -113,6 +124,24 @@ export class DashboardsMarketAnalysisPage implements OnInit, OnDestroy {
 		viz.top_companies.data = {absolute: stats.top_terms_companies, volume: stats.top_sum_finalPrice_companies};
 		viz.top_authorities.data = {absolute: stats.top_terms_authorities, volume: stats.top_sum_finalPrice_authorities};
 		viz.years.data = Object.keys(stats.histogram || {}).map(key => parseInt(key, 10));
+	}
+	get fixedTableHeadingConditional(): boolean {
+		let rect = this.tableWrap.nativeElement.getBoundingClientRect();
+		let elemHeight = rect.bottom - rect.top;
+		let screenHeight = window.innerHeight;
+		return (
+			screenHeight < elemHeight
+			&& rect.top < 0
+			&& rect.bottom > 300
+		);
+	}
+	private watchToTableHeading(): void {
+		if (this.fixedTableHeadingConditional) {
+			let rect = this.tableWrap.nativeElement.getBoundingClientRect();
+			this.tableHeadingCord = `${rect.top * -1}px`;
+		} else {
+			this.tableHeadingCord = `0px`;
+		}
 	}
 
 }

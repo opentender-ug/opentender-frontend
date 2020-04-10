@@ -1,9 +1,7 @@
-<app-dialog [title]="title" [(visible)]="showDialog">
+<h2 class="table-title">{{title}}<span class="table-title__value">{{title_value}}</span><i class="icon-spinner2 icon-rotate" *ngIf="loading>0"></i></h2>
+<div class="btn btn_main select-filter-btn" [class.active]="showDialog" (click)="showDialog = !showDialog">
+	Select table columns
+</div>
+<div *ngIf="showDialog" class="select-columns-wrap">
 	<select-columns [columns_all]="columns_all" [columns_active]="columns_active" (selectChange)="onSelectColumns($event)"></select-columns>
-</app-dialog>
-<div class="dialog-button" (click)="showDialog = !showDialog">
-	<div class="dialog-button_inner">
-		<p class="dialog-button_description" i18n>Columns</p>
-		<p class="dialog-button_text" i18n>Click to Select</p>
-	</div>
 </div>
