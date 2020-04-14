@@ -1,9 +1,27 @@
-<div *ngFor="let group of groups" class="select-columns-group">
-	<div class="select-columns-group-title">{{group.name}}</div>
-	<div *ngFor="let info of group.columns" class="select-columns-item">
-		<label class="checkbox">
-			<input type="checkbox" [(ngModel)]="info.active" (ngModelChange)="update(info.column, $event)">
-			{{info.column.name | i18n}}
-		</label>
-	</div>
+<div class="select-filters">
+	<div class="select-filters__content">
+		<div *ngFor="let group of groups" class="select-filters-group">
+			<div class="select-filters-group-title">{{group.name}}</div>
+			<div *ngFor="let info of group.columns" class="select-filter-item">
+				<label class="checkbox">
+					<input class="hidden" type="checkbox" [(ngModel)]="info.active" (ngModelChange)="update(info.column, $event)">
+					<span class="checkbox-mirror"></span>
+					{{info.column.name | i18n}}
+				</label>
+			</div>
+		</div>
+		<div class="select-filters__hidden-content" *ngIf="allFilters">
+			<div *ngFor="let group of hiddenGroups" class="select-filters-group">
+				<div class="select-filters-group-title">{{group.name}}</div>
+				<div *ngFor="let info of group.columns" class="select-filter-item">
+					<label class="checkbox">
+						<input class="hidden" type="checkbox" [(ngModel)]="info.active" (ngModelChange)="update(info.column, $event)">
+						<span class="checkbox-mirror"></span>
+						{{info.column.name | i18n}}
+					</label>
+				</div>
+			</div>
+		</div>
+		</div>
+	<button class="select-filters__show-more" *ngIf="!allFilters && showMoreBtn" (click)="showAllFilter()">More columns...</button>
 </div>

@@ -1,6 +1,5 @@
-<div>
-	<h2 class="table-title">{{title}}<span class="table-title__value">{{titleValue}}</span><i class="icon-spinner2 icon-rotate" *ngIf="loading>0"></i></h2>
-	<select-columns-button [columns_all]="all_columns" [columns_active]="columns" (selectChange)="onSelectColumns($event)"></select-columns-button>
+<div class="table-filter-buttons">
+	<select-columns-button [columns_all]="all_columns" [columns_active]="columns" [title]="title" [title_value]="titleValue" [loading]="loading" (selectChange)="onSelectColumns($event)"></select-columns-button>
 </div>
 <doc-table [table]="table" (sortChange)="sortChange($event)"></doc-table>
 <div class="graph-footer">

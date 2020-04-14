@@ -15,7 +15,7 @@ import Indicator = Definitions.Indicator;
 @Component({
 	selector: 'tender-table',
 	templateUrl: 'table-tender.component.html',
-	styleUrls: ['table-tender.component.html']
+	styleUrls: ['table-tender.component.scss']
 })
 export class TenderTableComponent implements OnChanges, OnInit {
 	@Input()

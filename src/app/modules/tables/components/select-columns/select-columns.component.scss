@@ -1,46 +1,124 @@
 @import "../../../../../style/globals.scss";
 
 :host {
+	.select-filters {
+		width: 100%;
+		border: 1px solid $blue;
+		border-radius: 4px 4px 0 0;
+		padding: 35px 70px;
+		margin-top: -1px;
+		border-bottom: none;
+		box-shadow: 0 2px 24px rgba(25, 84, 165, 0.3);
 
-  .select-columns-group {
-    font-size: 0.9em;
-    padding-bottom: 10px;
-    padding-right: 10px;
-  }
+		&__content {
+			width: 100%;
+			max-width: calc(100% - 150px);
+		}
 
-  @include respond-to(small-up) {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-    .select-columns-group {
-      width: 49%;
-    }
-  }
+		&__hidden-content {
+			width: 100%;
+		}
 
-  .select-columns-group-title {
-    font-weight: bold;
-    border-bottom: 1px solid $neutral-gray;
-    margin-bottom: 8px;
-  }
+		&__show-more {
+			background-color: #fff;
+			border: none;
+			color: $blue;
+			font-weight: 700;
+			font-size: 14px;
+			display: flex;
+			align-items: center;
+			margin-left: 15px;
+			min-width: 150px;
 
-  .select-columns-item {
-    display: block;
+			&::before {
+				display: inline-block;
+				content: '';
+				width: 24px;
+				height: 18px;
+				margin-right: 5px;
+				background-position: 50%;
+				background-repeat: no-repeat;
+				background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2222%22%20height%3D%2215%22%20viewBox%3D%220%200%2022%2015%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%0A%3Cpath%20d%3D%22M12.9922%204.50781H0.992188V6.5H12.9922V4.50781ZM12.9922%200.5H0.992188V2.49219H12.9922V0.5ZM17%208.49219V4.50781H15.0078V8.49219H11V10.5078H15.0078V14.4922H17V10.5078H21.0078V8.49219H17ZM0.992188%2010.5078H9.00781V8.49219H0.992188V10.5078Z%22%20fill%3D%22%231954A5%22/%3E%0A%3C/svg%3E%0A');
+			}
+		}
 
-    label {
-      display: inline-block;
-      margin-left: 20px;
-    }
+		.select-filters-group {
+			font-size: 0.9em;
+			padding-bottom: 20px;
+			padding-right: 20px;
+		}
 
-    label:before {
-      margin-left: -23px;
-    }
+		@include respond-to(small-up) {
+			display: flex;
+			align-items: flex-end;
 
-    .checkbox input {
-      margin-top: 5px;
-      display: inline-block;
-      margin-left: -20px;
-    }
-  }
+			&__content,
+			&__hidden-content {
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap;
+				flex-flow: row wrap;
+			}
+			&__show-more {
+				margin-bottom: 50px;
+			}
 
+			.select-filters-group {
+				min-width: 290px;
+			}
+		}
+
+		.select-filter-item + .select-filter-item {
+			margin-top: 6px;
+		}
+
+		.select-filters-group-title {
+			font-weight: bold;
+			margin-bottom: 8px;
+		}
+
+		.select-filter-item {
+			display: block;
+			white-space: nowrap;
+
+			i {
+				margin-left: 1px;
+				margin-right: 6px;
+			}
+			.icon-plus-circle {
+				font-size: 16px;
+				display: inline-block;
+			}
+
+			label {
+				display: inline-block;
+				//margin-left: 20px;
+				margin-bottom: 0;
+				white-space: normal;
+				cursor: pointer;
+			}
+
+			label:before {
+				margin-left: -23px;
+			}
+			.checkbox-mirror {
+				display: block;
+				width: 15px;
+				height: 15px;
+				content: '';
+				border: 1px solid $blue;
+				border-radius: 4px;
+				margin-right: 5px;
+				float: left;
+			}
+
+			input:checked + .checkbox-mirror {
+				background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%0A%3Crect%20x%3D%220.5%22%20y%3D%220.5%22%20width%3D%2214%22%20height%3D%2214%22%20rx%3D%223.5%22%20fill%3D%22%231954A5%22%20stroke%3D%22%231954A5%22/%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M13.6569%205.58579L11.5356%203.46447L6.58588%208.41421L4.46456%206.29289L2.34324%208.41421L4.46456%2010.5355L6.58588%2012.6569L8.7072%2010.5355L13.6569%205.58579Z%22%20fill%3D%22white%22/%3E%0A%3C/svg%3E%0A');
+				background-repeat: no-repeat;
+				background-position: 50%;
+				background-color: $blue;
+				background-size: 13px;
+			}
+		}
+	}
 }

@@ -6,22 +6,20 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges, EventEmitter, Output
 	styleUrls: ['pagination.component.scss']
 })
 export class PaginationComponent implements OnChanges, OnInit {
-	@Input()
-	total: number;
-	@Input()
-	defaultPageSize: number;
-	@Input()
-	defaultPage: number;
-	@Output()
-	paginationChange = new EventEmitter();
+	@Input() total: number;
+	@Input() defaultPageSize: number;
+	@Input() defaultPage: number;
+	@Output() paginationChange = new EventEmitter();
 
 	public pagination = {
 		pageCount: 0,
 		pageSize: 10,
 		page: 0,
 		total: 0,
-		quick: []
+		quick: [],
+		pages: [],
 	};
+	private DEFAULT_PAGES_LENGTH = 13;
 
 	constructor() {
 	}
@@ -41,31 +39,28 @@ export class PaginationComponent implements OnChanges, OnInit {
 		}
 	}
 
-	public next() {
-		if (this.pagination.page < this.pagination.pageCount - 1) {
-			this.pagination.page += 1;
-			this.triggerChange();
-		}
-	}
-
-	public previous() {
-		if (this.pagination.page > 0) {
-			this.pagination.page -= 1;
-			this.triggerChange();
-		}
-	}
-
 	public page(page: number) {
-		this.pagination.page = page;
+		if (page === this.pagination.page) {
+			return;
+		}
+		if (page < 0) {
+			this.pagination.page = 0;
+		} else if (page >= this.pagination.pageCount)  {
+			this.pagination.page = this.pagination.pageCount - 1;
+		} else {
+			this.pagination.page = page;
+		}
 		this.triggerChange();
 	}
 
 	private triggerChange() {
 		this.paginationChange.emit({value: this.pagination});
+		this.setPaginationItems();
 	}
 
 	public onPageSizeChange() {
 		this.display(this.pagination.total);
+		this.resetPagination();
 		this.triggerChange();
 	}
 
@@ -100,7 +95,62 @@ export class PaginationComponent implements OnChanges, OnInit {
 				items.unshift(i);
 			}
 		}
-		this.pagination.quick = items;
+		this.setPaginationItems();
+	}
+	public isNumber(item) {
+		return Number.isInteger(item);
 	}
 
+	public setPaginationItems() {
+		if (this.pagination.pageCount <= this.DEFAULT_PAGES_LENGTH) {
+			this.pagination.pages = this.smallCountFlow();
+		} else {
+			this.pagination.pages = this.bigCountFlow();
+		}
+	}
+	private smallCountFlow() {
+		let pages = [];
+		for (let i = 0; i < this.DEFAULT_PAGES_LENGTH; i++) {
+			pages.push(i < this.pagination.pageCount ? i + 1 : '');
+		}
+		return pages;
+	}
+	private bigCountFlow() {
+		const CENTER_INDEX = 6;
+		const END_INDEX = 7;
+		let pages;
+		if (this.pagination.page - CENTER_INDEX <= 0) {
+			pages = this.fillPages(CENTER_INDEX, false, true);
+		} else if (this.pagination.page + END_INDEX >= this.pagination.pageCount) {
+			pages = this.fillPages(this.pagination.pageCount - END_INDEX, true, false);
+		} else {
+			pages = this.fillPages(this.pagination.page, true, true);
+		}
+		return pages;
+	}
+
+	private fillPages(page, leftDotted, rightDotted) {
+		const pageFormatted = page + 1;
+		const pages = [];
+		const leftSideLength = leftDotted ? 5 : 6;
+		const rightSideLength = rightDotted ? 5 : 6;
+		const dots = '...';
+		if (leftDotted) {
+			pages.push(dots);
+		}
+		for (let i = leftSideLength; i >= 1; i--) {
+			pages.push(pageFormatted - i);
+		}
+		pages.push(pageFormatted);
+		for (let i = 1; i <= rightSideLength; i++) {
+			pages.push(pageFormatted + i);
+		}
+		if (rightDotted) {
+			pages.push(dots);
+		}
+		return pages;
+	}
+	private resetPagination() {
+		this.pagination.page = 0;
+	}
 }

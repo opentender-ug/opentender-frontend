@@ -9,14 +9,13 @@ import {ITableColumn} from '../../../../app.interfaces';
 	styleUrls: ['select-columns-button.component.scss']
 })
 export class SelectColumnsButtonComponent {
-	@Input()
-	columns_all: Array<ITableColumn>;
-	@Input()
-	columns_active: Array<ITableColumn>;
-	@Output()
-	selectChange = new EventEmitter();
+	@Input() columns_all: Array<ITableColumn>;
+	@Input() columns_active: Array<ITableColumn>;
+	@Input() title: string;
+	@Input() title_value: string;
+	@Input() loading: any;
+	@Output() selectChange = new EventEmitter();
 	showDialog = false;
-	title: string;
 
 	constructor(private i18n: I18NService) {
 		this.title = i18n.get('Select Column');

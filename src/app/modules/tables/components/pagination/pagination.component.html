@@ -1,13 +1,48 @@
-<div class="container-left-4">
-	<button class="page-btn page-prev" ng-class="{disabled:pagination.page <= 0}" (click)="previous()" i18n>Previous</button>
-	<button class="page-btn page-next" ng-class="{disabled:pagination.pageCount <= pagination.page}" (click)="next()" i18n>Next</button>
-	<br/>
-	<div i18n>Page: {{pagination.page+1}} of {{pagination.pageCount | formatNumber }} - Entries: {{pagination.total | formatNumber }}</div>
+<!--<div class="container-left-4">-->
+<!--	<button class="page-btn page-prev" ng-class="{disabled:pagination.page <= 0}" (click)="previous()" i18n>Previous</button>-->
+<!--	<button class="page-btn page-next" ng-class="{disabled:pagination.pageCount <= pagination.page}" (click)="next()" i18n>Next</button>-->
+<!--	<br/>-->
+<!--	<div i18n>Page: {{pagination.page+1}} of {{pagination.pageCount | formatNumber }} - Entries: {{pagination.total | formatNumber }}</div>-->
+<!--</div>-->
+<!--<div class="container-left-3">-->
+<!--	<select class="entriesonpage" id="entriesonpage" [(ngModel)]="pagination.pageSize" (ngModelChange)="onPageSizeChange()">-->
+<!--		<option *ngFor="let item of [10, 20, 50, 100]" [ngValue]="item">{{item}}</option>-->
+<!--	</select>-->
+<!--	<br/>-->
+<!--	<div for="entriesonpage" i18n>Entries per Page</div>-->
+<!--</div>-->
+
+<div class="pagination">
+	<ul class="pagination__list">
+		<li class="pagination__list-item pagination__list-item_first" (click)="page(0)">First</li>
+		<li
+			*ngFor="let item of pagination.pages"
+			class="pagination__list-item"
+			(click)="page(isNumber(item) ? item - 1 : pagination.page)"
+			[class.disabled]="!isNumber(item)"
+			[class.current]="item - 1 === pagination.page"
+		>{{ item }}</li>
+		<li class="pagination__list-item pagination__list-item_last" (click)="page(pagination.pageCount)">Last</li>
+	</ul>
+	<div class="pagination__info-block">
+		<p class="pagination__info-text">Page: <strong>{{pagination.page+1}} of {{pagination.pageCount | formatNumber }}</strong> - Entries: <strong>{{pagination.total | formatNumber }}</strong></p>
+		<div class="pagination__filters-container">
+			<div class="pagination__select-wrap">
+				<p class="pagination__select-text">
+					Jump to page
+					<input class="pagination__input" type="number" (change)="page(+$event.target.value - 1)" [value]="pagination.page + 1">
+				</p>
+			</div>
+			<div class="pagination__select-wrap">
+				<p class="pagination__select-text">
+					Show
+					<select class="pagination__select" [(ngModel)]="pagination.pageSize" (ngModelChange)="onPageSizeChange()">
+						<option *ngFor="let item of [10, 20, 50, 100]" [ngValue]="item">{{item}}</option>
+					</select>
+					item per page
+				</p>
+			</div>
+		</div>
+	</div>
 </div>
-<div class="container-left-3">
-	<select class="entriesonpage" id="entriesonpage" [(ngModel)]="pagination.pageSize" (ngModelChange)="onPageSizeChange()">
-		<option *ngFor="let item of [10, 20, 50, 100]" [ngValue]="item">{{item}}</option>
-	</select>
-	<br/>
-	<div for="entriesonpage" i18n>Entries per Page</div>
-</div>
+
