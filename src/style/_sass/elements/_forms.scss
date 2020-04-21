@@ -32,7 +32,6 @@ input,
 label,
 select {
   display: block;
-  //font-size: $base-font-size;
 
 }
 
@@ -118,7 +117,6 @@ select {
 
   &:focus {
     border: 1px solid $blue;
-    //box-shadow: $form-box-shadow-focus;
     outline: none;
   }
 

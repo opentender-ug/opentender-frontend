@@ -20,12 +20,6 @@ td {
   padding: 5px;
 }
 
-//.tables-container {
-//  display: block;
-//  max-width: 100%;
-//  overflow-x: auto;
-//}
-
 .table-wrap {
 	position: relative;
 	display: block;
@@ -74,9 +68,6 @@ td {
 		&.right {
       text-align: right;
     }
-    //&.center {
-    //  text-align: center;
-    //}
 
     &.tables-column-icon {
       width: 60px;
@@ -96,7 +87,6 @@ td {
 				left: 0;
 				top: 0;
 			}
-			//border-left: 1px solid #EBF5F3;
 		}
   }
 
@@ -110,7 +100,6 @@ td {
       td {
         padding: 20px;
 				line-height: 17px;
-        //vertical-align: top;
         a {
           text-decoration: none;
         }

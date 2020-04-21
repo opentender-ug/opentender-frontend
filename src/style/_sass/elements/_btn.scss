@@ -67,45 +67,4 @@
 	cursor: help;
 	position: relative;
 	z-index: 2;
-	//
-	//&__content {
-	//	position: absolute;
-	//	min-width: 365px;
-	//	background-color: #E2F0FF;
-	//	border: 1px solid $blue;
-	//	border-radius: 5px;
-	//	box-shadow: 0 0 10px 0 #ccc;
-	//	padding: 15px 20px;
-	//	color: $blue;
-	//	font-size: 12px;
-	//	line-height: 15px;
-	//	font-weight: 400;
-	//	left: -100px;
-	//	top: 40px;
-	//	opacity: 0;
-	//	transform: translateY(20px);
-	//	pointer-events: none;
-	//
-	//	transition: opacity .2s, transform .2s;
-	//
-	//	&::before {
-	//		position: absolute;
-	//		display: block;
-	//		content: '';
-	//		width: 12px;
-	//		height: 12px;
-	//		background-color: #E2F0FF;
-	//		border-left: 1px solid $blue;
-	//		border-top: 1px solid $blue;
-	//		transform: translateX(-50%) rotate(45deg);
-	//		top: -7px;
-	//		left: 111px;
-	//	}
-	//
-	//	&.active {
-	//		opacity: 1;
-	//		transform: translateY(0);
-	//		pointer-events: auto;
-	//	}
-	//}
 }
