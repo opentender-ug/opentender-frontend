@@ -8,6 +8,7 @@
 		<tr>
 			<th *ngFor="let col of table.columns" (click)="setSort(col)" [class.clickable]="col.sortBy" [ngClass]="{'tables-column-icon':col.id==='id'}">
 				{{col.name | i18n}}
+				<span *ngIf="!(table.sortBy && col.sortBy && (table.sortBy.id === col.sortBy.id))" style="float:right"><i class="tables__sort-icon icon-chevron-small-down o_50p"></i></span>
 				<span *ngIf="table.sortBy && col.sortBy && (table.sortBy.id === col.sortBy.id)" style="float:right"><i class="tables__sort-icon" [ngClass]="{'icon-chevron-small-down':table.sortBy.ascend,'icon-chevron-small-up':!table.sortBy.ascend}"></i></span>
 			</th>
 		</tr>
