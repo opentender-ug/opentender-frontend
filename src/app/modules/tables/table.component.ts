@@ -157,7 +157,7 @@ export class TableComponent {
 		window.addEventListener('mouseup', this.mouseUpHandler.bind(this));
 	}
 	public mouseMoveHandler(event): void {
-		const SPEED_INDEX = 3;
+		const SPEED_INDEX = 7;
 		if (this.watchMouseMove) {
 			if (event.clientX > this.mouseStartX) {
 				this.tableWrap.nativeElement.scrollLeft = this.tableWrap.nativeElement.scrollLeft + SPEED_INDEX;
@@ -172,7 +172,7 @@ export class TableComponent {
 	}
 	setScrollCord(cord): void {
 		this.scrollCord = cord;
-		this.scrollStyles.transform = this.scrollStylesCord;
-		this.scrollBarStyles.transform = this.scrollBarStylesCord;
+		this.throttle(this.scrollStyles.transform = this.scrollStylesCord, 100);
+		this.throttle(this.scrollBarStyles.transform = this.scrollBarStylesCord, 100);
 	}
 }
