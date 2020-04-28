@@ -153,6 +153,10 @@ td {
 		display: block;
 		position: absolute;
 		transform: translateY(2px) translateX(5px) scale(1.6);
+
+		&.o_50p {
+			opacity: .5;
+		}
 	}
 
 	&__heading {
