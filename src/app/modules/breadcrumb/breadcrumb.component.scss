@@ -3,7 +3,7 @@
 :host {
 
   .breadcrumb {
-    $base-background-color: white !default;
+    $base-background-color: transparent !default;
     $breadcrumb-border-color: gainsboro;
     $breadcrumb-border: 1px solid $breadcrumb-border-color;
     $breadcrumb-height: 1.2em;
@@ -17,13 +17,6 @@
     text-align: left;
 		padding: 15px 0;
 
-    //span {
-    //  padding-left: 4px;
-    //  padding-top: 2px;
-    //  cursor: default;
-    //  vertical-align: middle;
-    //  color: $breadcrumb-arrow-color;
-    //}
     a {
       background-color: $breadcrumb-background;
       color: $breadcrumb-color;
@@ -65,5 +58,4 @@
       }
     }
   }
-
 }

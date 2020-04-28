@@ -13,12 +13,22 @@
 			<div class="page-header__mobile-nav">
 				<button class="btn btn_main btn_small" (click)="toggleMenu()" i18n>Menu</button>
 					<nav class="page-header__mobile-nav-list" *ngIf="menuActive">
-						<a class="page-header__mobile-nav-item" *ngFor="let item of menu" [class.active]="isActive(item.path)" [routerLink]="item.routerLink">{{item.title}}</a>
+						<a class="page-header__mobile-nav-item"
+							 *ngFor="let item of menu"
+							 [routerLinkActive]="['active']"
+							 [routerLink]="item.routerLink"
+							 [class.active_has-sub-menu]="current && current.submenu.length > 0"
+						>{{item.title}}</a>
 					</nav>
 			</div>
 			<div class="page-header__desktop-nav">
 				<nav class="page-header__desktop-nav-list">
-					<a class="page-header__desktop-nav-item" *ngFor="let item of menu" [class.active]="isActive(item.path)" [routerLink]="item.routerLink">{{item.title}}</a>
+					<a class="page-header__desktop-nav-item"
+						 *ngFor="let item of menu"
+						 [routerLinkActive]="['active']"
+						 [routerLink]="item.routerLink"
+						 [class.active_has-sub-menu]="current && current.submenu.length > 0"
+					>{{item.title}}</a>
 				</nav>
 			</div>
 		</div>
@@ -27,7 +37,11 @@
 <div class="page-sub-header" *ngIf="current && current.submenu.length > 0">
 	<div class="container">
 		<nav class="page-sub-header__nav-list">
-			<a [routerLinkActive]="['active']" [routerLink]="item.routerLink" class="page-sub-header__nav-list-item" *ngFor="let item of current.submenu">{{item.title}}</a>
+			<a [routerLinkActive]="['active']"
+				 [routerLink]="item.routerLink"
+				 class="page-sub-header__nav-list-item"
+				 *ngFor="let item of current.submenu"
+			>{{item.title}}</a>
 		</nav>
 	</div>
 </div>
