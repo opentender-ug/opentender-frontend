@@ -17,8 +17,8 @@ export class SearchBoxComponent {
 	@Input() public search: Search;
 	@Input() public filters: Array<ISearchFilter>;
 	@Input() public search_title;
-	@Output()
-	public onChange = new EventEmitter();
+	@Output() public onChange = new EventEmitter();
+	@Output() public reset = new EventEmitter();
 	ISearchFilterDefType: typeof ISearchFilterDefType = ISearchFilterDefType;
 
 	public active_filters: Array<ISearchFilterDef> = [];
@@ -75,6 +75,9 @@ export class SearchBoxComponent {
 
 	refresh() {
 		this.onChange.emit();
+	}
+	resetStats() {
+		this.reset.emit();
 	}
 
 	public onSelectFilters(data: { value: { filter: ISearchFilterDef } }): void {

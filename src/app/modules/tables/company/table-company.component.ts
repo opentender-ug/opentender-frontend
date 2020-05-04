@@ -13,16 +13,12 @@ import {IndicatorService} from '../../../services/indicator.service';
 	templateUrl: 'table-company.component.html'
 })
 export class CompanyTableComponent implements OnChanges, OnInit {
-	@Input()
-	search_cmd: ISearchCommand;
-	@Input()
-	columnIds: Array<string>;
-	@Input()
-	title: string;
-	@Output()
-	searchChange = new EventEmitter();
-	@Output()
-	columnsChange = new EventEmitter();
+	@Input() search_cmd: ISearchCommand;
+	@Input() columnIds: Array<string>;
+	@Input() title: string;
+	@Output() searchChange = new EventEmitter();
+	@Output() columnsChange = new EventEmitter();
+	@Output() refreshColumns = new EventEmitter();
 
 	columns: Array<ITableColumnCompany> = [];
 	all_columns = CompanyColumns;
@@ -138,5 +134,7 @@ export class CompanyTableComponent implements OnChanges, OnInit {
 			this.searchChange.emit(data);
 		}
 	}
-
+	public setDefaultColumns() {
+		this.refreshColumns.emit();
+	}
 }

@@ -29,6 +29,7 @@ export class SearchTenderPage implements OnInit, OnDestroy {
 		histogram_finalPriceEUR: {id: 'histogram_finalPriceEUR', data: null, active: false},
 		procedure_types: {id: 'terms_procedure_type', data: null, active: false}
 	};
+	private defaultColumns = [];
 
 	constructor(private state: StateService, private i18n: I18NService) {
 		this.search.build(
@@ -53,6 +54,7 @@ export class SearchTenderPage implements OnInit, OnDestroy {
 		} else {
 			this.refresh();
 		}
+		this.defaultColumns = JSON.parse(JSON.stringify(this.columnIds));
 	}
 
 	ngOnDestroy(): void {
@@ -85,6 +87,19 @@ export class SearchTenderPage implements OnInit, OnDestroy {
 
 	columnsChange(data: { columns: Array<string> }): void {
 		this.columnIds = data.columns;
+	}
+	setDefaultStats() {
+		this.search = new Search('tender');
+		this.search.build(
+			this.filters.filter(def => {
+				return (this.searchIds.indexOf(def.id) >= 0);
+			}),
+			this.filters.filter(def => {
+				return (this.filterIds.indexOf(def.id) >= 0);
+			}));
+	}
+	public setDefaultColumns() {
+		this.columnIds = this.defaultColumns;
 	}
 
 	refresh(): void {

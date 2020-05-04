@@ -15,13 +15,17 @@ export class SelectColumnsButtonComponent {
 	@Input() title_value: string;
 	@Input() loading: any;
 	@Output() selectChange = new EventEmitter();
+	@Output() restore = new EventEmitter();
 	showDialog = false;
 
 	constructor(private i18n: I18NService) {
-		this.title = i18n.get('Select Column');
+		this.title = i18n.get(this.title || 'Select Column');
 	}
 
 	onSelectColumns(event) {
 		this.selectChange.emit(event);
+	}
+	restoreColumns() {
+		this.restore.emit();
 	}
 }

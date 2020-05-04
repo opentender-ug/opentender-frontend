@@ -18,14 +18,11 @@ import Indicator = Definitions.Indicator;
 	styleUrls: ['table-tender.component.scss']
 })
 export class TenderTableComponent implements OnChanges, OnInit {
-	@Input()
-	search_cmd: ISearchCommand;
-	@Input()
-	columnIds: Array<string>;
-	@Output()
-	searchChange = new EventEmitter();
-	@Output()
-	columnsChange = new EventEmitter();
+	@Input() search_cmd: ISearchCommand;
+	@Input() columnIds: Array<string>;
+	@Output() searchChange = new EventEmitter();
+	@Output() columnsChange = new EventEmitter();
+	@Output() refreshColumns = new EventEmitter();
 
 	columns: Array<ITableColumnTender> = [];
 	all_columns = TenderColumns;
@@ -231,5 +228,7 @@ export class TenderTableComponent implements OnChanges, OnInit {
 			this.searchChange.emit(data);
 		}
 	}
-
+	public setDefaultColumns() {
+		this.refreshColumns.emit();
+	}
 }

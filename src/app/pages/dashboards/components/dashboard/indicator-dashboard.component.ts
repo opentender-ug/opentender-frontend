@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {ApiService} from '../../../../services/api.service';
 import {I18NService} from '../../../../modules/i18n/services/i18n.service';
 import {Utils} from '../../../../model/utils';
@@ -17,11 +17,8 @@ import {PlatformService} from '../../../../services/platform.service';
 	styleUrls: ['indicator-dashboard.component.scss']
 })
 export class DashboardsIndicatorComponent implements OnChanges {
-	@Input()
-	indicator: IIndicatorInfo;
-	@Input()
-	columnIds = ['id', 'title', 'buyers.name', 'lots.bids.bidders.name'];
-
+	@Input() indicator: IIndicatorInfo;
+	@Input() columnIds;
 	private icon: string = '';
 	private searchPrefix: string = '';
 	private searchScore: [number, number] = [0, 50];
@@ -332,5 +329,8 @@ export class DashboardsIndicatorComponent implements OnChanges {
 
 	searchChange(data: ISearchResultTender) {
 
+	}
+	public serDefaultColumns() {
+		this.columnIds = ['id', 'title', 'buyers.name', 'lots.bids.bidders.name', 'indicators.ti'];
 	}
 }
