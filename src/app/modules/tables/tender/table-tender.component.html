@@ -1,5 +1,5 @@
 <div class="table-filter-buttons">
-	<select-columns-button [columns_all]="all_columns" [columns_active]="columns" [title]="title" [title_value]="titleValue" [loading]="loading" (selectChange)="onSelectColumns($event)"></select-columns-button>
+	<select-columns-button [columns_all]="all_columns" [columns_active]="columns" [title]="title" [title_value]="titleValue" [loading]="loading" (selectChange)="onSelectColumns($event)" (restore)="setDefaultColumns()"></select-columns-button>
 </div>
 <doc-table [table]="table" (sortChange)="sortChange($event)"></doc-table>
 <div class="graph-footer">

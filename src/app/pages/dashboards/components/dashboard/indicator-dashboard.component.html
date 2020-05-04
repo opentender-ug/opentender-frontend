@@ -14,10 +14,9 @@
 				<option *ngFor="let sub of subindicators" [ngValue]="sub">{{sub.name}}</option>
 			</select>
 			<div *ngIf="!selected && subindicators.length>1" class="dialog-button" (click)="toggleDialog()">
-				<div class="dialog-button_inner">
-					<p class="dialog-button_description" i18n>Composite Score</p>
-					<p class="dialog-button_text" i18n>Adjust Weights</p>
-				</div>
+				<button class="btn btn_main select-filter-btn">
+					Adjust Weights
+				</button>
 			</div>
 		</div>
 	</div>
@@ -81,7 +80,7 @@
 			</div>
 		</div>
 		<div class="container">
-			<tender-table [search_cmd]="search_cmd" [columnIds]="columnIds" (searchChange)="searchChange($event);"></tender-table>
+			<tender-table [search_cmd]="search_cmd" [columnIds]="columnIds" (searchChange)="searchChange($event);" (refreshColumns)="serDefaultColumns()"></tender-table>
 		</div>
 	</div>
 </div>

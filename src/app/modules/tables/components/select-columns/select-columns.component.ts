@@ -13,6 +13,7 @@ export class SelectColumnsComponent implements OnChanges {
 	@Input() columns_active: Array<ITableColumn>;
 	groups: Array<{ name: string; columns: Array<{ active: boolean; column: ITableColumn; }>; }> = [];
 	@Output() selectChange = new EventEmitter();
+	@Output() restore = new EventEmitter();
 	public allFilters = false;
 	public showMoreBtn = false;
 	public hiddenGroups: Array<{ name: string; columns: Array<{ active: boolean; column: ITableColumn; }>; }> = [];
@@ -29,7 +30,6 @@ export class SelectColumnsComponent implements OnChanges {
 				})
 			});
 		}
-		console.log(column, active);
 	}
 
 	public ngOnChanges(changes: SimpleChanges): void {
@@ -55,11 +55,16 @@ export class SelectColumnsComponent implements OnChanges {
 	public showAllFilter() {
 		this.allFilters = true;
 	}
+	public hideAllFilter() {
+		this.allFilters = false;
+	}
 	private separateGroups() {
 		this.hiddenGroups = this.groups.splice(3);
 	}
 	public isNeedShowMoreBtn(): boolean {
 		return this.groups.length > 3;
 	}
-
+	public restoreColumns() {
+		this.restore.emit();
+	}
 }

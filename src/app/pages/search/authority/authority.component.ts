@@ -18,6 +18,7 @@ export class SearchAuthorityPage implements OnInit, OnDestroy {
 	filterIds = ['body.name', 'body.address.city', 'body.mainActivities', 'body.buyerType'];
 	filters = AuthorityFilterDefs;
 	public search_title = 'Search Authority';
+	private defaultColumns = [];
 
 	constructor(private state: StateService, private i18n: I18NService) {
 		this.search.build(this.filters.filter(isSearchDef), this.filters.filter(def => {
@@ -35,6 +36,8 @@ export class SearchAuthorityPage implements OnInit, OnDestroy {
 		} else {
 			this.refresh();
 		}
+		this.defaultColumns = JSON.parse(JSON.stringify(this.columnIds));
+
 	}
 
 	ngOnDestroy() {
@@ -58,7 +61,15 @@ export class SearchAuthorityPage implements OnInit, OnDestroy {
 	columnsChange(data: { columns: Array<string> }) {
 		this.columnIds = data.columns;
 	}
-
+	public setDefaultStats() {
+		this.search = new Search('authority');
+		this.search.build(this.filters.filter(isSearchDef), this.filters.filter(def => {
+			return this.filterIds.indexOf(def.id) >= 0;
+		}));
+	}
+	public setDefaultColumns() {
+		this.columnIds = this.defaultColumns;
+	}
 	refresh() {
 		this.search_cmd = this.search.getCommand();
 	}

@@ -31,5 +31,9 @@
 			</div>
 		</div>
 	</div>
-	<button class="select-filters__show-more" *ngIf="!allFilters && showMoreBtn" (click)="showAllFilter()">More columns…</button>
+	<div class="select-filters__btns-wrap">
+		<button class="select-filters__show-more" *ngIf="!allFilters && showMoreBtn" (click)="showAllFilter()">More columns…</button>
+		<button class="select-filters__show-more" *ngIf="allFilters && showMoreBtn" (click)="hideAllFilter()">Less columns</button>
+		<button class="select-filters__show-more" (click)="resetFilters()">Restore</button>
+	</div>
 </div>

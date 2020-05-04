@@ -13,8 +13,8 @@ export class SelectSearchButtonComponent implements OnChanges {
 	@Input() filters_all: Array<ISearchFilterDef>;
 	@Input() filters_active: Array<ISearchFilterDef>;
 	@Input() public search_title;
-	@Output()
-	selectChange = new EventEmitter();
+	@Output() selectChange = new EventEmitter();
+	@Output() reset = new EventEmitter();
 	showDialog = false;
 	title: string;
 	groups: Array<{
@@ -60,6 +60,12 @@ export class SelectSearchButtonComponent implements OnChanges {
 	}
 	public showAllFilter() {
 		this.allFilters = true;
+	}
+	public hideAllFilter() {
+		this.allFilters = false;
+	}
+	public resetFilters() {
+		this.reset.emit();
 	}
 	private separateGroups() {
 		this.hiddenGroups = this.groups.splice(4);

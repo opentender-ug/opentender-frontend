@@ -3,5 +3,5 @@
 	Select table columns
 </div>
 <div *ngIf="showDialog" class="select-columns-wrap">
-	<select-columns [columns_all]="columns_all" [columns_active]="columns_active" (selectChange)="onSelectColumns($event)"></select-columns>
+	<select-columns [columns_all]="columns_all" [columns_active]="columns_active" (selectChange)="onSelectColumns($event)" (restore)="restoreColumns()"></select-columns>
 </div>
