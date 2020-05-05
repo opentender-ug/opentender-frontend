@@ -549,7 +549,10 @@ export const TenderColumns: Array<ITableColumnTender> = [
 			id: 'title.raw',
 			ascend: true
 		},
-		format: tender => [{content: tender.title}]
+		format: (tender, library) => {
+			return tender.title ? [{content: tender.title, link: '/tender/' + tender.id, hint: library.i18n.get('Profile Page') + ' ' + tender.title}] :
+			[{icon: ICON.tender + ' icon-large', content: '', link: '/tender/' + tender.id, hint: library.i18n.get('Profile Page') + ' ' + tender.title}];
+		}
 	},
 	{
 		name: 'Title English',

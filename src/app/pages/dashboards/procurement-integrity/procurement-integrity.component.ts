@@ -9,7 +9,7 @@ import {IndicatorService} from '../../../services/indicator.service';
 })
 export class DashboardsIntegrityPage {
 	public indicator: IIndicatorInfo;
-	public columnIds = ['id', 'title', 'buyers.name', 'lots.bids.bidders.name', 'indicators.pii'];
+	public columnIds = ['title', 'buyers.name', 'lots.bids.bidders.name', 'indicators.pii'];
 
 	constructor(indicators: IndicatorService) {
 		this.indicator = indicators.INTEGRITY;
