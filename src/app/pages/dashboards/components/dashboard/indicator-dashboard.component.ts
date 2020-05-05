@@ -331,6 +331,6 @@ export class DashboardsIndicatorComponent implements OnChanges {
 
 	}
 	public serDefaultColumns() {
-		this.columnIds = ['id', 'title', 'buyers.name', 'lots.bids.bidders.name', 'indicators.ti'];
+		this.columnIds = ['title', 'buyers.name', 'lots.bids.bidders.name', 'indicators.ti'];
 	}
 }

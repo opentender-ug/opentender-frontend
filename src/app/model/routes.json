@@ -1,32 +1,27 @@
 {
   "routes": [
 		{
-			"path": "dashboard",
-			"children": [
-				{
-					"path": "/dashboards/market-analysis",
-					"title": "Market Analysis",
-					"menu": true,
-					"routerLink": [
-						"/dashboards/market-analysis"
-					]
-				},
-				{
-					"path": "transparency",
-					"title": "Transparency",
-					"menu": true,
-					"routerLink": [
-						"/dashboards/transparency"
-					]
-				},
-				{
-					"path": "integrity",
-					"title": "Integrity",
-					"menu": true,
-					"routerLink": [
-						"/dashboards/integrity"
-					]
-				}
+			"path": "/dashboards/market-analysis",
+			"title": "Market Analysis",
+			"menu": true,
+			"routerLink": [
+				"/dashboards/market-analysis"
+			]
+		},
+		{
+			"path": "transparency",
+			"title": "Transparency",
+			"menu": true,
+			"routerLink": [
+				"/dashboards/transparency"
+			]
+		},
+		{
+			"path": "integrity",
+			"title": "Integrity",
+			"menu": true,
+			"routerLink": [
+				"/dashboards/integrity"
 			]
 		},
     {
