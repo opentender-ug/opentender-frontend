@@ -63,6 +63,7 @@ export class DashboardsIndicatorComponent implements OnChanges {
 	public filter: {
 		years?: { startValue: number, endValue: number };
 	} = {};
+	public storageId = '_tender-table';
 
 	constructor(private api: ApiService, private i18n: I18NService, private notify: NotifyService, private platform: PlatformService) {
 		this.viz.ranges.top_authorities.title = i18n.get('Main Buyers in Score Range');
@@ -331,6 +332,11 @@ export class DashboardsIndicatorComponent implements OnChanges {
 
 	}
 	public serDefaultColumns() {
-		this.columnIds = ['title', 'buyers.name', 'lots.bids.bidders.name', 'indicators.ti'];
+		let defaultData = ['title', 'buyers.name', 'lots.bids.bidders.name', 'indicators.ti'];
+		this.columnIds = defaultData;
+		this.saveDataToStorage(defaultData);
+	}
+	private saveDataToStorage(data) {
+		localStorage.setItem(JSON.stringify(location.pathname) + this.storageId, JSON.stringify(data));
 	}
 }

@@ -1,6 +1,6 @@
 <div class="container container-outer search">
 	<div class="container-padded-top container-padded-bottom">
-		<search-box [search]="search" [filters]="filters" [search_title]="search_title" (reset)="setDefaultStats()" (onChange)="refresh()"></search-box>
+		<search-box [search]="search" [filters]="filters" [search_title]="search_title" (reset)="setDefaultStats()" (onChange)="filtersChange()"></search-box>
 	</div>
 </div>
 
@@ -12,5 +12,5 @@
 </div>
 
 <div class="container container-outer container-padded-top-lite">
-	<tender-table [search_cmd]="search_cmd" [columnIds]="columnIds" (searchChange)="searchChange($event);" (columnsChange)="columnsChange($event);" (refreshColumns)="setDefaultColumns()"></tender-table>
+	<tender-table [search_cmd]="search_cmd" [columnIds]="columnIds" (searchChange)="searchChange($event);" (columnsChange)="columnsChange($event);" (refreshColumns)="setDefaultColumns()" [storageId]="storageId"></tender-table>
 </div>
