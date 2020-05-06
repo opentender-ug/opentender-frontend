@@ -149,5 +149,11 @@ export class Search {
 			active: true
 		};
 	}
+	public setBuildedFilters(data) {
+		this.filters = data;
+	}
+	public setBuildedSearches(data) {
+		this.searches = data;
+	}
 
 }

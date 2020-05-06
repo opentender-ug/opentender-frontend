@@ -7,11 +7,8 @@ import {Component, Input, EventEmitter, Output, OnChanges, SimpleChanges} from '
 	styleUrls: ['select-year-range.component.scss']
 })
 export class SelectYearRangeComponent implements OnChanges {
-	@Input()
-	years: Array<number>;
-
-	@Output('onRangeChange')
-	onRangeChange = new EventEmitter();
+	@Input() years: Array<number>;
+	@Output('onRangeChange') onRangeChange = new EventEmitter();
 
 	public minYear: number = 0;
 	public maxYear: number = 0;

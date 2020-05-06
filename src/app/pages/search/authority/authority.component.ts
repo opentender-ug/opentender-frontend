@@ -18,7 +18,10 @@ export class SearchAuthorityPage implements OnInit, OnDestroy {
 	filterIds = ['body.name', 'body.address.city', 'body.mainActivities', 'body.buyerType'];
 	filters = AuthorityFilterDefs;
 	public search_title = 'Search Authority';
-	private defaultColumns = [];
+	private defaultColumns = ['id', 'body.name', 'body.address.city', 'body.mainActivities', 'body.buyerType'];
+	public storageId = '_authorities-table';
+	public filtersStorageTag = '_authorities-filters';
+	private firstInit = true;
 
 	constructor(private state: StateService, private i18n: I18NService) {
 		this.search.build(this.filters.filter(isSearchDef), this.filters.filter(def => {
@@ -33,11 +36,14 @@ export class SearchAuthorityPage implements OnInit, OnDestroy {
 			this.columnIds = state.columnIds;
 			this.search = state.search;
 			this.search_cmd = state.search_cmd;
+		} else if (localStorage.getItem(JSON.stringify(location.pathname) + this.filtersStorageTag)) {
+			let storageState = JSON.parse(localStorage.getItem(JSON.stringify(location.pathname) + this.filtersStorageTag));
+			this.search.setBuildedFilters(storageState.search.filters);
+			this.search.setBuildedSearches(storageState.search.searches);
+			this.search_cmd = storageState.search_cmd;
 		} else {
 			this.refresh();
 		}
-		this.defaultColumns = JSON.parse(JSON.stringify(this.columnIds));
-
 	}
 
 	ngOnDestroy() {
@@ -60,6 +66,7 @@ export class SearchAuthorityPage implements OnInit, OnDestroy {
 
 	columnsChange(data: { columns: Array<string> }) {
 		this.columnIds = data.columns;
+		this.saveDataToStorage(data.columns);
 	}
 	public setDefaultStats() {
 		this.search = new Search('authority');
@@ -69,8 +76,26 @@ export class SearchAuthorityPage implements OnInit, OnDestroy {
 	}
 	public setDefaultColumns() {
 		this.columnIds = this.defaultColumns;
+		this.saveDataToStorage(this.defaultColumns);
 	}
 	refresh() {
 		this.search_cmd = this.search.getCommand();
+	}
+	public filtersChange() {
+		let filtersTag = JSON.stringify(location.pathname) + this.filtersStorageTag;
+		if (!this.firstInit) {
+			let state = {
+				search: this.search,
+				search_cmd: this.search_cmd
+			};
+			localStorage.setItem(filtersTag, JSON.stringify(state));
+		}
+		if (this.firstInit) {
+			this.firstInit = false;
+		}
+		this.refresh();
+	}
+	private saveDataToStorage(data) {
+		localStorage.setItem(JSON.stringify(location.pathname) + this.storageId, JSON.stringify(data));
 	}
 }

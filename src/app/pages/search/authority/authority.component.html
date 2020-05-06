@@ -1,6 +1,6 @@
 <div class="container container-padded-top container-padded-bottom">
-	<search-box [search]="search" [filters]="filters" [search_title]="search_title" (onChange)="refresh()" (reset)="setDefaultStats()"></search-box>
+	<search-box [search]="search" [filters]="filters" [search_title]="search_title" (onChange)="filtersChange()" (reset)="setDefaultStats()"></search-box>
 </div>
 <div class="container container-outer container-padded-top-lite">
-		<authority-table [search_cmd]="search_cmd" [columnIds]="columnIds" [title]="title" (searchChange)="searchChange($event);" (columnsChange)="columnsChange($event);" (refreshColumns)="setDefaultColumns()"></authority-table>
+		<authority-table [search_cmd]="search_cmd" [columnIds]="columnIds" [title]="title" (searchChange)="searchChange($event);" (columnsChange)="columnsChange($event);" (refreshColumns)="setDefaultColumns()" [storageId]="storageId"></authority-table>
 </div>

@@ -2,7 +2,7 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 import {StateService} from '../../../services/state.service';
 import {Search} from '../../../model/search';
 import {TenderFilterDefs} from '../../../model/filters';
-import {ISearchResultTender, ISearchFilterDefType, ISearchCommand, IStatsProcedureType, IStatsCpvs, IStatsPricesInYears, IStatsIndicators} from '../../../app.interfaces';
+import {ISearchResultTender, ISearchCommand, IStatsProcedureType, IStatsCpvs, IStatsPricesInYears, IStatsIndicators} from '../../../app.interfaces';
 import {I18NService} from '../../../modules/i18n/services/i18n.service';
 
 @Component({
@@ -29,8 +29,10 @@ export class SearchTenderPage implements OnInit, OnDestroy {
 		histogram_finalPriceEUR: {id: 'histogram_finalPriceEUR', data: null, active: false},
 		procedure_types: {id: 'terms_procedure_type', data: null, active: false}
 	};
-	private defaultColumns = [];
-
+	private defaultColumns = ['title', 'buyers.name', 'lots.bids.bidders.name', 'lots.bids.price'];
+	public storageId = '_tender-table';
+	public filtersStorageTag = '_tender-filters';
+	private firstInit = true;
 	constructor(private state: StateService, private i18n: I18NService) {
 		this.search.build(
 			this.filters.filter(def => {
@@ -51,10 +53,14 @@ export class SearchTenderPage implements OnInit, OnDestroy {
 			this.columnIds = state.columnIds;
 			this.search = state.search;
 			this.search_cmd = state.search_cmd;
+		} else if (localStorage.getItem(JSON.stringify(location.pathname) + this.filtersStorageTag)) {
+			let storageState = JSON.parse(localStorage.getItem(JSON.stringify(location.pathname) + this.filtersStorageTag));
+			this.search.setBuildedFilters(storageState.search.filters);
+			this.search.setBuildedSearches(storageState.search.searches);
+			this.search_cmd = storageState.search_cmd;
 		} else {
 			this.refresh();
 		}
-		this.defaultColumns = JSON.parse(JSON.stringify(this.columnIds));
 	}
 
 	ngOnDestroy(): void {
@@ -87,6 +93,7 @@ export class SearchTenderPage implements OnInit, OnDestroy {
 
 	columnsChange(data: { columns: Array<string> }): void {
 		this.columnIds = data.columns;
+		this.saveDataToStorage(data.columns);
 	}
 	setDefaultStats() {
 		this.search = new Search('tender');
@@ -100,11 +107,29 @@ export class SearchTenderPage implements OnInit, OnDestroy {
 	}
 	public setDefaultColumns() {
 		this.columnIds = this.defaultColumns;
+		this.saveDataToStorage(this.defaultColumns);
 	}
 
+	public filtersChange() {
+		let filtersTag = JSON.stringify(location.pathname) + this.filtersStorageTag;
+		if (!this.firstInit) {
+			let state = {
+				search: this.search,
+				search_cmd: this.search_cmd
+			};
+			localStorage.setItem(filtersTag, JSON.stringify(state));
+		}
+		if (this.firstInit) {
+			this.firstInit = false;
+		}
+		this.refresh();
+	}
 	refresh(): void {
 		let cmd = this.search.getCommand();
 		cmd.stats = Object.keys(this.viz).filter(key => this.viz[key].active).map(key => this.viz[key].id);
 		this.search_cmd = cmd;
+	}
+	private saveDataToStorage(data) {
+		localStorage.setItem(JSON.stringify(location.pathname) + this.storageId, JSON.stringify(data));
 	}
 }

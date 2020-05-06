@@ -80,7 +80,7 @@
 			</div>
 		</div>
 		<div class="container">
-			<tender-table [search_cmd]="search_cmd" [columnIds]="columnIds" (searchChange)="searchChange($event);" (refreshColumns)="serDefaultColumns()"></tender-table>
+			<tender-table [search_cmd]="search_cmd" [columnIds]="columnIds" (searchChange)="searchChange($event);" (columnsChange)="saveDataToStorage($event.columns)" (refreshColumns)="serDefaultColumns()" [storageId]="storageId"></tender-table>
 		</div>
 	</div>
 </div>

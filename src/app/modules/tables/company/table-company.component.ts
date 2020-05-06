@@ -16,6 +16,7 @@ export class CompanyTableComponent implements OnChanges, OnInit {
 	@Input() search_cmd: ISearchCommand;
 	@Input() columnIds: Array<string>;
 	@Input() title: string;
+	@Input() storageId: string;
 	@Output() searchChange = new EventEmitter();
 	@Output() columnsChange = new EventEmitter();
 	@Output() refreshColumns = new EventEmitter();
@@ -36,7 +37,12 @@ export class CompanyTableComponent implements OnChanges, OnInit {
 	}
 
 	ngOnInit(): void {
-		if (this.columnIds) {
+		let storageTag = JSON.stringify(location.pathname) + this.storageId;
+
+		if (localStorage.getItem(storageTag)) {
+			this.columnIds = JSON.parse(localStorage.getItem(storageTag));
+			this.setColumns();
+		} else if (this.columnIds) {
 			this.setColumns();
 		}
 	}

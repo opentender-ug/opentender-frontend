@@ -41,11 +41,12 @@ export class SelectSearchButtonComponent implements OnChanges {
 			return;
 		}
 		let groups = {};
+		let stringifiedActiveFilters = this.filters_active.map(it => JSON.stringify(it));
 		this.filters_all.forEach(f => {
 			let groupname = this.i18n.translateVariable(f.group || '_');
 			groups[groupname] = groups[groupname] || {name: groupname, filters: []};
 			groups[groupname].filters.push({
-				active: this.filters_active.indexOf(f) >= 0,
+				active: stringifiedActiveFilters.indexOf(JSON.stringify(f)) >= 0,
 				isSearch: isSearchDef(f),
 				isFilter: isFilterDef(f),
 				filter: f,
