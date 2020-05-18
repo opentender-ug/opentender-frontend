@@ -17,5 +17,9 @@ module.exports = {
 	client: {
 		backendUrl: 'https://portal.opentender.eu', // full url of the backend
 		devMode: false // e.g. disable page tracking if true
+	},
+	country: {
+		id: 'jm',
+		name: 'Jamaica'
 	}
 };
