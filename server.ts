@@ -8,7 +8,6 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import * as request from 'request';
-import * as geoip from 'geoip-ultralight';
 import * as helmet from 'helmet';
 import * as morgan from 'morgan';
 import * as crypto from 'crypto';
@@ -196,8 +195,8 @@ let render = function(req, res, language, country) {
 				config: {version: VERSION, backendUrl: Config.client.backendUrl, devMode: Config.client.devMode},
 				country: country
 			};
-			return html.replace(/\{\{BASE_HREF\}\}/g, (country.id ? '/' + country.id : '') + '/')
-				.replace(/\{\{COUNTRY_NAME\}\}/g, country.id ? name : '')
+			return html.replace(/\{\{BASE_HREF\}\}/g, '/')
+				.replace(/\{\{COUNTRY_NAME\}\}/g, '')
 				.replace(/\{\{HTML_LANG\}\}/g, language.lang)
 				.replace(/\{\{FULL_URL\}\}/g, Config.server.fullUrl)
 				.replace(/\{\{RES_VERSION\}\}/g, RES_VERSION)
@@ -214,7 +213,7 @@ let render = function(req, res, language, country) {
 };
 
 let startApp = function(req, res, originalUrl) {
-	let country = {id: 'uk', name: 'United Kingdom'};
+	let country = {id: Config.country.id, name: Config.country.name};
 	req.originalUrl = originalUrl;
 	render(req, res, getLang(req), country);
 };
@@ -224,66 +223,10 @@ let getLang = function(req) {
 	return lang || translations['en'];
 };
 
-let portalApp = function(req, res, country) {
-	render(req, res, getLang(req), country);
-};
-
-let registerPages = country => {
-	let country_path = country.id ? '/' + country.id : '';
-
-	let ngApp = (req, res) => {
-		return portalApp(req, res, country);
-	};
-
-	// Routes with html5pushstate
-	routes.routes.forEach(route => {
-		let s = route.path;
-		if (s && s !== '' && s !== '**') {
-			app.use(country_path + '/' + s + '*', checkCache, ngApp);
-		}
-	});
-	app.use(country_path + '/', checkCache, (req, res) => {
-		let url = (req.originalUrl || '').split('?')[0];
-		if ([country_path, country_path + '/', country_path + '/index.html'].indexOf(url) < 0) {
-			return errorResponse(req, res);
-		} else {
-			return ngApp(req, res);
-		}
-	});
-};
-
-portals.forEach(portal => {
-	if (portal.id) {
-		registerPages(portal);
-	}
-});
-
-app.use('/ping', (req, res) => {
-	let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-	let c_id = geoip.lookupCountry(ip.toString());
-	let ip_country = undefined;
-	if (c_id) {
-		c_id = c_id.toLowerCase();
-		if (c_id === 'gb') {
-			c_id = 'uk';
-		}
-		let portal_country = portals.find(portal => portal.id == c_id);
-		if (portal_country) {
-			let country_name = portal_country.name;
-			let lang = getLang(req);
-			if (lang && lang.extra.countries && lang.extra.countries[portal_country.id.toUpperCase()]) {
-				country_name = lang.extra.countries[portal_country.id.toUpperCase()];
-			}
-			ip_country = {id: portal_country.id, name: country_name};
-		}
-	}
-	res.json({data: {version: VERSION, country: ip_country}});
-});
-
 // Routes with html5pushstate
 routes.routes.forEach(route => {
 	if (route.rootHTML5) {
-		app.use('/' + route.path + '*', checkCache, (req, res) => {
+		app.use('/' + '*', checkCache, (req, res) => {
 			startApp(req, res, '/' + route.path);
 		});
 	}
