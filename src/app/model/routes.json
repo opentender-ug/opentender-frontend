@@ -29,7 +29,7 @@
       "title": "Search",
       "menu": true,
       "routerLink": [
-        "/search/tender"
+        "/search"
       ],
       "children": [
         {

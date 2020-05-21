@@ -26,6 +26,7 @@
 					<a class="page-header__desktop-nav-item"
 						 *ngFor="let item of menu"
 						 [routerLinkActive]="['active']"
+						 [routerLinkActiveOptions]="{exact: false}"
 						 [routerLink]="item.routerLink"
 						 [class.active_has-sub-menu]="current && current.submenu.length > 0"
 					>{{item.title}}</a>
