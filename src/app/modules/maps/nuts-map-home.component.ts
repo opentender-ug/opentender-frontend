@@ -17,8 +17,7 @@ import {PlatformService} from '../../services/platform.service';
 			</div>
 			<div class="graph-toolbar-container">
 				<div class="graph-toolbar graph-toolbar-left">
-					<button class="tool-button" [ngClass]="{down:!map_companies}" (click)="toggle()" i18n>Buyers</button>
-					<button class="tool-button" [ngClass]="{down:map_companies}" (click)="toggle()" i18n>Suppliers</button>
+					<button class="tool-button" [ngClass]="{down:!map_companies}" i18n>Buyers</button>
 				</div>
 				<div class="graph-toolbar graph-toolbar-right">
 					<button class="tool-button" [ngClass]="{down:map_level==0}" (click)="setLevel(0)" i18n>Countries</button>
@@ -41,11 +40,6 @@ export class MapHomeComponent {
 
 	constructor(private api: ApiService, private notify: NotifyService, private i18n: I18NService, private config: ConfigService, private platform: PlatformService) {
 		this.formatTooltip = this.formatTooltipCallback.bind(this);
-		this.fillMap(this.map_level);
-	}
-
-	toggle() {
-		this.map_companies = !this.map_companies;
 		this.fillMap(this.map_level);
 	}
 
