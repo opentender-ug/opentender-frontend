@@ -1,22 +1,30 @@
-declare let gtag: Function;
-
-import {Component, OnInit, ElementRef} from '@angular/core';
-import {NavigationCancel, NavigationEnd, Router, RoutesRecognized} from '@angular/router';
-import {TitleService} from './services/title.service';
-import {PlatformService} from './services/platform.service';
+import { Component, OnInit, ElementRef } from "@angular/core";
+import {
+	NavigationCancel,
+	NavigationEnd,
+	Router,
+	RoutesRecognized,
+} from "@angular/router";
+import { TitleService } from "./services/title.service";
+import { PlatformService } from "./services/platform.service";
 
 /**
  * The root component for the opentender that is bootstrapped by angular
  */
 
 @Component({
-	selector: 'app',
-	templateUrl: 'app.component.html'
+	selector: "app",
+	templateUrl: "app.component.html",
 })
 export class AppComponent implements OnInit {
 	public loading: boolean = false;
 
-	constructor(private router: Router, private el: ElementRef, private titleService: TitleService, private platform: PlatformService) {
+	constructor(
+		private router: Router,
+		private el: ElementRef,
+		private titleService: TitleService,
+		private platform: PlatformService
+	) {
 		titleService.setDefault();
 		if (this.platform.isBrowser) {
 			this.checkURL(router.url);
@@ -28,7 +36,7 @@ export class AppComponent implements OnInit {
 	 */
 	ngOnInit(): void {
 		if (this.platform.isBrowser) {
-			this.router.events.subscribe(e => {
+			this.router.events.subscribe((e) => {
 				if (e instanceof RoutesRecognized) {
 					this.loading = true;
 				} else if (e instanceof NavigationCancel) {
@@ -37,10 +45,6 @@ export class AppComponent implements OnInit {
 					this.loading = false;
 					this.checkURL(e.url);
 					this.scrollToTop();
-					gtag('config', 'UA-23514826-4', {
-					  'page_title' : document.title,
-					  'page_location': window.location
-					});
 				}
 			});
 		}
@@ -52,9 +56,12 @@ export class AppComponent implements OnInit {
 	 *  check if the current router url is the root page, redirect if true to start page
 	 */
 	checkURL(url: string): void {
-		url = (url || '').split('?')[0];
-		if ((location.pathname == '/' && (url !== '/start')) || (location.pathname == '' && (url !== 'start'))) {
-			this.router.navigate(['/start']);
+		url = (url || "").split("?")[0];
+		if (
+			(location.pathname == "/" && url !== "/start") ||
+			(location.pathname == "" && url !== "start")
+		) {
+			this.router.navigate(["/start"]);
 		}
 	}
 
@@ -72,5 +79,4 @@ export class AppComponent implements OnInit {
 			}
 		}
 	}
-
 }
