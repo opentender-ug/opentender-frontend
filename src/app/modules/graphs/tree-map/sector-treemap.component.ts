@@ -16,7 +16,7 @@ import {Colors} from '../../../model/colors';
 			</div>
 			<div class="graph-toolbar-container">
 				<div class="graph-toolbar">
-					<button class="tool-button" [ngClass]="{down:this.graph==this.cpv_codes_prices}" (click)="this.graph=this.cpv_codes_prices" i18n>Volume (€)</button>
+					<button class="tool-button" [ngClass]="{down:this.graph==this.cpv_codes_prices}" (click)="this.graph=this.cpv_codes_prices" i18n>Volume ($)</button>
 					<button class="tool-button" [ngClass]="{down:this.graph==this.cpv_codes_nr}" (click)="this.graph=this.cpv_codes_nr" i18n>Nr. of Tenders</button>
 				</div>
 			</div>
@@ -75,7 +75,7 @@ export class GraphSectorTreeMap implements OnChanges, ISeriesProvider {
 
 	constructor(private router: Router, private i18n: I18NService) {
 		this.cpv_codes_nr.chart.legend = {title: i18n.get('Nr. of Tenders')};
-		this.cpv_codes_prices.chart.legend = {title: i18n.get('Volume of Tenders (€)')};
+		this.cpv_codes_prices.chart.legend = {title: i18n.get('Volume of Tenders ($)')};
 		this.cpv_codes_nr.chart.i18n = this.i18n.ChartsTranslations;
 		this.cpv_codes_prices.chart.i18n = this.i18n.ChartsTranslations;
 	}

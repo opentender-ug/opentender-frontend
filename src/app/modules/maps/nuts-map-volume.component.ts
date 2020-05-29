@@ -7,7 +7,7 @@ import {Utils} from '../../model/utils';
 	selector: 'graph[volume-nutsmap]',
 	template: `
 		<div class="graph-title" i18n>
-			Volume (€) by Region
+			Volume ($) by Region
 			<info-button></info-button>
 		</div>
 		<div class="graph-toolbar-container">
@@ -27,7 +27,7 @@ export class MapVolumeComponent {
 	public formatTooltip: (featureProperties: any) => string;
 
 	constructor(private i18n: I18NService) {
-		this.title = this.i18n.get('Volume (€)');
+		this.title = this.i18n.get('Volume ($)');
 		this.formatTooltip = this.formatTooltipCallback.bind(this);
 	}
 

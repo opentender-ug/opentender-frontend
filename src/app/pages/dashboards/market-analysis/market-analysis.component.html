@@ -57,7 +57,7 @@
 						<th i18n>CPV</th>
 						<th i18n>Name</th>
 						<th i18n>Nr. of Tenders</th>
-						<th i18n>Volume of Tenders (€)</th>
+						<th i18n>Volume of Tenders ($)</th>
 					</tr>
 				</thead>
 				<tr *ngFor="let sectorInfo of sectors_stats">
@@ -65,7 +65,7 @@
 					<td>{{sectorInfo.sector.id}}</td>
 					<td>{{sectorInfo.sector.name}}</td>
 					<td>{{sectorInfo.sector.value | formatNumber}}</td>
-					<td>€ {{sectorInfo.stats.sum_finalPriceEUR.value | formatCurrencyValue}}</td>
+					<td>$ {{sectorInfo.stats.sum_finalPriceEUR.value | formatCurrencyValue}}</td>
 				</tr>
 			</table>
 		</div>
