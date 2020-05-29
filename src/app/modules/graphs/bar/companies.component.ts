@@ -13,7 +13,7 @@ import {Colors} from '../../../model/colors';
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar graph-toolbar-left">
 				<button class="tool-button" [ngClass]="{down:mode==='nr'}" (click)="toggleValue('nr')" i18n>Nr. of Tenders</button>
-				<button class="tool-button" [ngClass]="{down:mode==='vol'}" (click)="toggleValue('vol')" i18n>Volume (€)</button>
+				<button class="tool-button" [ngClass]="{down:mode==='vol'}" (click)="toggleValue('vol')" i18n>Volume ($)</button>
 			</div>
 		</div>
 		<ngx-charts-bar-horizontal-labeled
@@ -109,7 +109,7 @@ export class GraphCompaniesComponent implements OnChanges, ISeriesProvider {
 	constructor(private router: Router, private i18n: I18NService) {
 		this.companies_absolute.chart.xAxis.label = this.i18n.get('Nr. of Tenders');
 		this.companies_absolute.chart.yAxis.label = this.i18n.get('Supplier');
-		this.companies_volume.chart.xAxis.label = this.i18n.get('Total Volume of Tenders (€)');
+		this.companies_volume.chart.xAxis.label = this.i18n.get('Total Volume of Tenders ($)');
 		this.companies_volume.chart.yAxis.label = this.i18n.get('Supplier');
 		this.companies_absolute.chart.i18n = this.i18n.ChartsTranslations;
 		this.companies_volume.chart.i18n = this.i18n.ChartsTranslations;

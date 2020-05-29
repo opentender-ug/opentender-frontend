@@ -12,8 +12,8 @@ import {Colors} from '../../../model/colors';
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar graph-toolbar-left">
 				<button class="tool-button" [ngClass]="{down:mode==='nr'}" (click)="toggleValue('nr')" i18n>Nr. of Tenders</button>
-				<button class="tool-button" [ngClass]="{down:mode==='vol'}" (click)="toggleValue('vol')" i18n>Total Volume (€)</button>
-				<button class="tool-button" [ngClass]="{down:mode==='avg'}" (click)="toggleValue('avg')" i18n>Average Volume (€)</button>
+				<button class="tool-button" [ngClass]="{down:mode==='vol'}" (click)="toggleValue('vol')" i18n>Total Volume ($)</button>
+				<button class="tool-button" [ngClass]="{down:mode==='avg'}" (click)="toggleValue('avg')" i18n>Average Volume ($)</button>
 			</div>
 		</div>
 		<ngx-charts-bar-vertical
@@ -126,9 +126,9 @@ export class GraphHistogramComponent implements OnChanges, ISeriesProvider {
 		this.lots_in_years.chart.xAxis.label = year;
 		this.lots_in_years.chart.yAxis.label = this.i18n.get('Nr. of Tenders');
 		this.sum_prices_in_years.chart.xAxis.label = year;
-		this.sum_prices_in_years.chart.yAxis.label = this.i18n.get('Volume of Tenders (€)');
+		this.sum_prices_in_years.chart.yAxis.label = this.i18n.get('Volume of Tenders ($)');
 		this.avg_prices_in_years.chart.xAxis.label = year;
-		this.avg_prices_in_years.chart.yAxis.label = this.i18n.get('Average Volume of Tenders (€)');
+		this.avg_prices_in_years.chart.yAxis.label = this.i18n.get('Average Volume of Tenders ($)');
 		this.lots_in_years.chart.i18n = this.i18n.ChartsTranslations;
 		this.avg_prices_in_years.chart.i18n = this.i18n.ChartsTranslations;
 		this.sum_prices_in_years.chart.i18n = this.i18n.ChartsTranslations;

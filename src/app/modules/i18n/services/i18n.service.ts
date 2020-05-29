@@ -168,7 +168,7 @@ export class I18NService {
 		if (value === undefined) {
 			return '';
 		}
-		return '€ ' + this.formatValue(value);
+		return '$ ' + this.formatValue(value);
 	}
 
 	public nameGuard(value: string) {

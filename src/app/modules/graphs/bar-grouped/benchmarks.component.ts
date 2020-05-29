@@ -110,7 +110,7 @@ export class GraphBenchmarksComponent implements OnChanges, ISeriesProvider {
 		});
 		this.benchmark_groups.push({
 			name: i18n.get('Contract Values'), benchmarks: [
-				{name: i18n.get('Average Value (€)'), id: 'avg_finalPriceEUR', build: 'values'}
+				{name: i18n.get('Average Value ($)'), id: 'avg_finalPriceEUR', build: 'values'}
 			]
 		});
 		this.active.benchmark_group = this.benchmark_groups[0];
