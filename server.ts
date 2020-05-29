@@ -223,6 +223,30 @@ let getLang = function(req) {
 	return lang || translations['en'];
 };
 
+let portalApp = function(req, res, country) {
+	req.originalUrl = '/';
+	render(req, res, getLang(req), country);
+};
+
+let registerPages = country => {
+	let ngApp = (req, res) => {
+		return portalApp(req, res, country);
+	};
+
+	// Routes with html5pushstate
+	routes.routes.forEach(route => {
+		let s = route.path;
+		if (s && s !== '' && s !== '**') {
+			app.use('/' + s + '*', checkCache, ngApp);
+		}
+	});
+	app.use('/', checkCache, (req, res) => {
+		return ngApp(req, res);
+	});
+};
+
+registerPages({id: Config.country.id, name: Config.country.name});
+
 // Routes with html5pushstate
 routes.routes.forEach(route => {
 	if (route.rootHTML5) {
