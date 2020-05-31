@@ -75,6 +75,9 @@ export class SelectYearRangeFilterComponent implements OnChanges {
 	onSliderChange(event) {
 		this.startYear = event.startValue;
 		this.endYear = event.endValue;
+		if (!Number.isInteger(this.startYear) || !Number.isInteger(this.endYear)) {
+			return;
+		}
 		if (event.startValue == this.minYear && event.endValue == this.maxYear) {
 			this.filter.values = null;
 		} else {
