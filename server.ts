@@ -224,7 +224,6 @@ let getLang = function(req) {
 };
 
 let portalApp = function(req, res, country) {
-	req.originalUrl = '/';
 	render(req, res, getLang(req), country);
 };
 
