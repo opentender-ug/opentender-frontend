@@ -1,13 +1,13 @@
 import {Component, Input} from '@angular/core';
 import {IStatsNuts} from '../../app.interfaces';
 import {I18NService} from '../i18n/services/i18n.service';
-import {Utils} from '../../model/utils';
+import * as Config from '../../../../config.dist.js';
 
 @Component({
 	selector: 'graph[volume-nutsmap]',
 	template: `
 		<div class="graph-title" i18n>
-			Volume ($) by Region
+			Volume ({{currencySymbol}}) by Region
 			<info-button></info-button>
 		</div>
 		<div class="graph-toolbar-container">
@@ -25,9 +25,10 @@ export class MapVolumeComponent {
 	public title: string;
 	public map_level: number = 1;
 	public formatTooltip: (featureProperties: any) => string;
+	currencySymbol = Config.currencySymbol;
 
 	constructor(private i18n: I18NService) {
-		this.title = this.i18n.get('Volume ($)');
+		this.title = this.i18n.get(`Volume (${this.currencySymbol})`);
 		this.formatTooltip = this.formatTooltipCallback.bind(this);
 	}
 
