@@ -5,6 +5,7 @@ import * as i18nlanguages from '../../../../i18n/languages.json';
 import {getCurrencySymbol} from '@angular/common';
 import {environment} from '../../../../environments/environment';
 import * as moment from 'moment';
+import * as Config from '../../../../../config.dist.js';
 
 declare module '*languages.json' {
 	export var enabled: Array<{
@@ -62,6 +63,7 @@ export class I18NService {
 		no_data: '',
 		loading: ''
 	};
+	currencySymbol = Config.currencySymbol;
 
 	constructor(@Inject(LOCALE_ID) externalLocale,
 				@Inject(TRANSLATIONS) source: string, @Inject('TRANSLATIONS_EXTRA') extra) {
@@ -168,7 +170,7 @@ export class I18NService {
 		if (value === undefined) {
 			return '';
 		}
-		return '$ ' + this.formatValue(value);
+		return `${this.currencySymbol} ` + this.formatValue(value);
 	}
 
 	public nameGuard(value: string) {

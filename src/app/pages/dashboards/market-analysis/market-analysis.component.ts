@@ -3,6 +3,7 @@ import {ApiService} from '../../../services/api.service';
 import {NotifyService} from '../../../services/notify.service';
 import {ISector, IStats, IStatsNuts, ISearchCommandFilter, IStatsInYears, IStatsCpvs, IStatsPricesInYears, IStatsProcedureType, IStatsAuthorities, IStatsCompanies} from '../../../app.interfaces';
 import {I18NService} from '../../../modules/i18n/services/i18n.service';
+import * as Config from '../../../../../config.dist.js';
 
 @Component({
 	moduleId: __filename,
@@ -36,6 +37,7 @@ export class DashboardsMarketAnalysisPage implements OnInit, OnDestroy {
 	public filter: {
 		years?: { startValue: number, endValue: number };
 	} = {};
+	currencySymbol = Config.currencySymbol;
 	@ViewChild('tableWrap') private tableWrap: ElementRef;
 	public tableHeadingCord = '0';
 	get headingTransform() {

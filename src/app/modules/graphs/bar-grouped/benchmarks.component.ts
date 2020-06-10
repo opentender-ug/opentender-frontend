@@ -5,6 +5,8 @@ import {Utils} from '../../../model/utils';
 import {I18NService} from '../../i18n/services/i18n.service';
 import {IndicatorService} from '../../../services/indicator.service';
 import {Colors} from '../../../model/colors';
+import * as Config from '../../../../../config.dist.js';
+
 
 @Component({
 	selector: 'graph[benchmarks]',
@@ -43,16 +45,12 @@ import {Colors} from '../../../model/colors';
 	styleUrls: ['benchmarks.component.scss']
 })
 export class GraphBenchmarksComponent implements OnChanges, ISeriesProvider {
-	@Input()
-	title: string;
-	@Input()
-	entityTitle: string;
-	@Input()
-	data: IStats;
-	@Input()
-	filters: Array<IBenchmarkFilter> = [];
-	@Output()
-	filtersChange = new EventEmitter();
+	@Input() title: string;
+	@Input() entityTitle: string;
+	@Input() data: IStats;
+	@Input() filters: Array<IBenchmarkFilter> = [];
+	@Output() filtersChange = new EventEmitter();
+	currencySymbol = Config.currencySymbol;
 
 	in_years: IChartBar = {
 		chart: {
@@ -110,7 +108,7 @@ export class GraphBenchmarksComponent implements OnChanges, ISeriesProvider {
 		});
 		this.benchmark_groups.push({
 			name: i18n.get('Contract Values'), benchmarks: [
-				{name: i18n.get('Average Value ($)'), id: 'avg_finalPriceEUR', build: 'values'}
+				{name: i18n.get(`Average Value (${this.currencySymbol})`), id: 'avg_finalPriceEUR', build: 'values'}
 			]
 		});
 		this.active.benchmark_group = this.benchmark_groups[0];

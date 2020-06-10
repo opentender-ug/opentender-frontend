@@ -1,10 +1,10 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {Utils} from '../../../model/utils';
 import {IChartTreeMap} from '../../../thirdparty/ngx-charts-universal/chart.interface';
 import {ISector, ISeriesProvider, IStats} from '../../../app.interfaces';
 import {Router} from '@angular/router';
 import {I18NService} from '../../i18n/services/i18n.service';
 import {Colors} from '../../../model/colors';
+import * as Config from '../../../../../config.dist.js';
 
 @Component({
 	selector: 'graph[sector-treemap]',
@@ -16,7 +16,7 @@ import {Colors} from '../../../model/colors';
 			</div>
 			<div class="graph-toolbar-container">
 				<div class="graph-toolbar">
-					<button class="tool-button" [ngClass]="{down:this.graph==this.cpv_codes_prices}" (click)="this.graph=this.cpv_codes_prices" i18n>Volume ($)</button>
+					<button class="tool-button" [ngClass]="{down:this.graph==this.cpv_codes_prices}" (click)="this.graph=this.cpv_codes_prices" i18n>Volume ({{currencySymbol}})</button>
 					<button class="tool-button" [ngClass]="{down:this.graph==this.cpv_codes_nr}" (click)="this.graph=this.cpv_codes_nr" i18n>Nr. of Tenders</button>
 				</div>
 			</div>
@@ -30,10 +30,9 @@ import {Colors} from '../../../model/colors';
 		<graph-footer [sender]="this" ></graph-footer>`
 })
 export class GraphSectorTreeMap implements OnChanges, ISeriesProvider {
-	@Input()
-	title: string;
-	@Input()
-	data: Array<{ sector: ISector; stats: IStats }>;
+	@Input() title: string;
+	@Input() data: Array<{ sector: ISector; stats: IStats }>;
+	currencySymbol = Config.currencySymbol;
 
 	cpv_codes_nr: IChartTreeMap = {
 		chart: {
@@ -75,7 +74,7 @@ export class GraphSectorTreeMap implements OnChanges, ISeriesProvider {
 
 	constructor(private router: Router, private i18n: I18NService) {
 		this.cpv_codes_nr.chart.legend = {title: i18n.get('Nr. of Tenders')};
-		this.cpv_codes_prices.chart.legend = {title: i18n.get('Volume of Tenders ($)')};
+		this.cpv_codes_prices.chart.legend = {title: i18n.get(`Volume of Tenders (${this.currencySymbol})`)};
 		this.cpv_codes_nr.chart.i18n = this.i18n.ChartsTranslations;
 		this.cpv_codes_prices.chart.i18n = this.i18n.ChartsTranslations;
 	}

@@ -21,5 +21,6 @@ module.exports = {
 	country: {
 		id: 'jm',
 		name: 'Jamaica'
-	}
+	},
+	currencySymbol: '$'
 };

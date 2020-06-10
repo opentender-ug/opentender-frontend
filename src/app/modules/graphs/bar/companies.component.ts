@@ -2,9 +2,10 @@ import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {ICompany, ISeriesProvider, IStatsCompanies} from '../../../app.interfaces';
 import {IChartBar} from '../../../thirdparty/ngx-charts-universal/chart.interface';
 import {Router} from '@angular/router';
-import {Utils} from '../../../model/utils';
 import {I18NService} from '../../i18n/services/i18n.service';
 import {Colors} from '../../../model/colors';
+import * as Config from '../../../../../config.dist.js';
+
 
 @Component({
 	selector: 'graph[companies]',
@@ -13,7 +14,7 @@ import {Colors} from '../../../model/colors';
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar graph-toolbar-left">
 				<button class="tool-button" [ngClass]="{down:mode==='nr'}" (click)="toggleValue('nr')" i18n>Nr. of Tenders</button>
-				<button class="tool-button" [ngClass]="{down:mode==='vol'}" (click)="toggleValue('vol')" i18n>Volume ($)</button>
+				<button class="tool-button" [ngClass]="{down:mode==='vol'}" (click)="toggleValue('vol')" i18n>Volume ({{currencySymbol}})</button>
 			</div>
 		</div>
 		<ngx-charts-bar-horizontal-labeled
@@ -26,14 +27,13 @@ import {Colors} from '../../../model/colors';
 	`
 })
 export class GraphCompaniesComponent implements OnChanges, ISeriesProvider {
-	@Input()
-	title: string;
-	@Input()
-	data: {
+	@Input() title: string;
+	@Input() data: {
 		absolute: IStatsCompanies,
 		volume: IStatsCompanies,
 	};
 	mode: string = 'nr';
+	currencySymbol = Config.currencySymbol;
 
 	companies_absolute: IChartBar = {
 		chart: {
@@ -109,7 +109,7 @@ export class GraphCompaniesComponent implements OnChanges, ISeriesProvider {
 	constructor(private router: Router, private i18n: I18NService) {
 		this.companies_absolute.chart.xAxis.label = this.i18n.get('Nr. of Tenders');
 		this.companies_absolute.chart.yAxis.label = this.i18n.get('Supplier');
-		this.companies_volume.chart.xAxis.label = this.i18n.get('Total Volume of Tenders ($)');
+		this.companies_volume.chart.xAxis.label = this.i18n.get(`Total Volume of Tenders (${this.currencySymbol})`);
 		this.companies_volume.chart.yAxis.label = this.i18n.get('Supplier');
 		this.companies_absolute.chart.i18n = this.i18n.ChartsTranslations;
 		this.companies_volume.chart.i18n = this.i18n.ChartsTranslations;
