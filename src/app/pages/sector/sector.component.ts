@@ -23,6 +23,7 @@ export class SectorPage implements OnInit, OnDestroy {
 	public search_cmd: ISearchCommand;
 	public crumbs: Array<IBreadcrumb> = [];
 	public columnIds = ['id', 'title', 'buyers.name', 'lots.bids.bidders.name'];
+	private defaultColumns = ['id', 'title', 'buyers.name', 'lots.bids.bidders.name'];
 	public viz: {
 		histogram: { data: IStatsPcPricesLotsInYears, title?: string };
 		score_in_years: { data: IStatsInYears, title?: string };
@@ -227,5 +228,11 @@ export class SectorPage implements OnInit, OnDestroy {
 
 	searchChange(data) {
 	}
+	public updateColumns(item) {
+		this.columnIds = item.columns;
+	}
 
+	public setDefaultColumns() {
+		this.columnIds = this.defaultColumns;
+	}
 }

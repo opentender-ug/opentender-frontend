@@ -21,6 +21,7 @@ export class CompanyPage implements OnInit, OnDestroy {
 	public country: Country;
 	public search_cmd: ISearchCommand;
 	public columnIds = ['id', 'title', 'titleEnglish', 'buyers.name', 'finalPrice'];
+	public defaultColumns = ['id', 'title', 'titleEnglish', 'buyers.name', 'finalPrice'];
 	public crumbs: Array<IBreadcrumb> = [];
 	public similar: Array<Body> = [];
 	public include_companies_ids: Array<string> = [];
@@ -104,7 +105,7 @@ export class CompanyPage implements OnInit, OnDestroy {
 
 	buildBenchmarkFilter() {
 		let active = {};
-		this.viz.stats.filters.forEach(f=>{
+		this.viz.stats.filters.forEach(f => {
 			active[f.id] = f.active;
 		});
 		this.viz.stats.filters = [];
@@ -120,7 +121,7 @@ export class CompanyPage implements OnInit, OnDestroy {
 	}
 
 	getStats(ids: Array<string>) {
-		let filters: Array<ISearchCommandFilter>= this.viz.stats.filters.filter(f => f.active).map(f => {
+		let filters: Array<ISearchCommandFilter> = this.viz.stats.filters.filter(f => f.active).map(f => {
 			if (f.id === 'sector') {
 				return {
 					field: 'ot.cpv.divisions', type: ISearchFilterDefType[ISearchFilterDefType.term], value: [f.data]
@@ -226,5 +227,11 @@ export class CompanyPage implements OnInit, OnDestroy {
 
 	searchChange(data) {
 	}
+	public updateColumns(item) {
+		this.columnIds = item.columns;
+	}
 
+	public setDefaultColumns() {
+		this.columnIds = this.defaultColumns;
+	}
 }

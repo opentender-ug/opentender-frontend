@@ -24,6 +24,7 @@ export class AuthorityPage implements OnInit, OnDestroy {
 	public notFound: boolean = false;
 	public search_cmd: ISearchCommand;
 	public columnIds = ['id', 'title', 'titleEnglish', 'lots.bids.bidders.name', 'finalPrice'];
+	public defaultColumns = ['id', 'title', 'titleEnglish', 'lots.bids.bidders.name', 'finalPrice'];
 	private subscription: any;
 	private include_authorities_ids: Array<string> = [];
 	public similar: Array<Body> = [];
@@ -80,7 +81,7 @@ export class AuthorityPage implements OnInit, OnDestroy {
 				(error) => {
 					this.display(null);
 					if (error.status == 404) {
-						this.notFound = true
+						this.notFound = true;
 					} else {
 						this.notify.error(error);
 					}
@@ -226,6 +227,11 @@ export class AuthorityPage implements OnInit, OnDestroy {
 
 	searchChange(data) {
 	}
+	public updateColumns(item) {
+		this.columnIds = item.columns;
+	}
 
-
+	public setDefaultColumns() {
+		this.columnIds = this.defaultColumns;
+	}
 }
