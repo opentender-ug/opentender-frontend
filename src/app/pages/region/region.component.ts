@@ -21,6 +21,7 @@ export class RegionPage implements OnInit, OnDestroy {
 	private loading: number = 0;
 	public search_cmd: ISearchCommand;
 	public columnIds = ['id', 'title', 'titleEnglish', 'buyers.name', 'lots.bids.bidders'];
+	public defaultColumns = ['id', 'title', 'titleEnglish', 'buyers.name', 'lots.bids.bidders'];
 	private subscription: any;
 
 	public viz: {
@@ -158,5 +159,11 @@ export class RegionPage implements OnInit, OnDestroy {
 
 	public searchChange(data): void {
 	}
+	public updateColumns(item) {
+		this.columnIds = item.columns;
+	}
 
+	public setDefaultColumns() {
+		this.columnIds = this.defaultColumns;
+	}
 }
