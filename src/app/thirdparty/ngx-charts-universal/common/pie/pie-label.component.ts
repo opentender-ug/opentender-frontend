@@ -45,6 +45,7 @@ export class PieLabelComponent implements OnChanges {
 	textAnc: string = 'end';
 	texts: Array<string> = [];
 	offsetY: number = 0;
+	charCount: number = 40;
 
 	constructor(element: ElementRef, private platform: PlatformService) {
 		this.element = element.nativeElement;
@@ -77,7 +78,7 @@ export class PieLabelComponent implements OnChanges {
 		this.line = `M${innerArc.centroid(this.data)}L${outerArc.centroid(this.data)}L${this.labelXY}`;
 		this.transform = `translate(${this.labelXY})`;
 		this.textAnc = this.textAnchor();
-		this.texts = splitLabel(this.label);
+		this.texts = splitLabel(this.label, this.charCount);
 		this.offsetY = -((this.texts.length * this.textHeight) / 2) + (this.textHeight / 2);
 		//
 		// if (this.platform.isBrowser) {
