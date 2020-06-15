@@ -230,7 +230,7 @@
 									</div>
 								</div>
 								<div class="container-left-1">
-									<div class="inline-info" *ngIf="bid.price | defined">
+									<div class="inline-info inline-info_d_b" *ngIf="bid.price | defined">
 										<h4 i18n>Price</h4>
 										<tender-price [price]="bid.price"></tender-price>
 									</div>
@@ -511,7 +511,7 @@
 					<h4 i18n>Variants Accepted</h4>
 					{{tender.areVariantsAccepted}}
 				</div>
-				<div class="inline-info" *ngIf="tender.buyerAssignedId | defined">
+				<div class="inline-info inline-info_d_b" *ngIf="tender.buyerAssignedId | defined">
 					<h4 i18n>Buyer Assigned ID</h4>
 					{{tender.buyerAssignedId}}
 				</div>
