@@ -135,12 +135,12 @@ export class SliderComponent implements OnChanges {
 		if (!this.compact) {
 			// TODO: better tick show/hide heuristic
 			mod = 1;
-			if (valueSpan > 10) {
-				mod = 10;
-			}
-			if (valueSpan > 100) {
-				mod = 100;
-			}
+			// if (valueSpan > 10) {
+			// 	mod = 10;
+			// }
+			// if (valueSpan > 100) {
+			// 	mod = 100;
+			// }
 		}
 
 		let nrOfTicks = valueSpan / this._stepValue;
@@ -148,7 +148,9 @@ export class SliderComponent implements OnChanges {
 		this.ticks = [];
 		if (valueSpan > 0) {
 			for (let i = 0; i <= valueSpan; i = i + this._stepValue) {
+				mod = 1;
 				this.ticks.push({value: this._min + i, width: this.tickWidth, show: i % mod === 0});
+				console.log('show', i, mod, i % mod);
 			}
 		}
 		if (this.ticks.length > 0) {
