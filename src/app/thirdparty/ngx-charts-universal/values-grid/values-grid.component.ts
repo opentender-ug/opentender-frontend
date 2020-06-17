@@ -66,6 +66,7 @@ export class ValuesGridComponent extends BaseChartComponent {
 	margin = [10, 10, 10, 10];
 	series: any[] = [];
 	getTooltipText = getTooltipLabeledText;
+	labelRowLength = 25;
 
 	constructor(protected chartElement: ElementRef, protected zone: NgZone, protected cd: ChangeDetectorRef, protected platform: PlatformService) {
 		super(chartElement, zone, cd, platform);
@@ -126,7 +127,7 @@ export class ValuesGridComponent extends BaseChartComponent {
 				innerRadius,
 				outerRadius: radius,
 				label,
-				labels: labelLeft ? [label] : splitLabel(label),
+				labels: labelLeft ? [label] : splitLabel(label, this.labelRowLength),
 				total: this.chart.maxValue,
 				formattedLabelNumber: this.formatLabelNumber(value),
 				value,
