@@ -30,15 +30,15 @@ export const TenderFilterDefs: Array<ISearchFilterDef> = [
 		},
 		size: 30
 	},
-	{
-		id: 'buyers.mainActivities',
-		name: 'Main Activities',
-		group: 'Buyer',
-		field: 'buyers.mainActivities',
-		type: ISearchFilterDefType.select,
-		valueFormatter: Utils.expandUnderlined,
-		size: 30
-	},
+	// {
+	// 	id: 'buyers.mainActivities',
+	// 	name: 'Main Activities',
+	// 	group: 'Buyer',
+	// 	field: 'buyers.mainActivities',
+	// 	type: ISearchFilterDefType.select,
+	// 	valueFormatter: Utils.expandUnderlined,
+	// 	size: 30
+	// },
 	{
 		id: 'buyers.buyerType',
 		name: 'Type',
@@ -57,24 +57,32 @@ export const TenderFilterDefs: Array<ISearchFilterDef> = [
 		aggregation_field: 'lots.bids.bidders.name.raw',
 		aggregation_type: ISearchFilterDefType.term
 	},
+	// {
+	// 	id: 'lots.bids.bidders.address.city',
+	// 	name: 'City',
+	// 	group: 'Supplier',
+	// 	field: 'lots.bids.bidders.address.city',
+	// 	type: ISearchFilterDefType.text,
+	// 	valueFormatter: Utils.capitalize
+	// },
+	// {
+	// 	id: 'lots.bids.bidders.address.country',
+	// 	name: 'Country',
+	// 	group: 'Supplier',
+	// 	field: 'lots.bids.bidders.address.country',
+	// 	type: ISearchFilterDefType.select,
+	// 	valueTranslater: (value, i18n) => {
+	// 		return i18n.expandCountry(value);
+	// 	},
+	// 	size: 30
+	// },
 	{
-		id: 'lots.bids.bidders.address.city',
-		name: 'City',
+		id: 'lots.bids.bidders.bidderType',
+		name: 'Supplier Type',
 		group: 'Supplier',
-		field: 'lots.bids.bidders.address.city',
-		type: ISearchFilterDefType.text,
-		valueFormatter: Utils.capitalize
-	},
-	{
-		id: 'lots.bids.bidders.address.country',
-		name: 'Country',
-		group: 'Supplier',
-		field: 'lots.bids.bidders.address.country',
+		field: 'lots.bids.bidders.bidderType',
 		type: ISearchFilterDefType.select,
-		valueTranslater: (value, i18n) => {
-			return i18n.expandCountry(value);
-		},
-		size: 30
+		valueFormatter: Utils.expandUnderlined
 	},
 	{
 		id: 'lots.bidsCount',
@@ -83,18 +91,25 @@ export const TenderFilterDefs: Array<ISearchFilterDef> = [
 		field: 'lots.bidsCount',
 		type: ISearchFilterDefType.value
 	},
-	{
-		id: 'lots.validBidsCount',
-		name: 'Valid Bids Count',
-		group: 'Lots',
-		field: 'lots.validBidsCount',
-		type: ISearchFilterDefType.value
-	},
+	// {
+	// 	id: 'lots.validBidsCount',
+	// 	name: 'Valid Bids Count',
+	// 	group: 'Lots',
+	// 	field: 'lots.validBidsCount',
+	// 	type: ISearchFilterDefType.value
+	// },
+	// {
+	// 	id: 'lots.electronicBidsCount',
+	// 	name: 'Electronic Bids Count',
+	// 	group: 'Lots',
+	// 	field: 'lots.electronicBidsCount',
+	// 	type: ISearchFilterDefType.value
+	// },
 	{
 		id: 'lots.electronicBidsCount',
-		name: 'Electronic Bids Count',
+		name: 'Requested Bids Count',
 		group: 'Lots',
-		field: 'lots.electronicBidsCount',
+		field: 'lots.requestedBidsCount',
 		type: ISearchFilterDefType.value
 	},
 
@@ -108,14 +123,14 @@ export const TenderFilterDefs: Array<ISearchFilterDef> = [
 		aggregation_type: ISearchFilterDefType.term,
 		valueFormatter: Utils.capitalize
 	},
-	{
-		id: 'titleEnglish',
-		name: 'Title English',
-		group: 'Tender',
-		field: 'titleEnglish',
-		type: ISearchFilterDefType.text,
-		valueFormatter: Utils.capitalize
-	},
+	// {
+	// 	id: 'titleEnglish',
+	// 	name: 'Title English',
+	// 	group: 'Tender',
+	// 	field: 'titleEnglish',
+	// 	type: ISearchFilterDefType.text,
+	// 	valueFormatter: Utils.capitalize
+	// },
 	{
 		id: 'country',
 		name: 'Country',
@@ -156,26 +171,26 @@ export const TenderFilterDefs: Array<ISearchFilterDef> = [
 		size: 30
 	},
 
-	{
-		id: 'fundings.isEuFund',
-		name: 'EU-Fund',
-		group: 'Funding',
-		field: 'fundings.isEuFund',
-		type: ISearchFilterDefType.bool,
-		valueFormatter: (val) => {
-			return val ? 'EU funded' : 'Not EU funded';
-		}
-	},
-	{
-		id: 'funding.programme',
-		name: 'Programme',
-		group: 'Funding',
-		field: 'fundings.programme',
-		type: ISearchFilterDefType.text,
-		aggregation_field: 'fundings.programme.raw',
-		aggregation_type: ISearchFilterDefType.term,
-		size: 30
-	},
+	// {
+	// 	id: 'fundings.isEuFund',
+	// 	name: 'EU-Fund',
+	// 	group: 'Funding',
+	// 	field: 'fundings.isEuFund',
+	// 	type: ISearchFilterDefType.bool,
+	// 	valueFormatter: (val) => {
+	// 		return val ? 'EU funded' : 'Not EU funded';
+	// 	}
+	// },
+	// {
+	// 	id: 'funding.programme',
+	// 	name: 'Programme',
+	// 	group: 'Funding',
+	// 	field: 'fundings.programme',
+	// 	type: ISearchFilterDefType.text,
+	// 	aggregation_field: 'fundings.programme.raw',
+	// 	aggregation_type: ISearchFilterDefType.term,
+	// 	size: 30
+	// },
 	{
 		id: 'ot.cpv',
 		name: 'Main CPV',
@@ -238,16 +253,16 @@ export const TenderFilterDefs: Array<ISearchFilterDef> = [
 		},
 		type: ISearchFilterDefType.range,
 	},
-	{
-		id: 'indicators.score_ac',
-		name: 'Administrative Capacity',
-		group: 'Score',
-		field: 'ot.scores.value',
-		subrequest: {
-			'ot.scores.type': 'ADMINISTRATIVE'
-		},
-		type: ISearchFilterDefType.range,
-	},
+	// {
+	// 	id: 'indicators.score_ac',
+	// 	name: 'Administrative Capacity',
+	// 	group: 'Score',
+	// 	field: 'ot.scores.value',
+	// 	subrequest: {
+	// 		'ot.scores.type': 'ADMINISTRATIVE'
+	// 	},
+	// 	type: ISearchFilterDefType.range,
+	// },
 	{
 		id: 'indicators.score_ti',
 		name: 'Transparency',
@@ -260,28 +275,28 @@ export const TenderFilterDefs: Array<ISearchFilterDef> = [
 	},
 	{
 		id: 'finalPrice.netAmountEur',
-		name: 'Final Price EUR',
+		name: 'Final Price JMD',
 		group: 'Prices',
 		field: 'finalPrice.netAmountEur',
 		type: ISearchFilterDefType.value
 	},
-	{
-		id: 'documentsPrice.netAmountEur',
-		name: 'Document Price EUR',
-		group: 'Prices',
-		field: 'documentsPrice.netAmountEur',
-		type: ISearchFilterDefType.value
-	},
-	{
-		id: 'estimatedPrice.netAmountEur',
-		name: 'Estimated Price EUR',
-		group: 'Prices',
-		field: 'estimatedPrice.netAmountEur',
-		type: ISearchFilterDefType.value
-	},
+	// {
+	// 	id: 'documentsPrice.netAmountEur',
+	// 	name: 'Document Price EUR',
+	// 	group: 'Prices',
+	// 	field: 'documentsPrice.netAmountEur',
+	// 	type: ISearchFilterDefType.value
+	// },
+	// {
+	// 	id: 'estimatedPrice.netAmountEur',
+	// 	name: 'Estimated Price EUR',
+	// 	group: 'Prices',
+	// 	field: 'estimatedPrice.netAmountEur',
+	// 	type: ISearchFilterDefType.value
+	// },
 	{
 		id: 'lots.bids.price.netAmountEur',
-		name: 'Bid Price EUR',
+		name: 'Bid Price JMD',
 		group: 'Prices',
 		field: 'lots.bids.price.netAmountEur',
 		type: ISearchFilterDefType.value
@@ -301,33 +316,61 @@ export const TenderFilterDefs: Array<ISearchFilterDef> = [
 		type: ISearchFilterDefType.date,
 	},
 	{
-		id: 'estimatedCompletionDate.year',
-		name: 'Estimated Completion Year',
+		id: 'lots.committeeApprovalDate',
+		name: 'Committee Approval Date',
 		group: 'Dates',
-		field: 'estimatedCompletionDate',
-		type: ISearchFilterDefType.years,
-	},
-	{
-		id: 'estimatedCompletionDate',
-		name: 'Estimated Completion Date',
-		group: 'Dates',
-		field: 'estimatedCompletionDate',
+		field: 'lots.committeeApprovalDate',
 		type: ISearchFilterDefType.date,
 	},
 	{
-		id: 'estimatedStartDate.year',
-		name: 'Estimated Start Year',
+		id: 'lots.headOfEntityApprovalDate',
+		name: 'Head Of Entity Approval Date',
 		group: 'Dates',
-		field: 'estimatedStartDate',
-		type: ISearchFilterDefType.years,
+		field: 'lots.headOfEntityApprovalDate',
+		type: ISearchFilterDefType.date,
 	},
 	{
-		id: 'estimatedStartDate',
-		name: 'Estimated Start Date',
+		id: 'lots.endorsementDate',
+		name: 'Endorsement Date',
 		group: 'Dates',
-		field: 'estimatedStartDate',
+		field: 'lots.endorsementDate',
 		type: ISearchFilterDefType.date,
-	}
+	},
+	{
+		id: 'lots.cabinetApprovalDate',
+		name: 'Cabinet Approval Date',
+		group: 'Dates',
+		field: 'lots.cabinetApprovalDate',
+		type: ISearchFilterDefType.date,
+	},
+	// {
+	// 	id: 'estimatedCompletionDate.year',
+	// 	name: 'Estimated Completion Year',
+	// 	group: 'Dates',
+	// 	field: 'estimatedCompletionDate',
+	// 	type: ISearchFilterDefType.years,
+	// },
+	// {
+	// 	id: 'estimatedCompletionDate',
+	// 	name: 'Estimated Completion Date',
+	// 	group: 'Dates',
+	// 	field: 'estimatedCompletionDate',
+	// 	type: ISearchFilterDefType.date,
+	// },
+	// {
+	// 	id: 'estimatedStartDate.year',
+	// 	name: 'Estimated Start Year',
+	// 	group: 'Dates',
+	// 	field: 'estimatedStartDate',
+	// 	type: ISearchFilterDefType.years,
+	// },
+	// {
+	// 	id: 'estimatedStartDate',
+	// 	name: 'Estimated Start Date',
+	// 	group: 'Dates',
+	// 	field: 'estimatedStartDate',
+	// 	type: ISearchFilterDefType.date,
+	// }
 ];
 
 export const CompanyFilterDefs: Array<ISearchFilterDef> = [

@@ -219,7 +219,7 @@ export class TenderPage implements OnInit, OnDestroy {
 			this.viz.distribution.filters.push({id: 'cpv', name: this.i18n.get('Limit to same sector'), active: false});
 		}
 		if (this.tender.buyers && this.tender.buyers.length > 0 && this.tender.buyers[0].address && this.tender.buyers[0].address.ot && this.tender.buyers[0].address.ot.nutscode) {
-			this.viz.distribution.filters.push({id: 'nuts', name: this.i18n.get('Limit to same region (NUTS2)'), active: false, data: this.tender.buyers[0].address.ot.nutscode});
+			this.viz.distribution.filters.push({id: 'nuts', name: this.i18n.get('Limit to same region (Parish)'), active: false, data: this.tender.buyers[0].address.ot.nutscode});
 		}
 		if (this.tender.ot.date) {
 			this.viz.distribution.filters.push({id: 'years', name: this.i18n.get('Show all years'), active: false});
