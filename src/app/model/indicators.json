@@ -77,11 +77,6 @@
 		"name":"Transparency Indicator",
 		"plural":"Transparency Indicators",
 		"subindicators":{
-			"TRANSPARENCY_PUBLICATION_RATE":{
-				"name":"Publication rate",
-				"desc":"Publication rate is the ratio of advertised public procurement spending over the total public procurement spending of a given contracting authority.",
-				"order": 14
-			},
 			"TRANSPARENCY_NUMBER_OF_KEY_MISSING_FIELDS":{
 				"name":"Share of non-missing key fields",
 				"desc":"Number of key missing fields is the ratio of fields with missing values in the call for tender and contract award announcement related to a given tender (based on the most recently published versions)."

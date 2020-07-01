@@ -61,13 +61,13 @@ export class SliderHandleDirective implements OnChanges {
 		let borderLeftWidth = parseInt(style['borderLeftWidth'], 10);
 		let rect = target.getBoundingClientRect();
 
-		// deny dragging and selecting
-		document.ondragstart = function() {
-			return false;
-		};
-		document.body.onselectstart = function() {
-			return false;
-		};
+		// // deny dragging and selecting
+		// document.ondragstart = function() {
+		// 	return false;
+		// };
+		// document.body.onselectstart = function() {
+		// 	return false;
+		// };
 
 		// iphone safari doesn't bind this properly
 		let caller = this;

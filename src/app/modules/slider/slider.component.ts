@@ -150,7 +150,6 @@ export class SliderComponent implements OnChanges {
 			for (let i = 0; i <= valueSpan; i = i + this._stepValue) {
 				mod = 1;
 				this.ticks.push({value: this._min + i, width: this.tickWidth, show: i % mod === 0});
-				console.log('show', i, mod, i % mod);
 			}
 		}
 		if (this.ticks.length > 0) {
