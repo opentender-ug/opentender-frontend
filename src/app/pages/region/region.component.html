@@ -25,7 +25,7 @@
 				</div>
 			</div>
 			<div class="container">
-				<graph benchmarks [data]="viz.benchmarks.data" [title]="viz.benchmarks.title" [entityTitle]="region.name" [filters]="viz.benchmarks.filters" (filtersChange)="benchmarkFilterChange($event)"></graph>
+				<graph benchmarks [data]="viz.benchmarks.data" [title]="viz.benchmarks.title" [entityTitle]="region.name" [filters]="viz.benchmarks.filters" [footerLegend]="REGION_BENCHMARK" (filtersChange)="benchmarkFilterChange($event)"></graph>
 			</div>
 		</div>
 		<div class="container">

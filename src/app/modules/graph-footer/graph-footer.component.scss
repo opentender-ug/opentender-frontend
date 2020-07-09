@@ -37,6 +37,39 @@
 			vertical-align: top;
 			line-height: 22px;
 		}
+
+		&__item {
+			font-size: 12px;
+			display: flex;
+			align-items: center;
+
+			& + & {
+				margin-left: 20px;
+			}
+
+			&_current,
+			&_average {
+				&::before {
+					display: block;
+					content: '';
+					width: 12px;
+					height: 12px;
+					margin-right: 5px;
+				}
+			}
+
+			&_current {
+				&::before {
+					background-color: #4e99ca;
+				}
+			}
+
+			&_average {
+				&::before {
+					background-color: #2b908f;
+				}
+			}
+		}
 	}
 
 }

@@ -8,7 +8,7 @@ import {
 	IApiResultDownloadTenderSearch, IApiResultNuts,
 	IApiResultPortalsStats, IApiResultRegion, IApiResultSearchAuthority, IApiResultSearchCompany, IApiResultSearchTender,
 	IGetByIdCommand, IApiResultSector, IApiResultSectors, IApiResultStat, IApiResultStatStats, IApiResultTender,
-	ISearchCommand, IApiResultAutoComplete, IApiResultPing, IDownload, IDownloadOCDS
+	ISearchCommand, IApiResultAutoComplete, IApiResultPing, IDownload, IDownloadOCDS, INutsNames
 } from '../app.interfaces';
 
 @Injectable()
@@ -167,7 +167,9 @@ export class ApiService {
 		return this.http.get<IApiResultGeoJSON>(this.absUrl + '/data/nuts/nuts_20M_lvl' + level + '.geo.json');
 	}
 
-
+	getNutsNames(): Observable<INutsNames>  {
+		return this.http.get<INutsNames>(this.absUrl + '/data/nuts/nuts_names.json');
+	}
 }
 
 

@@ -40,7 +40,7 @@ import * as Config from '../../../../../config.dist.js';
 				[chart]="graph.chart"
 				[data]="graph.data">
 		</ngx-charts-bar-vertical-grouped>
-		<graph-footer [sender]="this"></graph-footer>
+		<graph-footer [colsGraDLegend]="footerLegend" [sender]="this"></graph-footer>
 	`,
 	styleUrls: ['benchmarks.component.scss']
 })
@@ -49,6 +49,7 @@ export class GraphBenchmarksComponent implements OnChanges, ISeriesProvider {
 	@Input() entityTitle: string;
 	@Input() data: IStats;
 	@Input() filters: Array<IBenchmarkFilter> = [];
+	@Input() footerLegend;
 	@Output() filtersChange = new EventEmitter();
 	currencySymbol = Config.currencySymbol;
 

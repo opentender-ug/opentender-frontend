@@ -12,7 +12,10 @@ import * as Config from '../../../../../config.dist.js';
 		<div class="graph-header">
 			<div class="graph-title">
 				{{title}}
-				<info-button></info-button>
+				<info-button>
+					<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
+						incididunt ut labore et dolore magna aliqua.</p>
+				</info-button>
 			</div>
 			<div class="graph-toolbar-container">
 				<div class="graph-toolbar">
