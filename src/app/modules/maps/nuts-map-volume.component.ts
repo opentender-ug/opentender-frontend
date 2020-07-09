@@ -8,7 +8,10 @@ import * as Config from '../../../../config.dist.js';
 	template: `
 		<div class="graph-title" i18n>
 			Volume ({{currencySymbol}}) by Region
-			<info-button></info-button>
+			<info-button>
+				<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
+					incididunt ut labore et dolore magna aliqua.</p>
+			</info-button>
 		</div>
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar graph-toolbar-right">

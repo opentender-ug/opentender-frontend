@@ -6,6 +6,7 @@ import {NotifyService} from '../../services/notify.service';
 import {TitleService} from '../../services/title.service';
 import {IStats, IRegion, IStatsRegion, IStatsAuthorities, IStatsCompanies, ISearchCommand, IStatsNuts, IStatsInYears, IBreadcrumb, IStatsIndicators, IStatsDistributionInYears, IBenchmarkFilter} from '../../app.interfaces';
 import {I18NService} from '../../modules/i18n/services/i18n.service';
+import {REGION_BENCHMARK} from '../../model/gradLegend';
 
 @Component({
 	moduleId: __filename,
@@ -23,6 +24,7 @@ export class RegionPage implements OnInit, OnDestroy {
 	public columnIds = ['id', 'title', 'titleEnglish', 'buyers.name', 'lots.bids.bidders'];
 	public defaultColumns = ['id', 'title', 'titleEnglish', 'buyers.name', 'lots.bids.bidders'];
 	private subscription: any;
+	public REGION_BENCHMARK = REGION_BENCHMARK;
 
 	public viz: {
 		top_companies: { data: { absolute: IStatsCompanies, volume: IStatsCompanies }, title?: string };

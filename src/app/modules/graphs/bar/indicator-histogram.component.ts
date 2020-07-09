@@ -10,7 +10,16 @@ import * as Config from '../../../../../config.dist.js';
 @Component({
 	selector: 'graph[indicator-histogram]',
 	template: `
-		<div class="graph-title" i18n>{{title}} over Time</div>
+		<div class="graph-title" i18n>{{title}} over Time
+			<info-button *ngIf="showTooltip">
+				<ul>
+					<li><strong>Nr of tenders/Average:</strong> Share of tenders in the current sector among all tenders</li>
+					<li><strong>Volume ($)/Absolute:</strong> Total value of tenders in the current sector</li>
+					<li><strong>Nr of tenders/Absolute:</strong> Nr of tenders in the current sector</li>
+					<li><strong>Volume ($)/Average:</strong> Average value of a tender in the current sector</li>
+				</ul>
+			</info-button>
+		</div>
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar graph-toolbar-left">
 				<button class="tool-button" [ngClass]="{down:mode==='nr'}" (click)="toggleValue('nr')" i18n>Nr. of Tenders</button>
@@ -31,6 +40,7 @@ import * as Config from '../../../../../config.dist.js';
 export class GraphIndicatorHistogramComponent implements OnChanges, ISeriesProvider {
 	@Input() data: IStatsPcPricesLotsInYears;
 	@Input() title: string = '';
+	@Input() showTooltip;
 
 	absolute: boolean = false;
 	mode: string = 'nr';

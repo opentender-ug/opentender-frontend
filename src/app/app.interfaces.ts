@@ -531,3 +531,7 @@ export interface IBreadcrumb {
 	name: string;
 	link?: string;
 }
+
+export interface INutsNames {
+	[key: string]: string;
+}

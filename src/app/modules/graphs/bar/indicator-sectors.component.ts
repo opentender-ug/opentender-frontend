@@ -11,7 +11,10 @@ import {Colors} from '../../../model/colors';
 	template: `
 		<div class="graph-title" i18n>
 			{{title}} per Sector
-			<info-button></info-button>
+			<info-button>
+				<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
+					incididunt ut labore et dolore magna aliqua.</p>
+			</info-button>
 		</div>
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar graph-toolbar-right">

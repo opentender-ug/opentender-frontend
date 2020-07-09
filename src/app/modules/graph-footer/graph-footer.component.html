@@ -13,10 +13,12 @@
 			</svg>
 			<span>{{gradientLegend.valueHigh | formatNumber}}</span>
 		</div>
+		<div class="gradient_legend" *ngIf="colsGraDLegend">
+			<span *ngIf="colsGraDLegend.current" class="gradient_legend__item gradient_legend__item_current">{{colsGraDLegend.current}}</span>
+
+			<span *ngIf="colsGraDLegend.average" class="gradient_legend__item gradient_legend__item_average">{{colsGraDLegend.average}}</span>
+		</div>
 		<div class="graph-toolbar">
-<!--			<button class="tool-button" *ngIf="infoRouterLink" [routerLink]="infoRouterLink" [pageScroll]="infoPageScroll"><i class="icon-info"></i>-->
-<!--				<ng-container i18n>Info</ng-container>-->
-<!--			</button>-->
 			<button class="btn btn_small btn_main-inverted btn_with-icon btn_with-icon_download" (click)="this.show()" i18n-title title="Download Data">
 				<ng-container i18n>Download Data</ng-container>
 			</button>

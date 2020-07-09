@@ -16,12 +16,10 @@ export class GraphFooterComponent {
 	showDialog: boolean = false;
 	series: ISeries;
 	table: ISeriesDataTable;
-	@Input()
-	infoRouterLink: string | Array<string>;
-	@Input()
-	infoPageScroll: string;
-	@Input()
-	gradientLegend: { valueLow: number; valueHigh: number; colorLow: string; colorHigh: string; };
+	@Input() infoRouterLink: string | Array<string>;
+	@Input() infoPageScroll: string;
+	@Input() gradientLegend: { valueLow: number; valueHigh: number; colorLow: string; colorHigh: string; };
+	@Input() colsGraDLegend;
 	gradId = new UrlId();
 
 	constructor(private platform: PlatformService) {
