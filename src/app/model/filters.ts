@@ -383,25 +383,26 @@ export const CompanyFilterDefs: Array<ISearchFilterDef> = [
 		aggregation_field: 'body.name.raw',
 		aggregation_type: ISearchFilterDefType.term
 	},
-	{
-		id: 'body.address.city',
-		name: 'City',
-		group: 'Company',
-		field: 'body.address.city',
-		type: ISearchFilterDefType.text,
-		valueFormatter: Utils.capitalize
-	},
-	{
-		id: 'body.address.country',
-		name: 'Country',
-		group: 'Company',
-		field: 'body.address.country',
-		type: ISearchFilterDefType.select,
-		valueTranslater: (value, i18n) => {
-			return i18n.expandCountry(value);
-		},
-		size: 30
-	}];
+	// {
+	// 	id: 'body.address.city',
+	// 	name: 'City',
+	// 	group: 'Company',
+	// 	field: 'body.address.city',
+	// 	type: ISearchFilterDefType.text,
+	// 	valueFormatter: Utils.capitalize
+	// },
+	// {
+	// 	id: 'body.address.country',
+	// 	name: 'Country',
+	// 	group: 'Company',
+	// 	field: 'body.address.country',
+	// 	type: ISearchFilterDefType.select,
+	// 	valueTranslater: (value, i18n) => {
+	// 		return i18n.expandCountry(value);
+	// 	},
+	// 	size: 30
+	// }
+	];
 
 export const AuthorityFilterDefs: Array<ISearchFilterDef> = [
 	{
@@ -413,34 +414,34 @@ export const AuthorityFilterDefs: Array<ISearchFilterDef> = [
 		aggregation_field: 'body.name.raw',
 		aggregation_type: ISearchFilterDefType.term
 	},
-	{
-		id: 'body.address.city',
-		name: 'City',
-		group: 'Authority',
-		field: 'body.address.city',
-		type: ISearchFilterDefType.text,
-		valueFormatter: Utils.capitalize
-	},
-	{
-		id: 'body.address.country',
-		name: 'Country',
-		group: 'Authority',
-		field: 'body.address.country',
-		valueTranslater: (value, i18n) => {
-			return i18n.expandCountry(value);
-		},
-		type: ISearchFilterDefType.select,
-		size: 30
-	},
-	{
-		id: 'body.mainActivities',
-		name: 'Main Activities',
-		group: 'Authority',
-		field: 'body.mainActivities',
-		type: ISearchFilterDefType.select,
-		valueFormatter: Utils.expandUnderlined,
-		size: 30
-	},
+	// {
+	// 	id: 'body.address.city',
+	// 	name: 'City',
+	// 	group: 'Authority',
+	// 	field: 'body.address.city',
+	// 	type: ISearchFilterDefType.text,
+	// 	valueFormatter: Utils.capitalize
+	// },
+	// {
+	// 	id: 'body.address.country',
+	// 	name: 'Country',
+	// 	group: 'Authority',
+	// 	field: 'body.address.country',
+	// 	valueTranslater: (value, i18n) => {
+	// 		return i18n.expandCountry(value);
+	// 	},
+	// 	type: ISearchFilterDefType.select,
+	// 	size: 30
+	// },
+	// {
+	// 	id: 'body.mainActivities',
+	// 	name: 'Main Activities',
+	// 	group: 'Authority',
+	// 	field: 'body.mainActivities',
+	// 	type: ISearchFilterDefType.select,
+	// 	valueFormatter: Utils.expandUnderlined,
+	// 	size: 30
+	// },
 	{
 		id: 'body.buyerType',
 		name: 'Buyer Type',

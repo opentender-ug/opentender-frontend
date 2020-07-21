@@ -372,6 +372,10 @@ declare namespace Definitions {
 		 * cancellationDate
 		 */
 		cancellationDate?: Date; // ^\d{4}-[01]\d-[0-3]\d$
+		committeeApprovalDate?: Date; // ^\d{4}-[01]\d-[0-3]\d$
+		headOfEntityApprovalDate?: Date; // ^\d{4}-[01]\d-[0-3]\d$
+		endorsementDate?: Date; // ^\d{4}-[01]\d-[0-3]\d$
+		cabinetApprovalDate?: Date; // ^\d{4}-[01]\d-[0-3]\d$
 		completionDate?: Date; // ^\d{4}-[01]\d-[0-3]\d$
 		selectionMethod?: SelectionMethod;
 		/**
