@@ -203,13 +203,13 @@ export class ApiService {
 
 	getDownloads(): Observable<Array<IDownload>> {
 		return this.http.get<Array<IDownload>>(
-			this.absUrl + "/assets/data/files/downloads.json"
+			this.absUrl + "/data/files/downloads.json"
 		);
 	}
 
 	getOCDSDownloads(): Observable<Array<IDownloadOCDS>> {
 		return this.http.get<Array<IDownloadOCDS>>(
-			this.absUrl + "/assets/data/files/downloads_ocds.json"
+			this.absUrl + "/data/files/downloads_ocds.json"
 		);
 	}
 
