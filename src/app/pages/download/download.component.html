@@ -7,7 +7,7 @@
     <div class="download-table">
         <div class="download-column download-headline">
             <h1>{{current.name}}</h1><br>
-            <ng-container i18n>Tenders</ng-container>: {{current.count | number}}
+            <ng-container i18n>Tenders</ng-container>: {{current.count}}
         </div>
         <div class="download-column download-csv">
             <h2>CSV</h2>
@@ -103,7 +103,7 @@
     <div class="download-row" *ngFor="let download of downloads; last as isLast" [ngClass]="{'last-row' : isLast}">
         <div class="download-column download-headline">
             <h1 class="download-name">{{download.name}}</h1>
-            <div class="download-count">{{download.count | number}}</div>
+            <div class="download-count">{{download.count}}</div>
         </div>
         <div class="download-column download-csv">
             <div *ngIf="download.formats.csv">
