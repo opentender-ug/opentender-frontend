@@ -2,9 +2,9 @@
 import Bidder = Definitions.Bidder;
 import Tender = Definitions.Tender;
 import Buyer = Definitions.Buyer;
-import {Country} from './services/config.service';
-import {IChartData} from './thirdparty/ngx-charts-universal/chart.interface';
-import {FeatureCollection, GeometryObject} from 'geojson';
+import { Country } from "./services/config.service";
+import { IChartData } from "./thirdparty/ngx-charts-universal/chart.interface";
+import { FeatureCollection, GeometryObject } from "geojson";
 
 /* data objects from api */
 
@@ -51,6 +51,7 @@ export interface IDownloadOCDS {
 	filename: string;
 	lastUpdate: number;
 	size: number;
+	country: string;
 }
 
 /* stats objects from api */
@@ -73,7 +74,7 @@ export interface IStatsDistributionInYears {
 	[id: string]: {
 		[year: string]: {
 			[key: string]: number;
-		}
+		};
 	};
 }
 
@@ -179,7 +180,7 @@ export interface IStats {
 	histogram_distribution_indicators: IStatsDistributionInYears;
 	histogram_count_finalPrices: IStatsPcPricesLotsInYears;
 	sectors_stats: Array<{ sector: ISector; stats: IStats }>;
-	region_stats: Array<{ id: string; value: number, stats: IStats }>;
+	region_stats: Array<{ id: string; value: number; stats: IStats }>;
 	benchmark: IStats;
 }
 
@@ -234,7 +235,7 @@ export interface IApiResultTender {
 
 export interface IApiResultSectors {
 	data: {
-		[cpvcode: string]: { name: string; value: number; level: string }
+		[cpvcode: string]: { name: string; value: number; level: string };
 	};
 }
 
@@ -309,7 +310,7 @@ export interface IApiResultStatStats {
 export interface IApiResultPing {
 	data: {
 		version: string;
-		country: Country
+		country: Country;
 	};
 }
 
@@ -320,7 +321,8 @@ export interface IApiResultAutoComplete {
 	}>;
 }
 
-export interface IApiResultGeoJSON extends FeatureCollection<GeometryObject, { id: string; name: string }> {
+export interface IApiResultGeoJSON
+	extends FeatureCollection<GeometryObject, { id: string; name: string }> {
 	crs: string;
 }
 
@@ -329,7 +331,7 @@ export interface IApiResultGeoJSON extends FeatureCollection<GeometryObject, { i
 export interface ISeries {
 	data: Array<IChartData>;
 	multi?: boolean;
-	header: { value: string, name: string };
+	header: { value: string; name: string };
 	filename: string;
 }
 
@@ -362,7 +364,7 @@ export enum ISearchFilterDefType {
 	date = 6,
 	years = 7,
 	bool = 8,
-	none = 0
+	none = 0,
 }
 
 export interface ISearchFilterValueTranslate {
@@ -380,9 +382,11 @@ export interface ISearchFilterDef {
 	aggregation_type?: ISearchFilterDefType; // if empty "type" is used for aggregation, too
 	valueFormatter?: (string) => string;
 	valueTranslater?: (string, ISearchFilterValueTranslate) => string;
-	valuesFilter?: (buckets: Array<ISearchResultBucket>) => Array<ISearchResultBucket>;
+	valuesFilter?: (
+		buckets: Array<ISearchResultBucket>
+	) => Array<ISearchResultBucket>;
 	subrequest?: {
-		[fieldname: string]: string | boolean | number
+		[fieldname: string]: string | boolean | number;
 	};
 }
 
@@ -516,7 +520,10 @@ export interface ITableLibrary {
 }
 
 export interface ITableColumnAuthority extends ITableColumn {
-	format: (authority: IAuthority, library: ITableLibrary) => Array<ITableCellLine>;
+	format: (
+		authority: IAuthority,
+		library: ITableLibrary
+	) => Array<ITableCellLine>;
 }
 
 export interface ITableColumnCompany extends ITableColumn {

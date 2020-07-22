@@ -1,38 +1,221 @@
 @import "../../../style/globals.scss";
 
 :host {
-  .container-current-download {
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid $base-border-color;
+	.downloads h1 {
+		display: inline-block;
+	}
 
-    .download-buttons {
-      margin-top: 20px;
-      text-align: center;
-      div {
-        display: inline-block;
-        padding-left: 10px;
-        padding-right: 10px;
-        .download-button {
-          margin-top: 0;
-          margin-bottom: 0;
-        }
-        p {
-          text-align: center;
-          padding-top: 0;
-          margin-top: 0;
-          font-size: 0.9em;
-        }
-      }
-    }
-  }
+	.downloads .container-title {
+		width: 100%;
+	}
 
-  td {
-    vertical-align: middle;
-  }
-  a i {
-    font-size: 26px;
-    vertical-align: middle;
-  }
+	.downloads .container-subtitle {
+		font-size: 0.9rem;
+		font-weight: 100;
+	}
 
+	.downloads .download-table {
+		box-sizing: border-box;
+		width: 100%;
+		border: 1px solid #979797;
+		height: 120px;
+		margin-top: 10px;
+		margin-bottom: 70px;
+	}
+
+	.downloads .download-column {
+		box-sizing: border-box;
+		width: 17.5%;
+		padding: 10px;
+		float: left;
+		display: table-cell;
+		vertical-align: middle;
+		height: 118px;
+	}
+
+	.downloads .download-headline {
+		width: 30%;
+		padding-left: 20px;
+	}
+
+	.downloads .download-json {
+		background-color: #e3fffa;
+	}
+
+	.downloads .download-ndjson {
+		background-color: #fff1c1;
+	}
+
+	.downloads .download-csv {
+		background-color: #e2f0ff;
+	}
+
+	.downloads .download-column h2 {
+		font-size: 16px;
+		font-weight: bold;
+		margin-bottom: 0px;
+		margin-top: 3px;
+	}
+
+	.downloads .download-column h1 {
+		margin-bottom: 0px;
+	}
+
+	.downloads .download-button {
+		width: 100%;
+		border: 1px solid rgba(25, 84, 165, 0.206867);
+		background: white;
+		margin-top: 2px;
+		padding-left: 5px;
+		padding-right: 5px;
+		font-size: 14px;
+	}
+
+	.downloads .download-button .download-name {
+		display: inline-block;
+		float: left;
+		font-weight: bold;
+	}
+
+	.downloads .download-button .download-size {
+		display: inline-block;
+		float: right;
+		font-weight: 100;
+		position: relative;
+		top: 1px;
+	}
+
+	.downloads .download-button .icon-cloud-download {
+		position: relative;
+		top: 2px;
+	}
+
+	.downloads .download-row {
+		border: 1px solid #979797;
+		border-bottom: none;
+		display: block;
+		width: 100%;
+		height: 57px;
+	}
+
+	.downloads .last-row {
+		border-bottom: 1px solid #979797;
+	}
+
+	.downloads .download-row .download-column {
+		height: 55px;
+	}
+
+	.downloads .download-row {
+		font-size: 16px;
+	}
+
+	.downloads .download-row h1 {
+		font-size: 16px;
+		line-height: 16px;
+		margin-top: 12px;
+		display: inline-block;
+	}
+
+	.downloads .download-header {
+		background-color: #36bba4;
+		color: white;
+		font-weight: bold;
+		height: 37px;
+		border: 1px solid #979797;
+	}
+
+	.downloads .download-header .download-column {
+		height: 35px;
+	}
+
+	.downloads .download-header .header-count {
+		float: right;
+	}
+
+	.downloads .download-row .download-name {
+		display: inline-block;
+	}
+
+	.downloads .download-row .download-count {
+		float: right;
+		margin-top: 9px;
+		font-weight: 100;
+	}
+
+	.downloads .download-button .extra-short-name {
+		display: none;
+	}
+
+	.downloads .download-button .short-name {
+		display: none;
+	}
+
+	.downloads .download-button .long-name {
+		display: inline-block;
+	}
+
+	@media (max-width: 1015px) {
+		.downloads .download-button .download-size {
+			display: none;
+		}
+	}
+
+	@media (max-width: 800px) {
+		.downloads .download-button .download-size {
+			display: none;
+		}
+
+		.downloads .download-header .header-count {
+			display: none;
+		}
+
+		.downloads .download-row .download-count {
+			display: none;
+		}
+
+		.downloads .download-button .extra-short-name {
+			display: none;
+		}
+
+		.downloads .download-button .short-name {
+			display: inline-block;
+		}
+
+		.downloads .download-button .long-name {
+			display: none;
+		}
+	}
+
+	@media (max-width: 560px) {
+		.downloads .download-button .extra-short-name {
+			display: inline-block;
+		}
+
+		.downloads .download-button .short-name {
+			display: none;
+		}
+
+		.downloads .download-button .long-name {
+			display: none;
+		}
+	}
+
+	@media (max-width: 400px) {
+		.downloads .download-button .extra-short-name {
+			display: none;
+		}
+
+		.downloads .download-button .short-name {
+			display: none;
+		}
+
+		.downloads .download-button .long-name {
+			display: none;
+		}
+
+		.downloads .download-button {
+			padding-left: 12px;
+		}
+	}
 }
