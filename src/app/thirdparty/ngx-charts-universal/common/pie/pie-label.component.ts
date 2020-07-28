@@ -45,7 +45,7 @@ export class PieLabelComponent implements OnChanges {
 	textAnc: string = 'end';
 	texts: Array<string> = [];
 	offsetY: number = 0;
-	charCount: number = 40;
+	charCount: number = 50;
 
 	constructor(element: ElementRef, private platform: PlatformService) {
 		this.element = element.nativeElement;

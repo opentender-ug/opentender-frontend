@@ -106,7 +106,7 @@ export const TenderFilterDefs: Array<ISearchFilterDef> = [
 	// 	type: ISearchFilterDefType.value
 	// },
 	{
-		id: 'lots.electronicBidsCount',
+		id: 'lots.requestedBidsCount',
 		name: 'Requested Bids Count',
 		group: 'Lots',
 		field: 'lots.requestedBidsCount',
@@ -382,6 +382,14 @@ export const CompanyFilterDefs: Array<ISearchFilterDef> = [
 		type: ISearchFilterDefType.text,
 		aggregation_field: 'body.name.raw',
 		aggregation_type: ISearchFilterDefType.term
+	},
+	{
+		id: 'lots.bids.bidders.bidderType',
+		name: 'Supplier Type',
+		group: 'Supplier',
+		field: 'lots.bids.bidders.bidderType',
+		type: ISearchFilterDefType.select,
+		valueFormatter: Utils.expandUnderlined
 	},
 	// {
 	// 	id: 'body.address.city',

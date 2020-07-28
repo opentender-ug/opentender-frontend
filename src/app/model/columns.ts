@@ -108,20 +108,20 @@ export const AuthorityColumns: Array<ITableColumnAuthority> = [
 		},
 		format: (authority, library): Array<ITableCellLine> => [{content: library.i18n.formatValue(authority.count)}]
 	},
-	{
-		name: 'Main Activities',
-		id: 'body.mainActivities',
-		group: 'Authority',
-		sortBy: {
-			id: 'body.mainActivities',
-			ascend: true
-		},
-		format: (authority, library): Array<ITableCellLine> => {
-			return (authority.body.mainActivities || []).map(activity => {
-				return {content: Utils.expandUnderlined(activity)};
-			});
-		}
-	},
+	// {
+	// 	name: 'Main Activities',
+	// 	id: 'body.mainActivities',
+	// 	group: 'Authority',
+	// 	sortBy: {
+	// 		id: 'body.mainActivities',
+	// 		ascend: true
+	// 	},
+	// 	format: (authority, library): Array<ITableCellLine> => {
+	// 		return (authority.body.mainActivities || []).map(activity => {
+	// 			return {content: Utils.expandUnderlined(activity)};
+	// 		});
+	// 	}
+	// },
 	{
 		name: 'Buyer Type',
 		id: 'body.buyerType',
@@ -273,6 +273,37 @@ export const TenderColumns: Array<ITableColumnTender> = [
 	// 		return ColumnsFormatUtils.checkEntryCollapse(ColumnsFormatUtils.sortListByContent(result), library);
 	// 	}
 	// },
+	{
+		name: 'Supplier Type',
+		id: 'lots.bids.bidder.body.bidderType',
+		group: 'Supplier',
+		sortBy: {
+			id: 'lots.bids.bidder.body.bidderType',
+			ascend: true
+		},
+		format: (tender, library) => {
+			if (!tender.lots) {
+				return [];
+			}
+			let result: Array<ITableCellLine> = [];
+			tender.lots.forEach((lot: Lot) => {
+				if (lot.bids) {
+					lot.bids.forEach((bid: Bid) => {
+						if (bid.bidders) {
+							bid.bidders.forEach((bidder: Bidder) => {
+								if (bidder.bidderType) {
+									result.push({
+										content: bidder.bidderType
+									});
+								}
+							});
+						}
+					});
+				}
+			});
+			return ColumnsFormatUtils.checkEntryCollapse(ColumnsFormatUtils.sortListByContent(result), library);
+		}
+	},
 	{
 		name: 'Buyer',
 		id: 'buyers.name',
@@ -1023,6 +1054,30 @@ export const TenderColumns: Array<ITableColumnTender> = [
 			return ColumnsFormatUtils.checkEntryCollapse(result, library);
 		}
 	},
+	{
+		name: 'Requested Bids Count',
+		id: 'lots.requestedBidsCount',
+		group: 'Lots',
+		sortBy: {
+			id: 'lots.requestedBidsCount',
+			ascend: false
+		},
+		format: (tender, library) => {
+			if (!tender.lots) {
+				return [];
+			}
+			let result: Array<ITableCellLine> = [];
+			tender.lots.forEach((lot: Lot, index_l: number) => {
+				if (Utils.isDefined(lot.requestedBidsCount)) {
+					result.push({
+						prefix: (tender.lots.length > 1) ? library.i18n.get('Lot') + ' ' + (index_l + 1) : undefined,
+						content: lot.requestedBidsCount.toString()
+					});
+				}
+			});
+			return ColumnsFormatUtils.checkEntryCollapse(result, library);
+		}
+	}
 	// {
 	// 	name: 'Valid Bids Count',
 	// 	id: 'lots.validBidsCount',
