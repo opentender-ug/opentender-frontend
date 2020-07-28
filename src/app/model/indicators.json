@@ -29,16 +29,6 @@
 				"desc":"Length of decision period signals risks when the the decision period length is either suspiciously short or suspiciously long.",
 				"order":5
 			},
-			"INTEGRITY_NEW_COMPANY":{
-				"name":"New company",
-				"desc":"New company signals the risk of a very young company winning a tender (younger than 1 year at the time of winning).",
-				"order":6
-			},
-			"INTEGRITY_TAX_HAVEN":{
-				"name":"Tax haven",
-				"desc":"Tax haven signals a risk when the supplier is located in a tax haven country (based on the financial secrecy index).",
-				"order":7
-			},
 			"INTEGRITY_DESCRIPTION_LENGTH":{
 				"name":"Description length",
 				"desc":"Product description length signals the risk of product description being tailored to one company, when the description is excessively long.",
@@ -50,7 +40,7 @@
 				"order":9
 			},
 			"INTEGRITY_WINNER_CA_SHARE":{
-				"name":"Winner contract share",
+				"name":"Winner's contract share by buyers",
 				"desc":"Winner contract share is the share of contract value won by a given company from a given buyer in a given year.",
 				"order":10
 			},
@@ -65,7 +55,7 @@
 				"order":12
 			},
 			"INTEGRITY_NR_OF_REQUESTED_BIDS":{
-				"name":"Number of requested bids",
+				"name":"Low number of requested bids",
 				"desc":"Low number of requested bids signals a risk when only low number of bidders can submit bids in a competitive market.",
 				"order":13
 			}
@@ -78,67 +68,67 @@
 		"plural":"Transparency Indicators",
 		"subindicators":{
 			"TRANSPARENCY_BUYER_NAME_MISSING":{
-				"name":"Non-missing buyer name",
+				"name":"Share of non-missing buyer name",
 				"desc":"Buyer name is not missing in the published notice.",
 				"order":1
 			},
 			"TRANSPARENCY_YEAR_MISSING":{
-				"name":"Non-missing year info",
+				"name":"Share of non-missing year info",
 				"desc":"Year is not missing in the published notice.",
 				"order":2
 			},
 			"TRANSPARENCY_TITLE_MISSING":{
-				"name":"Non-missing title",
+				"name":"Share of non-missing title",
 				"desc":"Title is not missing in the published notice.",
 				"order":3
 			},
 			"TRANSPARENCY_BIDDER_NAME_MISSING":{
-				"name":"Non-missing bidder name",
+				"name":"Share of non-missing bidder name",
 				"desc":"Bidder name is not missing in the published notice.",
 				"order":4
 			},
 			"TRANSPARENCY_BIDDER_ID_MISSING":{
-				"name":"Non-missing bidder ID",
+				"name":"Share of non-missing bidder ID",
 				"desc":"Bidd ID is not missing in the published notice.",
 				"order":5
 			},
 			"TRANSPARENCY_CA_TYPE_MISSING":{
-				"name":"Non-missing buyer type",
+				"name":"Share of non-missing buyer type",
 				"desc":"Buyer type is not missing in the published notice.",
 				"order":6
 			},
 			"TRANSPARENCY_VALUE_MISSING":{
-				"name":"Non-missing contract value",
+				"name":"Share of non-missing contract value",
 				"desc":"Contract value is not missing in the published notice.",
 				"order":7
 			},
 			"TRANSPARENCY_IMP_LOC_MISSING":{
-				"name":"Non-missing implementation location",
+				"name":"Share of non-missing implementation location",
 				"desc":"Implementation location is not missing in the published notice.",
 				"order":8
 			},
 			"TRANSPARENCY_PROC_METHOD_MISSING":{
-				"name":"Non-missing procedure type",
+				"name":"Share of non-missing procedure type",
 				"desc":"Procedure type is not missing in the published notice.",
 				"order":9
 			},
 			"TRANSPARENCY_BID_NR_MISSING":{
-				"name":"Non-missing number of bids",
+				"name":"Share of non-missing number of bids",
 				"desc":"Number of bids is not missing in the published notice.",
 				"order":10
 			},
 			"TRANSPARENCY_AWARD_DATE_MISSING":{
-				"name":"Non-missing award date",
+				"name":"Share of non-missing award date",
 				"desc":"Award date is not missing in the published notice.",
 				"order":11
 			},
 			"TRANSPARENCY_HEADOFENTITY_DATE_MISSING":{
-				"name":"Non-missing head of entity approval date",
+				"name":"Share of non-missing head of entity approval date",
 				"desc":"Head of entity approval date is not missing in the published notice.",
 				"order":12
 			},
 			"TRANSPARENCY_COMMITTEE_DATE_MISSING":{
-				"name":"Non-missing committee approval date",
+				"name":"Share of non-missing committee approval date",
 				"desc":"Committee approval date is not missing in the published notice.",
 				"order":13
 			}

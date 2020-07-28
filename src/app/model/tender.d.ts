@@ -121,6 +121,7 @@ declare namespace Definitions {
 		 * Central, utility, regional/local, supported body (SOE's which are not utilities, research institutions,health care insurance companies, hospitals) institution under public law (prispevkove organizace), other
 		 */
 		buyerType?: BuyerType;
+		bidderType?: string;
 		/**
 		 * Array of Buyer Activity Type
 		 */
@@ -434,6 +435,7 @@ declare namespace Definitions {
 		 * Number of bids received including electronic bids
 		 */
 		bidsCount?: number;
+		requestedBidsCount?: number;
 		/**
 		 * Order on page
 		 */
