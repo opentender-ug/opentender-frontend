@@ -387,7 +387,7 @@ export const CompanyFilterDefs: Array<ISearchFilterDef> = [
 		id: 'lots.bids.bidders.bidderType',
 		name: 'Supplier Type',
 		group: 'Supplier',
-		field: 'lots.bids.bidders.bidderType',
+		field: 'body.bidderType',
 		type: ISearchFilterDefType.select,
 		valueFormatter: Utils.expandUnderlined
 	},
