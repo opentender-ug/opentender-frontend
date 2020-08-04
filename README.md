@@ -10,7 +10,7 @@ written in Typescript and SCSS
 
 - run command `npm install` in the root folder of this repository
 
-- prepare the data folder (see https://github.com/digiwhist/opentender-data)
+- prepare the data folder (see https://github.com/opentender-jm/opentender-data)
 
 - copy file 'config.dist.js' to 'config.js' and make the changes to reflect your infrastructure
 
@@ -21,7 +21,7 @@ module.exports = {
 			host: '127.0.0.1',
 			port: 3000
 		},
-		data: { // absolute paths to the data folders (see https://github.com/digiwhist/opentender-data)
+		data: { // absolute paths to the data folders (see https://github.com/opentender-jm/opentender-data)
 			path: '/var/www/opentender/data/shared'
 		},
 		cache: {
@@ -34,7 +34,12 @@ module.exports = {
 	client: {
 		version: '0.0.2', // version of app (is e.g. used for display in footer & "uncaching" resources on app update)
 		backendUrl: 'https://portal.opentender.eu' // full url of the backend for the client app
-	}
+	},
+    country: {
+        id: 'jm',
+        name: 'Jamaica'
+    },
+    currencySymbol: '$'
 };
 ```
 
