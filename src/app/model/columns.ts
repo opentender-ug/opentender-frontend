@@ -338,7 +338,8 @@ export const TenderColumns: Array<ITableColumnTender> = [
 			tender.buyers.forEach((buyer: Buyer) => {
 				if (buyer.address && buyer.address.ot && buyer.address.ot.nutscode) {
 					let nut = buyer.address.ot.nutscode;
-					result.push({icon: ICON.region, content: nut, hint: library.i18n.get('Profile Page') + ' NUTS ' + nut, link: '/region/' + nut});
+					let city = buyer.address.city;
+					result.push({icon: ICON.region, content: city, hint: library.i18n.get('Profile Page') + ' NUTS ' + nut, link: '/region/' + nut});
 				}
 			});
 			return ColumnsFormatUtils.checkEntryCollapse(ColumnsFormatUtils.sortListByContent(result), library);
