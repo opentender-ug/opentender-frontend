@@ -5,7 +5,6 @@ import {CommonTooltipModule} from '../../../thirdparty/ngx-charts-universal/comm
 import {BarChartModule} from '../../../thirdparty/ngx-charts-universal/bar-chart/bar-chart.module';
 import {GraphBenchmarksComponent} from './benchmarks.component';
 import {FormsModule} from '@angular/forms';
-import {InfoButtonModule} from '../../info-button/info-button.module';
 
 
 @NgModule({
@@ -14,8 +13,7 @@ import {InfoButtonModule} from '../../info-button/info-button.module';
 		GraphFooterModule,
 		BarChartModule,
 		FormsModule,
-		CommonTooltipModule,
-		InfoButtonModule
+		CommonTooltipModule
 	],
 	declarations: [
 		GraphBenchmarksComponent

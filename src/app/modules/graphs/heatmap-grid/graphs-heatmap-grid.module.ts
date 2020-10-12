@@ -5,7 +5,6 @@ import {CommonTooltipModule} from '../../../thirdparty/ngx-charts-universal/comm
 import {HeatMapGridModule} from '../../../thirdparty/ngx-charts-universal/heat-map-grid/heat-map-grid.module';
 import {GraphBenchmarksDistributionComponent} from './benchmarks-distribution.component';
 import {FormsModule} from '@angular/forms';
-import {InfoButtonModule} from '../../info-button/info-button.module';
 
 @NgModule({
 	imports: [
@@ -13,8 +12,7 @@ import {InfoButtonModule} from '../../info-button/info-button.module';
 		HeatMapGridModule,
 		FormsModule,
 		GraphFooterModule,
-		CommonTooltipModule,
-		InfoButtonModule
+		CommonTooltipModule
 	],
 	declarations: [
 		GraphBenchmarksDistributionComponent

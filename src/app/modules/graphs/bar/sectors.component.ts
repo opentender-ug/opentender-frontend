@@ -12,7 +12,8 @@ import {Colors} from '../../../model/colors';
 		<div class="graph-title">
 			{{title}}
 			<info-button>
-				<p *ngFor="let text of tooltip">{{text}}</p>
+				<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
+					incididunt ut labore et dolore magna aliqua.</p>
 			</info-button>
 		</div>
 		<div class="graph-toolbar-container"></div>
@@ -29,7 +30,6 @@ export class GraphSectorsComponent implements OnChanges, ISeriesProvider {
 	data: IStatsPcCpvs;
 	@Input()
 	title: string = '';
-	@Input() tooltip = [''];
 
 	cpvs_codes_absolute: IChartBar = {
 		chart: {
@@ -70,7 +70,7 @@ export class GraphSectorsComponent implements OnChanges, ISeriesProvider {
 
 	constructor(private router: Router, private i18n: I18NService) {
 		this.title = this.i18n.get('Sectors');
-		this.cpvs_codes_absolute.chart.xAxis.label = this.i18n.get('Number of tenders');
+		this.cpvs_codes_absolute.chart.xAxis.label = this.i18n.get('Nr. of Tenders');
 		this.cpvs_codes_absolute.chart.yAxis.label = this.i18n.get('Sector (CPV)');
 		this.cpvs_codes_absolute.chart.i18n = this.i18n.ChartsTranslations;
 	}

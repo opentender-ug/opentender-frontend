@@ -12,7 +12,8 @@ import {Colors} from '../../../model/colors';
 		<div class="graph-title">
 			{{title}}
 			<info-button>
-				<p *ngFor="let text of tooltipTexts">{{text}}</p>
+				<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
+					incididunt ut labore et dolore magna aliqua.</p>
 			</info-button>
 		</div>
 		<div class="graph-toolbar-container"></div>
@@ -29,7 +30,6 @@ export class GraphScoreSectorsComponent implements OnChanges, ISeriesProvider {
 	data: IStatsCpvs;
 	@Input()
 	title: string = '';
-	@Input() tooltipTexts = [''];
 
 	cpvs_codes_scores: IChartBar = {
 		chart: {

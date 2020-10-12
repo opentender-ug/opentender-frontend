@@ -11,7 +11,6 @@ import {GraphsHeatMapGridModule} from '../../modules/graphs/heatmap-grid/graphs-
 import {GraphsValuesGridModule} from '../../modules/graphs/values-grid/graphs-values-grid.module';
 import {LoadingModule} from '../../modules/loading/loading.module';
 import {BreadcrumbModule} from '../../modules/breadcrumb/breadcrumb.module';
-import {InfoButtonModule} from '../../modules/info-button/info-button.module';
 
 @NgModule({
 	imports: [
@@ -24,8 +23,7 @@ import {InfoButtonModule} from '../../modules/info-button/info-button.module';
 		BreadcrumbModule,
 		DialogModule,
 		LoadingModule,
-		routing,
-		InfoButtonModule
+		routing
 	],
 	declarations: [
 		TenderPage,

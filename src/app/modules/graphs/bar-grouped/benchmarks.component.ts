@@ -11,12 +11,7 @@ import * as Config from '../../../../../config.dist.js';
 @Component({
 	selector: 'graph[benchmarks]',
 	template: `
-		<div class="graph-title">
-			{{title}}
-			<info-button>
-				<p *ngFor="let text of tooltip">{{text}}</p>
-			</info-button>
-		</div>
+		<div class="graph-title">{{title}}</div>
 		<div class="benchmark-select">
 			<div class="select-radios">
 				<div i18n>Indicator Group</div>
@@ -55,7 +50,6 @@ export class GraphBenchmarksComponent implements OnChanges, ISeriesProvider {
 	@Input() data: IStats;
 	@Input() filters: Array<IBenchmarkFilter> = [];
 	@Input() footerLegend;
-	@Input() tooltip = [''];
 	@Output() filtersChange = new EventEmitter();
 	currencySymbol = Config.currencySymbol;
 

@@ -6,7 +6,6 @@ import {StateService} from '../../services/state.service';
 import {ConfigService, Country} from '../../services/config.service';
 import {IStats, ICompany, IStatsCpvs, ISearchCommand, IStatsAuthorities, IStatsNuts, IStatsPricesInYears, IBenchmarkFilter, ISearchCommandFilter, ISearchFilterDefType, IBreadcrumb} from '../../app.interfaces';
 import {NotifyService} from '../../services/notify.service';
-import {REGION_BENCHMARK} from '../../model/gradLegend';
 
 /// <reference path="./model/tender.d.ts" />
 import Body = Definitions.Body;
@@ -29,7 +28,6 @@ export class CompanyPage implements OnInit, OnDestroy {
 	public loading: number = 0;
 	public notFound: boolean = false;
 	private subscription: any;
-	public REGION_BENCHMARK = REGION_BENCHMARK;
 
 	public viz: {
 		authority_nuts: { data: IStatsNuts, title?: string };
@@ -49,7 +47,7 @@ export class CompanyPage implements OnInit, OnDestroy {
 				private state: StateService, private i18n: I18NService, private config: ConfigService, private notify: NotifyService) {
 		this.country = config.country;
 		this.viz.top_authorities.title = i18n.get('Main Buyers');
-		this.viz.stats.title = i18n.get('Benchmark Current Supplier');
+		this.viz.stats.title = i18n.get('Benchmark Current Company');
 		this.buildCrumbs();
 	}
 
