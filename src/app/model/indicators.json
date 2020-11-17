@@ -86,11 +86,6 @@
 				"name": "Publication rate",
 				"desc": "Publication rate is the ratio of advertised public procurement spending over the total public procurement spending of a given contracting authority."
 			},
-			"TRANSPARENCY_NUMBER_OF_KEY_MISSING_FIELDS": {
-				"name": "Share of available key fields",
-				"desc": "Number of key missing fields is the ratio of fields with missing values in the call for tender and contract award announcement related to a given tender (based on the most recently published versions).",
-				"order": 0
-			},
 			"TRANSPARENCY_BUYER_NAME_MISSING": {
 				"name": "Buyer's name available",
 				"desc": "Buyer name is not missing in the published notice.",
